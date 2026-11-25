@@ -327,7 +327,7 @@ SOKAI_L.H = {
 "172": "Sokai hérite de toute cette histoire. Il garde le plateau de 19 lignes et son nombre : il y a 361 formes, une par point. Et il garde la lecture des lettrés : dans toutes les formes, le centre est terre, de sorte qu’on peut toujours jouer l’origine, et des trois cent soixante points restants, exactement la moitié sont de la mer. La forme du centre, K10, porte le nom du jeu : <span lang=\"zh-Hant\">滄海</span>.",
 "173": "Parmi les 361 formes, celle du centre : K10, <span lang=\"zh-Hant\">滄海</span>, avec ses 180 jetons bleus et l’origine libre.",
 "174": "Exercices",
-"175": "De 27k à 6k, des règles à la lecture longue. Choisissez un niveau et un thème, et résolvez ce que vous voulez. Vous avez Noir.",
+"175": "Des règles à la lecture longue. Choisissez un niveau et un thème, et résolvez ce que vous voulez. Vous avez Noir.",
 "176": "Tous",
 "177": "À résoudre",
 "178": "Résolus",

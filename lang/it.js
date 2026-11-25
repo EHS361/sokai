@@ -327,7 +327,7 @@ SOKAI_L.H = {
 "172": "Il Sokai eredita tutta questa storia. Conserva il goban da 19 linee e il suo numero: ci sono 361 forme, una per punto. E conserva la lettura dei letterati: in tutte le forme il centro è terra, così che si può sempre giocare l’origine, e dei trecentosessanta punti restanti, esattamente la metà sono mare. La forma del centro, K10, porta il nome del gioco: <span lang=\"zh-Hant\">滄海</span>.",
 "173": "Tra le 361 forme, quella del centro: K10, <span lang=\"zh-Hant\">滄海</span>, con i suoi 180 gettoni blu e l’origine libera.",
 "174": "Esercizi",
-"175": "Da 27k a 6k, dalle regole alla lettura lunga. Scelga un livello e un tema, e risolva ciò che vuole. Lei gioca con il Nero.",
+"175": "Dalle regole alla lettura lunga. Scelga un livello e un tema, e risolva ciò che vuole. Lei gioca con il Nero.",
 "176": "Tutti",
 "177": "Da risolvere",
 "178": "Risolti",

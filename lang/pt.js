@@ -327,7 +327,7 @@ SOKAI_L.H = {
 "172": "O Sokai herda toda esta história. Mantém o tabuleiro de 19 linhas e o seu número: há 361 formas, uma por ponto. E mantém a leitura dos letrados: em todas as formas o centro é terra, de modo que sempre se pode jogar a origem, e dos trezentos e sessenta pontos restantes, exatamente metade são mar. A forma do centro, K10, leva o nome do jogo: <span lang=\"zh-Hant\">滄海</span>.",
 "173": "Entre as 361 formas, a do centro: K10, <span lang=\"zh-Hant\">滄海</span>, com as suas 180 peças azuis e a origem livre.",
 "174": "Exercícios",
-"175": "De 27k a 6k, das regras à leitura longa. Escolha um nível e um tema, e resolva o que quiser. Você joga com as Pretas.",
+"175": "Das regras à leitura longa. Escolha um nível e um tema, e resolva o que quiser. Você joga com as Pretas.",
 "176": "Todos",
 "177": "Por resolver",
 "178": "Resolvidos",

@@ -1031,6 +1031,19 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
 .app-act a[href="#letter"]{--ic0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M3 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M3 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M12 4.5l2 4h-4z'/%3E%3C/svg%3E")}
 .m-fs-ic{--fsic:url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27%23141414%27%20stroke-width=%271.8%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Cpath%20d=%27M4%209V4h5M20%209V4h-5M4%2015v5h5M20%2015v5h-5%27/%3E%3C/svg%3E")}
 </style>
+<style id="sokai-guia">
+/* the guide: a light hole over each thing and a speech bubble that points at it */
+.g-root{position:fixed;inset:0;z-index:300}
+.g-hole{position:fixed;border-radius:14px;box-shadow:0 0 0 9999px rgba(0,0,0,.62);transition:all .35s ease;pointer-events:none}
+.g-bub{position:fixed;width:min(320px,calc(100vw - 20px));background:#fbf7ee;color:#141414;border-radius:16px;padding:18px 18px 14px;box-shadow:0 12px 34px rgba(0,0,0,.35);transition:top .35s ease,left .35s ease}
+.g-bub::before{content:"";position:absolute;left:var(--ax,50%);width:16px;height:16px;background:#fbf7ee;transform:translateX(-50%) rotate(45deg)}
+.g-bub[data-side="top"]::before{top:-7px} .g-bub[data-side="bottom"]::before{bottom:-7px} .g-bub[data-side="none"]::before{display:none} .g-bub[data-side="right"]::before{left:auto;right:-15px;top:calc(var(--ay) - 8px)}
+.g-t{margin:0 0 14px;font-size:17px;line-height:1.45;color:#141414}
+.g-f{display:flex;align-items:center;gap:14px}
+.g-dots{display:flex;gap:6px;margin-right:auto} .g-dots i{width:7px;height:7px;border-radius:50%;background:rgba(20,20,20,.2)} .g-dots i.on{background:#141414}
+.g-bub .linkish{color:#554c3f}
+.g-bub .btn.solid{background:#141414;color:#fbf7ee;border-color:#141414;border-radius:999px;padding:10px 20px;font-size:13px}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" width="0" height="0" style="position:absolute"><defs><radialGradient id="st-b" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#58585c"/><stop offset=".4" stop-color="#2c2c2e"/><stop offset="1" stop-color="#0d0d0e"/></radialGradient><radialGradient id="st-w" cx="40%" cy="34%" r="72%"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f7f6f2"/><stop offset="1" stop-color="#d6d3ca"/></radialGradient></defs></svg>
@@ -1484,7 +1497,7 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
 <!-- ================= EXERCISES ================= -->
 <section data-view="problemas" id="problemas">
 <div class="wrap">
-<div class="head reveal"><span class="glyph" lang="ja">道場</span><h2 data-t="174">Exercises</h2><p data-t="175">From 27k to 6k, from the rules to long reading. Choose a level and a topic, and solve whichever you like. You play Black.</p></div>
+<div class="head reveal"><span class="glyph" lang="ja">道場</span><h2 data-t="174">Exercises</h2><p data-t="175">From the rules to long reading. Choose a level and a topic, and solve whichever you like. You play Black.</p></div>
 <div id="pb-lista">
 <p class="school-count" id="pb-count"></p>
 <div class="pb-filtros">
@@ -4249,7 +4262,7 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
   let F = {nivel:'', tema:'', estado:'', orden:'f'}; try { Object.assign(F, JSON.parse(localStorage.getItem('sokai-problemas') || '{}')); } catch(e){}
   const guarda = () => { try { localStorage.setItem('sokai-problemas', JSON.stringify(F)); } catch(e){} };
   const base = t => t.replace(/\s*·\s*\d+$/, '').replace(/\s+\d+$/, '').trim();
-  const kyu = r => Math.max(1, 27 - Math.floor((r || 0) * 3 / 100)) + 'k';
+  const kyu = r => (GRADES[Math.max(0, Math.min(GRADES.length - 1, Math.floor((r || 0) / 100)))] || GRADES[0])[1];   /* the stage by name, not the kyu */
   function mini(cv, rows){
     const R = rows.split('|'), W = R[0].length, H = R.length, n = Math.max(W, H), d = Math.min(2, devicePixelRatio || 1), L = 150 * d;
     cv.width = cv.height = L; const x = cv.getContext('2d'), cs = getComputedStyle(document.documentElement), v = k => cs.getPropertyValue(k).trim();
@@ -4314,7 +4327,7 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
     const cuenta = new Map(); TODOS.forEach(q => cuenta.set(q.tema, (cuenta.get(q.tema) || 0) + 1));
     const op = (v, t) => { const o = document.createElement('option'); o.value = v; o.textContent = t; return o; };
     const nv = $('pb-nivel'); nv.innerHTML = ''; nv.append(op('', _t`All levels`));
-    S.forEach((lv, li) => { if (lv.topics.some(p => p.ex.length)) nv.append(op(li, `${T('gradeOf', li + 1)} · ${GRADES[li][1]}`)); });
+    S.forEach((lv, li) => { if (lv.topics.some(p => p.ex.length)) nv.append(op(li, GRADES[li][1])); });
     const tm = $('pb-tema'); tm.innerHTML = ''; tm.append(op('', _t`All topics`));
     [...cuenta.keys()].sort((a, b) => a.localeCompare(b, LANG)).forEach(t => tm.append(op(t, `${t} (${cuenta.get(t).toLocaleString(LANG)})`)));
     if (F.tema && !cuenta.has(F.tema)) F.tema = '';
@@ -4865,6 +4878,72 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
 })();
 </script>
 <script>
+/* The guide: once, on the cover, speech bubbles that point at where each thing is (phone and computer). */
+window.sokaiGuia = (() => {
+  const TX = {
+    en:['This is a real game by Unsui. The blue pieces are the sea: it changes with every capture.','Play: a game against Unsui or against a simple rival.','Learn: five short lessons to start from zero.','Exercises: thousands of problems, from the rules to long reading.','Rules: the complete rules and how to count.','The origin: the letter, Go and Sokai, why 361 and the 361 shapes.','Language: Sokai is in 12 languages.','Settings: background, board, stones and sound.','Next','Skip','Start'],
+    es:['Esta es una partida real de Unsui. Las fichas azules son el mar: cambia con cada captura.','Jugar: una partida contra Unsui o contra un rival sencillo.','Aprender: cinco lecciones cortas para empezar desde cero.','Ejercicios: miles de problemas, de las reglas a la lectura larga.','Reglas: el reglamento completo y cómo contar.','El origen: la carta, Go y Sokai, por qué 361 y las 361 formas.','Idioma: Sokai está en 12 idiomas.','Ajustes: fondo, tablero, piedras y sonido.','Siguiente','Saltar','Empezar'],
+    zh:['这是 Unsui 的一局真实对局。蓝子就是海：每次提子，海都会变。','对局：与 Unsui 或简单对手下一局。','学习：五节短课，从零开始。','练习：数千道题，从规则到长时间的计算。','规则：完整规则和数子方法。','由来：信、围棋与 Sokai、为什么是 361，以及 361 种形。','语言：Sokai 有 12 种语言。','设置：背景、棋盘、棋子和声音。','下一步','跳过','开始'],
+    'zh-hant':['這是 Unsui 的一局真實對局。藍子就是海：每次提子，海都會變。','對局：與 Unsui 或簡單對手下一局。','學習：五節短課，從零開始。','練習：數千道題，從規則到長時間的計算。','規則：完整規則和數子方法。','由來：信、圍棋與 Sokai、為什麼是 361，以及 361 種形。','語言：Sokai 有 12 種語言。','設定：背景、棋盤、棋子和聲音。','下一步','略過','開始'],
+    ja:['これは Unsui の実際の対局です。青い石が海で、石を取るたびに変わります。','対局：Unsui かシンプルな相手と一局打てます。','学ぶ：ゼロから始める五つの短いレッスン。','問題：ルールから長い読みまで、数千の問題。','ルール：完全なルールと数え方。','由来：手紙、囲碁と Sokai、なぜ361か、そして361の形。','言語：Sokai は12の言語で使えます。','設定：背景、盤、石、音。','次へ','スキップ','始める'],
+    ko:['이것은 Unsui의 실제 대국입니다. 파란 돌이 바다이며, 돌을 잡을 때마다 바뀝니다.','대국: Unsui나 간단한 상대와 한 판 둡니다.','배우기: 처음부터 시작하는 짧은 강의 다섯 개.','문제: 규칙부터 긴 수읽기까지 수천 개의 문제.','규칙: 전체 규칙과 계가 방법.','유래: 편지, 바둑과 Sokai, 왜 361인지, 그리고 361가지 모양.','언어: Sokai는 12개 언어로 제공됩니다.','설정: 배경, 바둑판, 돌, 소리.','다음','건너뛰기','시작'],
+    th:['นี่คือเกมจริงของ Unsui หมากสีน้ำเงินคือทะเล ซึ่งเปลี่ยนทุกครั้งที่จับกิน','เล่น: เล่นกับ Unsui หรือคู่แข่งแบบง่าย','เรียนรู้: บทเรียนสั้นห้าบท เริ่มจากศูนย์','แบบฝึกหัด: โจทย์นับพันข้อ จากกติกาไปจนถึงการอ่านเกมยาว','กติกา: กติกาฉบับเต็มและวิธีนับแต้ม','ที่มา: จดหมาย โกะกับ Sokai ทำไมต้อง 361 และ 361 รูปทรง','ภาษา: Sokai มี 12 ภาษา','ตั้งค่า: พื้นหลัง กระดาน หมาก และเสียง','ถัดไป','ข้าม','เริ่ม'],
+    ru:['Это настоящая партия Unsui. Синие фишки — это море: оно меняется с каждым захватом.','Играть: партия против Unsui или простого соперника.','Учиться: пять коротких уроков с нуля.','Упражнения: тысячи задач, от правил до глубокого чтения.','Правила: полные правила и подсчёт очков.','Истоки: письмо, го и Sokai, почему 361 и 361 форма.','Язык: Sokai доступен на 12 языках.','Настройки: фон, доска, камни и звук.','Далее','Пропустить','Начать'],
+    de:['Das ist eine echte Partie von Unsui. Die blauen Plättchen sind das Meer: Es ändert sich mit jedem Fang.','Spielen: eine Partie gegen Unsui oder einen einfachen Gegner.','Lernen: fünf kurze Lektionen, ganz von vorn.','Aufgaben: Tausende Probleme, von den Regeln bis zum langen Lesen.','Regeln: die vollständigen Regeln und das Zählen.','Der Ursprung: der Brief, Go und Sokai, warum 361 und die 361 Formen.','Sprache: Sokai gibt es in 12 Sprachen.','Einstellungen: Hintergrund, Brett, Steine und Ton.','Weiter','Überspringen','Los geht’s'],
+    fr:['Voici une vraie partie d’Unsui. Les jetons bleus sont la mer : elle change à chaque capture.','Jouer : une partie contre Unsui ou contre un adversaire simple.','Apprendre : cinq courtes leçons pour partir de zéro.','Exercices : des milliers de problèmes, des règles à la lecture longue.','Règles : les règles complètes et le décompte.','Les origines : la lettre, Go et Sokai, pourquoi 361 et les 361 formes.','Langue : Sokai existe en 12 langues.','Réglages : fond, plateau, pierres et son.','Suivant','Passer','Commencer'],
+    pt:['Esta é uma partida real de Unsui. As peças azuis são o mar: ele muda a cada captura.','Jogar: uma partida contra Unsui ou contra um rival simples.','Aprender: cinco lições curtas para começar do zero.','Exercícios: milhares de problemas, das regras à leitura longa.','Regras: as regras completas e como contar.','A origem: a carta, Go e Sokai, por que 361 e as 361 formas.','Idioma: o Sokai está em 12 idiomas.','Configurações: fundo, tabuleiro, pedras e som.','Seguinte','Pular','Começar'],
+    it:['Questa è una vera partita di Unsui. I gettoni blu sono il mare: cambia a ogni cattura.','Giocare: una partita contro Unsui o contro un avversario semplice.','Imparare: cinque brevi lezioni per partire da zero.','Esercizi: migliaia di problemi, dalle regole alla lettura lunga.','Regole: le regole complete e come contare.','L’origine: la lettera, Go e Sokai, perché 361 e le 361 forme.','Lingua: il Sokai è in 12 lingue.','Impostazioni: sfondo, goban, pietre e suono.','Avanti','Salta','Inizia']
+  };
+  const SEL = ['#demoboard', '#menu a[href="#play"]', '#menu a[href="#lessons"]', '#menu a[href="#exercises"]', '#menu a[href="#rules"]', '#menu a[href="#letter"]', '#lang-btn', '#cfg-btn'];
+  const seen = () => { try { return localStorage.getItem('sokai-guia'); } catch(e) { return '1'; } };
+  return function guia(done){
+    done = done || (() => {});
+    const T = TX[LANG] || TX.en;
+    if (seen() || (location.hash && location.hash !== '#')) return done();
+    try { localStorage.setItem('sokai-guia', '1'); } catch(e) {}
+    const steps = SEL.map((s, k) => ({el:document.querySelector(s), t:T[k]})).filter(s => s.el && s.el.getClientRects().length);
+    if (!steps.length) return done();
+    const root = document.createElement('div'); root.className = 'g-root';
+    root.innerHTML = '<div class="g-hole"></div><div class="g-bub" role="dialog" aria-live="polite"><p class="g-t"></p><div class="g-f"><span class="g-dots" aria-hidden="true"></span><button type="button" class="linkish g-skip"></button><button type="button" class="btn solid g-next"></button></div></div>';
+    document.body.appendChild(root);
+    const hole = root.querySelector('.g-hole'), bub = root.querySelector('.g-bub');
+    root.querySelector('.g-skip').textContent = T[9];
+    let i = 0;
+    function place(){
+      const s = steps[i], r = s.el.getBoundingClientRect(), pad = 6, W = innerWidth, H = innerHeight;
+      Object.assign(hole.style, {left:(r.left - pad) + 'px', top:(r.top - pad) + 'px', width:(r.width + 2 * pad) + 'px', height:(r.height + 2 * pad) + 'px'});
+      const bw = bub.offsetWidth, bh = bub.offsetHeight, below = r.bottom + 16 + bh < H - 8 || r.top - 16 - bh < 8;
+      let top = below ? r.bottom + 16 : r.top - 16 - bh; top = Math.max(8, Math.min(H - bh - 8, top));
+      if (r.height > H * .5) top = Math.max(8, Math.min(H - bh - 8, r.top + r.height / 2 - bh / 2));
+      const cx = r.left + r.width / 2, left = Math.max(10, Math.min(W - bw - 10, cx - bw / 2));
+      if (r.height > H * .5 && r.left - 18 - bw > 8){   /* a tall thing with room at its left (the board on a computer): the bubble beside it */
+        bub.style.left = (r.left - 18 - bw) + 'px'; bub.style.top = top + 'px'; bub.dataset.side = 'right';
+        bub.style.setProperty('--ay', (bh / 2) + 'px'); return;
+      }
+      bub.style.left = left + 'px'; bub.style.top = top + 'px';
+      bub.dataset.side = r.height > H * .5 ? 'none' : below ? 'top' : 'bottom';
+      bub.style.setProperty('--ax', Math.max(18, Math.min(bw - 18, cx - left)) + 'px');
+    }
+    function show(n){
+      i = n; const s = steps[i];
+      const r = s.el.getBoundingClientRect();
+      if (r.bottom > innerHeight || r.top < 0) s.el.scrollIntoView({block:'center'});
+      root.querySelector('.g-t').textContent = s.t;
+      root.querySelector('.g-next').textContent = i === steps.length - 1 ? T[10] : T[8];
+      root.querySelector('.g-skip').hidden = i === steps.length - 1;
+      root.querySelector('.g-dots').innerHTML = steps.map((_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('');
+      place(); requestAnimationFrame(place);
+    }
+    const end = () => { removeEventListener('resize', place); removeEventListener('scroll', place, true); root.remove(); done(); };
+    root.querySelector('.g-next').addEventListener('click', () => i < steps.length - 1 ? show(i + 1) : end());
+    root.querySelector('.g-skip').addEventListener('click', end);
+    addEventListener('resize', place); addEventListener('scroll', place, true);
+    show(0);
+  };
+})();
+if (!matchMedia('(max-width:700px)').matches) setTimeout(() => sokaiGuia(), 1200);
+</script>
+<script>
 /* Phone: first, an invitation to the browser's full screen (browsers only allow it after a tap);
    then, the first time, the welcome; and the lessons one step at a time (the text, then each problem). */
 (() => {
@@ -4929,14 +5008,15 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
   const app = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches || navigator.standalone;
   const can = !!(d.requestFullscreen || d.webkitRequestFullscreen), ios = !can && /iPhone|iPad|iPod/.test(navigator.userAgent);
   const skip = !TX || app || document.fullscreenElement || ss('sokai-fs') || (!can && (!ios || ls('sokai-ios')));
-  if (skip) return welcome();
+  const after = () => (window.sokaiGuia ? sokaiGuia(welcome) : welcome());
+  if (skip) return after();
   const ov = document.createElement('div'); ov.className = 'm-fs'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
   ov.innerHTML = `<div class="m-fs-in"><span class="m-fs-ic" aria-hidden="true"></span><h2></h2><p></p><button type="button" class="btn solid m-fs-go"></button><button type="button" class="linkish m-fs-no"></button></div>`;
   ov.querySelector('h2').textContent = TX[0];
   ov.querySelector('p').textContent = can ? TX[1] : TX[4];
   const go = ov.querySelector('.m-fs-go'), no = ov.querySelector('.m-fs-no');
   go.textContent = can ? TX[2] : TX[5]; no.textContent = TX[3]; no.hidden = !can;
-  const close = () => { ov.remove(); ss('sokai-fs', '1'); welcome(); };
+  const close = () => { ov.remove(); ss('sokai-fs', '1'); setTimeout(after, 400); };
   go.addEventListener('click', () => {
     if (!can){ ls('sokai-ios', '1'); return close(); }
     const r = (d.requestFullscreen || d.webkitRequestFullscreen).call(d, {navigationUI:'hide'});

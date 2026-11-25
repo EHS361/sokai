@@ -327,7 +327,7 @@ SOKAI_L.H = {
 "172": "Sokai erbt diese ganze Geschichte. Es behält das 19-Linien-Brett und seine Zahl: Es gibt 361 Formen, eine für jeden Punkt. Und es behält die Lesart der Gelehrten: In jeder Form ist die Mitte Land, sodass man den Ursprung immer spielen kann, und von den übrigen dreihundertsechzig Punkten ist genau die Hälfte Meer. Die Form in der Mitte, K10, trägt den Namen des Spiels: <span lang=\"zh-Hant\">滄海</span>.",
 "173": "Unter den 361 Formen die mittlere: K10, <span lang=\"zh-Hant\">滄海</span>, mit ihren 180 blauen Plättchen und dem freien Ursprung.",
 "174": "Aufgaben",
-"175": "Von 27k bis 6k, von den Regeln bis zum langen Lesen. Wählen Sie Stufe und Thema und lösen Sie, was Sie möchten. Sie spielen Schwarz.",
+"175": "Von den Regeln bis zum langen Lesen. Wählen Sie Stufe und Thema und lösen Sie, was Sie möchten. Sie spielen Schwarz.",
 "176": "Alle",
 "177": "Ungelöst",
 "178": "Gelöst",
