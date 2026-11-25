@@ -19,8 +19,8 @@ if (LANG !== 'en') document.write('<script src="lang/' + LANG + '.js"><\/script>
 function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; return r != null ? r : s[0]; }
 </script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<!-- Where the rival's engine is. Empty: it is looked for only on this computer (site opened from a file or from localhost). «ninguno»: none is looked for. -->
-<meta content="ninguno" name="sokai-motor">
+<!-- Where the rival's engine is. Empty: it is looked for only on this computer (site opened from a file or from localhost). «none»: none is looked for. -->
+<meta content="none" name="sokai-motor">
 <title>Sokai 滄海 · Go, with a sea that changes</title>
 <meta content="Sokai is a strategy game for two players, born from Go. With every capture, the sea changes the shape of the board." name="description">
 <meta content="Sokai 滄海 · Go, with a sea that changes" property="og:title">
@@ -1149,7 +1149,8 @@ window.SOKAI_UNSUI = {
   c3:['Che cosa impara','Quante volte la rete, senza pensare, sceglie già la mossa che sceglierebbe pensando.'],a3:['azzecca','milioni di esempi di allenamento'],
   c4:'Scheda tecnica',f:[['goban','19 × 19 · 361 forme del mare'],['rete','18 blocchi residui × 384 canali (192 all’interno)'],['variabili','{p} parametri'],['attivazione','mish'],['ingresso','pietre, mare e libertà'],['regole','area, komi 7,5, il mare come mossa'],['hardware','RTX 4060 (8 GB) · Ryzen 5 5600G'],['fasi','14–17 nov.: prime regole (due ripartenze) · 17–25 nov.: regole attuali']]}
 };
-(function(N){ for (var k in N) if (window.SOKAI_UNSUI[k]) window.SOKAI_UNSUI[k].nota = N[k]; })({"en": ["Why you cannot play against it yet", "The AI is not available as a rival on the site: playing against it needs a lot of GPU, and the server does not have that for now. It will be switched on when enough players beat the strongest rival the site offers today."], "es": ["Por qué todavía no se puede jugar contra ella", "La IA no está disponible como rival en la web: jugar contra ella consume mucha GPU y el servidor no la tiene por ahora. Se activará cuando haya suficientes jugadores que superen al rival más fuerte que ofrece hoy la web."], "zh": ["为什么现在还不能与它对局", "这个 AI 目前不能在网站上作为对手：与它对局需要大量 GPU，服务器暂时没有。等到有足够多的玩家胜过网站现有最强的对手，就会开放。"], "zh-hant": ["為什麼現在還不能與它對局", "這個 AI 目前不能在網站上作為對手：與它對局需要大量 GPU，伺服器暫時沒有。等到有足夠多的玩家勝過網站現有最強的對手，就會開放。"], "ja": ["まだ対局できない理由", "この AI はまだサイトの対局相手として使えません。対局には多くの GPU が必要で、今のサーバーにはそれがないからです。サイトにいる最も強い相手に勝てる打ち手が十分に増えたら、有効にします。"], "ko": ["아직 대국할 수 없는 이유", "이 AI는 아직 사이트에서 상대로 쓸 수 없습니다. 대국하려면 GPU가 많이 필요한데, 지금 서버에는 없습니다. 사이트의 가장 강한 상대를 이기는 사람이 충분히 늘어나면 켜겠습니다."], "th": ["ทำไมยังเล่นกับมันไม่ได้", "ตอนนี้ AI ยังไม่เปิดเป็นคู่แข่งบนเว็บไซต์ เพราะการเล่นกับมันต้องใช้ GPU มาก และเซิร์ฟเวอร์ยังไม่มี จะเปิดใช้เมื่อมีผู้เล่นมากพอที่ชนะคู่แข่งที่แข็งที่สุดของเว็บไซต์ในตอนนี้"], "ru": ["Почему с ним пока нельзя сыграть", "ИИ пока недоступен как соперник на сайте: игра с ним требует много GPU, а у сервера их сейчас нет. Его включат, когда достаточно игроков будут обыгрывать самого сильного соперника, который есть на сайте сегодня."], "de": ["Warum Sie noch nicht gegen sie spielen können", "Die KI steht auf der Seite noch nicht als Gegner zur Verfügung: Eine Partie gegen sie braucht viel GPU, und der Server hat sie vorerst nicht. Sie wird eingeschaltet, sobald genug Spieler den stärksten Gegner schlagen, den die Seite heute bietet."], "fr": ["Pourquoi on ne peut pas encore jouer contre elle", "L’IA n’est pas encore disponible comme adversaire sur le site : jouer contre elle demande beaucoup de GPU, et le serveur n’en dispose pas pour l’instant. Elle sera activée quand assez de joueurs battront l’adversaire le plus fort que le site propose aujourd’hui."], "pt": ["Por que ainda não se pode jogar contra ela", "A IA ainda não está disponível como rival no site: jogar contra ela consome muita GPU, e o servidor não a tem por enquanto. Será ativada quando houver jogadores suficientes que vençam o rival mais forte que o site oferece hoje."], "it": ["Perché non si può ancora giocare contro di lei", "L’IA non è ancora disponibile come avversario sul sito: giocarci contro richiede molta GPU, e per ora il server non ce l’ha. Verrà attivata quando abbastanza giocatori batteranno l’avversario più forte che il sito offre oggi."]});
+(function(N){ for (var k in N) if (window.SOKAI_UNSUI[k]) window.SOKAI_UNSUI[k].nota = N[k]; })({"en": ["Why you cannot play against it yet", "Updated on 25 November 2026. The AI is not available as a rival on the site yet: playing against it needs a lot of GPU, and the server does not have that for now. The next step is to train it on a more powerful GPU, with adjusted parameters and for many more hours, until it reaches a version that far surpasses the best one we have today. It will be switched on when enough players beat the strongest rival the site offers today."], "es": ["Por qué todavía no se puede jugar contra ella", "Actualizado el 25 de noviembre de 2026. La IA todavía no está disponible como rival en la web: jugar contra ella consume mucha GPU y el servidor no la tiene por ahora. El siguiente paso es entrenarla en una GPU más potente, con parámetros ajustados y durante muchas más horas, hasta llegar a una versión que supere con creces a la mejor que tenemos hoy. Se activará cuando haya suficientes jugadores que superen al rival más fuerte que ofrece hoy la web."], "zh": ["为什么现在还不能与它对局", "更新于 2026 年 11 月 25 日。这个 AI 目前还不能在网站上作为对手：与它对局需要大量 GPU，服务器暂时没有。下一步是在更强的 GPU 上、用调整过的参数、训练更长的时间，直到得到一个远远超过现在最好版本的 AI。等到有足够多的玩家胜过网站现有最强的对手，就会开放。"], "zh-hant": ["為什麼現在還不能與它對局", "更新於 2026 年 11 月 25 日。這個 AI 目前還不能在網站上作為對手：與它對局需要大量 GPU，伺服器暫時沒有。下一步是在更強的 GPU 上、用調整過的參數、訓練更長的時間，直到得到一個遠遠超過現在最好版本的 AI。等到有足夠多的玩家勝過網站現有最強的對手，就會開放。"], "ja": ["まだ対局できない理由", "2026年11月25日更新。この AI はまだサイトの対局相手として使えません。対局には多くの GPU が必要で、今のサーバーにはそれがないからです。次は、より強力な GPU で、パラメータを調整し、ずっと長い時間学習させて、今の最良版をはるかに上回る版を目指します。サイトにいる最も強い相手に勝てる打ち手が十分に増えたら、有効にします。"], "ko": ["아직 대국할 수 없는 이유", "2026년 11월 25일 업데이트. 이 AI는 아직 사이트에서 상대로 쓸 수 없습니다. 대국하려면 GPU가 많이 필요한데, 지금 서버에는 없습니다. 다음 단계는 더 강력한 GPU에서 매개변수를 조정해 훨씬 더 오래 학습시켜, 지금의 최고 버전을 크게 뛰어넘는 버전을 만드는 것입니다. 사이트의 가장 강한 상대를 이기는 사람이 충분히 늘어나면 켜겠습니다."], "th": ["ทำไมยังเล่นกับมันไม่ได้", "อัปเดตเมื่อ 25 พฤศจิกายน 2026 ตอนนี้ AI ยังไม่เปิดเป็นคู่แข่งบนเว็บไซต์ เพราะการเล่นกับมันต้องใช้ GPU มาก และเซิร์ฟเวอร์ยังไม่มี ขั้นต่อไปคือฝึกบน GPU ที่แรงกว่า ปรับพารามิเตอร์ และฝึกนานขึ้นอีกมาก จนได้เวอร์ชันที่เหนือกว่าเวอร์ชันที่ดีที่สุดในตอนนี้อย่างชัดเจน จะเปิดใช้เมื่อมีผู้เล่นมากพอที่ชนะคู่แข่งที่แข็งที่สุดของเว็บไซต์ในตอนนี้"], "ru": ["Почему с ним пока нельзя сыграть", "Обновлено 25 ноября 2026 года. ИИ пока недоступен как соперник на сайте: игра с ним требует много GPU, а у сервера их сейчас нет. Следующий шаг — обучить его на более мощной GPU, с настроенными параметрами и гораздо дольше, пока не появится версия, намного превосходящая лучшую нынешнюю. Его включат, когда достаточно игроков будут обыгрывать самого сильного соперника, который есть на сайте сегодня."], "de": ["Warum Sie noch nicht gegen sie spielen können", "Aktualisiert am 25. November 2026. Die KI steht auf der Seite noch nicht als Gegner zur Verfügung: Eine Partie gegen sie braucht viel GPU, und der Server hat sie vorerst nicht. Der nächste Schritt: sie auf einer stärkeren GPU, mit angepassten Parametern und viele Stunden länger zu trainieren, bis eine Version entsteht, die die beste heutige weit übertrifft. Sie wird eingeschaltet, sobald genug Spieler den stärksten Gegner schlagen, den die Seite heute bietet."], "fr": ["Pourquoi on ne peut pas encore jouer contre elle", "Mis à jour le 25 novembre 2026. L’IA n’est pas encore disponible comme adversaire sur le site : jouer contre elle demande beaucoup de GPU, et le serveur n’en dispose pas pour l’instant. La prochaine étape : l’entraîner sur un GPU plus puissant, avec des paramètres ajustés et pendant beaucoup plus d’heures, jusqu’à une version qui dépasse largement la meilleure d’aujourd’hui. Elle sera activée quand assez de joueurs battront l’adversaire le plus fort que le site propose aujourd’hui."], "pt": ["Por que ainda não se pode jogar contra ela", "Atualizado em 25 de novembro de 2026. A IA ainda não está disponível como rival no site: jogar contra ela consome muita GPU, e o servidor não a tem por enquanto. O próximo passo é treiná-la numa GPU mais potente, com parâmetros ajustados e durante muito mais horas, até chegar a uma versão que supere de longe a melhor que temos hoje. Será ativada quando houver jogadores suficientes que vençam o rival mais forte que o site oferece hoje."], "it": ["Perché non si può ancora giocare contro di lei", "Aggiornato il 25 novembre 2026. L’IA non è ancora disponibile come avversario sul sito: giocarci contro richiede molta GPU, e per ora il server non ce l’ha. Il prossimo passo è allenarla su una GPU più potente, con parametri regolati e per molte più ore, fino a una versione che superi di gran lunga la migliore di oggi. Verrà attivata quando abbastanza giocatori batteranno l’avversario più forte che il sito offre oggi."]});
+(function(K){ for (var k in K) if (window.SOKAI_UNSUI[k]) window.SOKAI_UNSUI[k].f.push(K[k]); })({"en": ["built on", "KataGo, by David J. Wu (lightvector), MIT license: github.com/lightvector/KataGo. The training started from a KataGo network."], "es": ["basada en", "KataGo, de David J. Wu (lightvector), licencia MIT: github.com/lightvector/KataGo. El entrenamiento partió de una red de KataGo."], "zh": ["基于", "KataGo，作者 David J. Wu（lightvector），MIT 许可证：github.com/lightvector/KataGo。训练从一个 KataGo 网络开始。"], "zh-hant": ["基於", "KataGo，作者 David J. Wu（lightvector），MIT 授權：github.com/lightvector/KataGo。訓練從一個 KataGo 網路開始。"], "ja": ["ベース", "KataGo（David J. Wu／lightvector 作、MIT ライセンス）：github.com/lightvector/KataGo。学習は KataGo のネットワークから始めました。"], "ko": ["기반", "KataGo, David J. Wu(lightvector) 제작, MIT 라이선스: github.com/lightvector/KataGo. 학습은 KataGo 네트워크에서 시작했습니다."], "th": ["พื้นฐาน", "KataGo โดย David J. Wu (lightvector) สัญญาอนุญาต MIT: github.com/lightvector/KataGo การฝึกเริ่มจากเครือข่ายของ KataGo"], "ru": ["основа", "KataGo, автор David J. Wu (lightvector), лицензия MIT: github.com/lightvector/KataGo. Обучение началось с сети KataGo."], "de": ["Grundlage", "KataGo von David J. Wu (lightvector), MIT-Lizenz: github.com/lightvector/KataGo. Das Training begann mit einem KataGo-Netz."], "fr": ["basée sur", "KataGo, de David J. Wu (lightvector), licence MIT : github.com/lightvector/KataGo. L’entraînement est parti d’un réseau KataGo."], "pt": ["baseada em", "KataGo, de David J. Wu (lightvector), licença MIT: github.com/lightvector/KataGo. O treino partiu de uma rede do KataGo."], "it": ["basata su", "KataGo, di David J. Wu (lightvector), licenza MIT: github.com/lightvector/KataGo. L’allenamento è partito da una rete di KataGo."]});
 window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 </script>
 <style id="sokai-grados">#grados .g-x,#grados .n{display:none!important} #grados .ranks li{grid-template-columns:130px 1fr} #grados .ranks li .k{grid-column:1} #grados .ranks li span:last-child{grid-column:2} @media (max-width:760px){ #grados .ranks li{grid-template-columns:96px 1fr} }</style><!-- Search engines: the description, canonical address and language versions follow the language of the page -->
@@ -1173,11 +1174,27 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
   const D = {"en": "Sokai is a free strategy game born from Go: 361 starting shapes and a sea that changes with every capture. Learn in five short lessons, solve thousands of problems and play in your browser.", "es": "Sokai es un juego de estrategia gratuito nacido del Go: 361 formas de empezar y un mar que cambia con cada captura. Aprende en cinco lecciones, resuelve miles de problemas y juega en el navegador.", "zh": "Sokai 滄海 是源自围棋的免费策略游戏：361 种开局形状，海随每次提子而变。五节短课入门，数千道练习，在浏览器中直接对局。", "zh-hant": "Sokai 滄海 是源自圍棋的免費策略遊戲：361 種開局形狀，海隨每次提子而變。五節短課入門，數千道練習，在瀏覽器中直接對局。", "ja": "Sokai 滄海 は囲碁から生まれた無料の戦略ゲーム。361 の始まりの形と、石を取るたびに変わる海。五つの短いレッスンで覚え、数千の問題を解き、ブラウザで対局できます。", "ko": "Sokai 滄海는 바둑에서 태어난 무료 전략 게임입니다. 361가지 시작 모양과 돌을 잡을 때마다 바뀌는 바다. 짧은 강의 다섯 개로 배우고, 수천 개의 문제를 풀고, 브라우저에서 둘 수 있습니다.", "th": "Sokai 滄海 เกมวางแผนฟรีที่เกิดจากโกะ มี 361 รูปทรงเริ่มต้น และทะเลที่เปลี่ยนทุกครั้งที่จับกิน เรียนรู้ด้วยบทเรียนสั้นห้าบท แก้โจทย์นับพันข้อ และเล่นได้ในเบราว์เซอร์", "ru": "Sokai 滄海 — бесплатная стратегическая игра, рождённая из го: 361 стартовая форма и море, которое меняется с каждым захватом. Пять коротких уроков, тысячи задач и игра прямо в браузере.", "de": "Sokai 滄海 ist ein kostenloses Strategiespiel, das aus Go entstanden ist: 361 Startformen und ein Meer, das sich mit jedem Fang verändert. Fünf kurze Lektionen, Tausende Aufgaben, direkt im Browser spielbar.", "fr": "Sokai 滄海 est un jeu de stratégie gratuit né du go : 361 formes de départ et une mer qui change à chaque capture. Cinq courtes leçons, des milliers d’exercices et des parties dans le navigateur.", "pt": "Sokai 滄海 é um jogo de estratégia gratuito nascido do Go: 361 formas de começar e um mar que muda a cada captura. Cinco lições curtas, milhares de exercícios e partidas no navegador.", "it": "Sokai 滄海 è un gioco di strategia gratuito nato dal Go: 361 forme di partenza e un mare che cambia a ogni cattura. Cinque brevi lezioni, migliaia di esercizi e partite nel browser."};
   const d = D[LANG] || D.en, set = (s, v) => { const m = document.querySelector(s); if (m) m.setAttribute(s.startsWith('link') ? 'href' : 'content', v); };
   set('meta[name="description"]', d); set('meta[property="og:description"]', d);
-  set('link[rel="canonical"]', 'https://playsokai.com/' + (LANG === 'en' ? '' : '?lang=' + LANG)); set('meta[property="og:url"]', 'https://playsokai.com/' + (LANG === 'en' ? '' : '?lang=' + LANG));
+  const P = (location.pathname.match(/^\/([a-z0-9-]+)\/?$/) || [])[1], PAGES = ['rules','forms','counting','grades','lessons','exercises','play','letter','go-and-sokai','why-361','how-sokai-ai-learned'];
+  const U = 'https://playsokai.com/' + (PAGES.includes(P) ? P + '/' : '') + (LANG === 'en' ? '' : '?lang=' + LANG);
+  set('link[rel="canonical"]', U); set('meta[property="og:url"]', U);
+  /* after moving between sections without reloading, the canonical address follows the page */
+  const upd = () => setTimeout(() => { const q = (location.pathname.match(/^\/([a-z0-9-]+)\/?$/) || [])[1], u = 'https://playsokai.com/' + (PAGES.includes(q) ? q + '/' : '') + (LANG === 'en' ? '' : '?lang=' + LANG); set('link[rel="canonical"]', u); set('meta[property="og:url"]', u); }, 0);
+  addEventListener('hashchange', upd); addEventListener('popstate', upd); addEventListener('load', upd);
   if (window.SOKAI_L && SOKAI_L.title) set('meta[property="og:title"]', SOKAI_L.title);
 })();
 </script>
-</head>
+<style id="sokai-amigo">
+.amigo{border:1px solid var(--ai);border-radius:14px;padding:16px;margin:12px 0;background:var(--paper)}
+.amigo-t{margin:0 0 12px;font-size:16.5px;color:var(--ink)} .amigo-b{display:flex;gap:10px;flex-wrap:wrap} .amigo-b .btn{flex:1;justify-content:center;text-align:center}
+.amigo-u{width:100%;margin:12px 0 4px;padding:9px 10px;font:12.5px ui-monospace,monospace;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--hair);border-radius:8px}
+#jugar .controls #btn-new.linkish{grid-column:1/-1;justify-self:center;width:auto;margin-top:2px}
+</style><style id="sokai-entradas">
+.entradas{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px;margin:0 auto 46px}
+.entrada{display:block;border:1px solid var(--hair);border-radius:14px;padding:18px 20px;text-decoration:none;color:var(--ink);background:var(--paper)}
+.entrada:hover{border-color:var(--ai)} .entrada b{display:block;font-weight:400;font-size:22px;margin-bottom:6px} .entrada b::after{content:" →";color:var(--ai)} .entrada span{font-size:16px;color:var(--ink-2)}
+.progreso-aviso{text-align:center;font-size:14.5px;color:var(--ink-3);margin:10px auto 0;max-width:640px}
+@media (max-width:600px){ .entradas{grid-template-columns:1fr;gap:12px;margin-bottom:34px} }
+</style></head>
 <body>
 <svg aria-hidden="true" width="0" height="0" style="position:absolute"><defs><radialGradient id="st-b" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#58585c"/><stop offset=".4" stop-color="#2c2c2e"/><stop offset="1" stop-color="#0d0d0e"/></radialGradient><radialGradient id="st-w" cx="40%" cy="34%" r="72%"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f7f6f2"/><stop offset="1" stop-color="#d6d3ca"/></radialGradient></defs></svg>
 <nav aria-label="Main" class="nav" id="nav">
@@ -1278,6 +1295,7 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 <!-- ================= VISUAL RULES ================= -->
 <section id="reglas">
 <div class="wrap">
+<div class="entradas" id="entradas"><a class="entrada" href="#go-and-sokai"><b>I already play Go</b><span>See only what changes: the sea, the 361 shapes and how a game ends.</span></a><a class="entrada" href="#lessons"><b>I have never played</b><span>Start with five short lessons on the board. You learn by playing.</span></a></div>
 <div class="head reveal"><span class="glyph" lang="zh-Hant">規則</span><h2 data-t="39">The rules, with examples</h2><p data-t="40">If you know how to play Go, what is new is in steps 1, 2, 4, 5 and 7, because of the sea, and in step 8, where everything is decided on the board.</p></div>
 <ol class="rules">
 <li class="rule reveal">
@@ -1445,11 +1463,11 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 <div class="head reveal"><span class="glyph" lang="zh-Hant">一局</span><h2 data-t="104">Play a game</h2><p data-t="105">You have Black. White is played by the site’s rival.</p><p class="first-time">First time? <a class="linkish" href="#lessons" data-t="144">Learn</a></p></div>
 <div class="play-grid">
 <div class="board-col">
-<div class="pbar" id="pb-white"><span class="pdot w" aria-hidden="true"></span><span class="pname" id="pn-white">White</span><span class="pclock" hidden id="ck-white">0:00</span><span class="pcap">captures <b id="cap-white">0</b></span><span class="pcount"><b id="h-white">180</b> stones</span><button class="fs-btn" id="btn-zen" type="button" title="Board only, to concentrate"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16M4 9h16M4 15h16" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span>Board only</span></button><button class="fs-btn" id="btn-fs" type="button" aria-pressed="false" title="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full screen</span></button></div>
+<div class="pbar" id="pb-white" role="group" aria-labelledby="pn-white"><span class="pdot w" aria-hidden="true"></span><span class="pname" id="pn-white">White</span><span class="pclock" hidden id="ck-white">0:00</span><span class="sr-only">, </span><span class="pcap">captures <b id="cap-white">0</b></span><span class="sr-only">, </span><span class="pcount"><b id="h-white">180</b> stones</span><button class="fs-btn" id="btn-zen" type="button" title="Board only, to concentrate"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 4v16M15 4v16M4 9h16M4 15h16" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span>Board only</span></button><button class="fs-btn" id="btn-fs" type="button" aria-pressed="false" title="Full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full screen</span></button></div>
 <div class="board-wrap" id="board-wrap"><div class="coord-y" id="coord-y" aria-hidden="true"></div><div class="board-in"><canvas aria-describedby="kb-help" aria-label="Game board. Choose how to start and press “New game”." id="playboard" role="application" tabindex="0"></canvas><canvas aria-hidden="true" id="board-ov"></canvas><div aria-live="polite" class="toast" hidden id="board-toast"></div></div><div class="coord-x" id="coord-x" aria-hidden="true"></div></div>
 <p class="sr-only" id="kb-help" data-t="106">With the keyboard: arrows to move the cursor, Enter or space to play on that point, Escape to let go of the blue piece.</p>
 <p aria-live="polite" class="sr-only" id="kb-pos"></p>
-<div class="pbar" id="pb-black"><span class="pdot b" aria-hidden="true"></span><span class="pname" id="pn-black">You</span><span class="pclock" hidden id="ck-black">0:00</span><span class="pcap">captures <b id="cap-black">0</b></span><span class="pcount"><b id="h-black">181</b> stones</span><span class="psea"><i aria-hidden="true"></i><b id="h-blue">180</b> of sea</span></div>
+<div class="pbar" id="pb-black" role="group" aria-labelledby="pn-black"><span class="pdot b" aria-hidden="true"></span><span class="pname" id="pn-black">You</span><span class="pclock" hidden id="ck-black">0:00</span><span class="sr-only">, </span><span class="pcap">captures <b id="cap-black">0</b></span><span class="sr-only">, </span><span class="pcount"><b id="h-black">181</b> stones</span><span class="sr-only">, </span><span class="psea"><i aria-hidden="true"></i><b id="h-blue">180</b> of sea</span></div>
 <button aria-label="Exit “board only”" class="zen-x" hidden id="zen-x" title="Exit (Esc)" type="button">×</button>
 <div class="actbar" role="group" aria-label="Game actions">
 <button class="btn" disabled id="btn-pass" type="button" data-t="107">Pass</button>
@@ -1465,7 +1483,7 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 <p class="hint assist-line" id="assist-line"></p>
 <div class="confirm-bar" hidden id="confirm-bar"><span>Play on <b id="confirm-pt"></b> · tap again or confirm</span><button class="btn solid" id="btn-confirm" type="button" data-t="113">Confirm</button></div>
 <div class="controls">
-<button class="btn solid" id="btn-new" type="button" data-t="114">New game</button>
+<button class="btn solid" id="btn-new" type="button">Change shape or rival</button>
 <button class="btn" hidden id="btn-review" title="Review the game move by move" type="button" data-t="115">Review the game</button>
 </div>
 <p class="est-line" hidden id="est-line" aria-live="polite"></p>
@@ -1494,6 +1512,7 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 <label for="rival-sel" data-t="124">Rival</label>
 <select id="rival-sel">
 <option value="motor" data-mo="{n}" data-t="125">Sokai AI</option>
+<option value="amigo">A friend, by link</option>
 <option value="sencillo" data-t="124">Rival</option>
 <option hidden value="motor-motor" data-mo="{n} contra {n}" data-t="126">AI against AI</option>
 </select>
@@ -1561,6 +1580,7 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 <div class="course">
 <div aria-label="Lessons" class="course-nav" id="course-nav" role="tablist"></div>
 <div id="course-body" role="tabpanel"></div>
+<p class="progreso-aviso">Your progress is saved in this browser. If you change device or clear the browser’s data, it starts again.</p>
 <p class="course-foot"><span id="course-progress"></span> · <button class="linkish" id="course-reset" type="button" data-t="146">Clear progress</button></p>
 </div>
 </div>
@@ -1640,7 +1660,7 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 <label>Status<select id="pb-estado"><option value="" data-t="176">All</option><option value="p" data-t="177">Unsolved</option><option value="r" data-t="178">Solved</option></select></label>
 <label>Order<select id="pb-orden"><option value="f" data-t="179">Easy to hard</option><option value="d" data-t="180">Hard to easy</option><option value="a" data-t="181">Random</option></select></label>
 </div>
-<p class="pb-res" id="pb-res" aria-live="polite"></p>
+<p class="pb-res" id="pb-res" aria-live="polite"></p><p class="progreso-aviso">Your progress is saved in this browser. If you change device or clear the browser’s data, it starts again.</p>
 <div class="pb-grid" id="pb-grid"></div>
 <div class="pb-fin" id="pb-fin"></div>
 </div>
@@ -1735,7 +1755,7 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 </section>
 
 
-<section class="alt" id="unsui"><div class="wrap" id="unsui-in"></div></section>
+<section class="alt" id="unsui"><div class="wrap" id="unsui-in"><div class="head"><span class="glyph" lang="zh-Hant">修行</span><h2>How Sokai’s AI learned</h2><p>A technical log of the training, with the real data.</p></div><div class="u-kpis"><div><b>26,652</b><span>games against itself</span></div><div><b>906,598</b><span>positions saved</span></div><div><b>119</b><span>networks trained</span></div><div><b>77</b><span>accepted · 42 discarded</span></div><div><b>28,865,482</b><span>variables in the network</span></div><div><b>10</b><span>days on a home PC</span></div></div><aside class="u-nota"><h3>Why you cannot play against it yet</h3><p>Updated on 25 November 2026. The AI is not available as a rival on the site yet: playing against it needs a lot of GPU, and the server does not have that for now. The next step is to train it on a more powerful GPU, with adjusted parameters and for many more hours, until it reaches a version that far surpasses the best one we have today. It will be switched on when enough players beat the strongest rival the site offers today.</p></aside><div class="u-g"><div class="u-card"><h3>The cycle</h3><p>A new network only replaces the current one if it beats it. Otherwise it is discarded. 119 networks were trained: 77 were accepted; of the 42 discarded, 17 lost their test and 25 fell behind because a newer one arrived.</p></div><div class="u-card"><h3>Each test</h3><p>At first each new network won 50 to 3. At the end, 50 to 49: improving gets harder and harder.</p></div><div class="u-card"><h3>What it learns</h3><p>How often the network, without thinking, already picks the move it would choose after thinking: from 26% to 46%.</p></div><div class="u-card"><h3>Technical sheet</h3><dl class="u-ft"><dt>board</dt><dd>19 × 19 · 361 shapes of the sea</dd><dt>network</dt><dd>18 residual blocks × 384 channels (192 inside)</dd><dt>variables</dt><dd>28,865,482 parameters</dd><dt>activation</dt><dd>mish</dd><dt>input</dt><dd>stones, sea and liberties</dd><dt>rules</dt><dd>area, komi 7.5, the sea as a move</dd><dt>hardware</dt><dd>RTX 4060 (8 GB) · Ryzen 5 5600G</dd><dt>built on</dt><dd>KataGo, by David J. Wu (lightvector), MIT license: <a href="https://github.com/lightvector/KataGo">github.com/lightvector/KataGo</a>. The training started from a KataGo network.</dd></dl></div></div></div></section>
 
 <section class="closing" aria-labelledby="cierre-t">
 <h2 class="sr-only" id="cierre-t" data-t="248">The blue sea in poetry</h2>
@@ -2677,7 +2697,7 @@ const Motor = (() => {
   const fromV = s => { s = s.toUpperCase(); return (N - parseInt(s.slice(1), 10)) * N + COLS.indexOf(s[0]); };
   const local = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
   const fijo = ((document.querySelector('meta[name="sokai-motor"]') || {}).content || '').trim().replace(/\/+$/, '');
-  const base = fijo === 'ninguno' ? null : fijo ? fijo : !local ? null : location.protocol.startsWith('http') && location.port === '8092' ? '' : 'http://localhost:8092';
+  const base = fijo === 'ninguno' || fijo === 'none' ? null : fijo ? fijo : !local ? null : location.protocol.startsWith('http') && location.port === '8092' ? '' : 'http://localhost:8092';
   let ver = '', ok = false, falta = '', cmds = [], mapa = null, selected = -1, chain = Promise.resolve();
   let hist = [], mapa0 = null;      /* everything sent in this game: used to undo and to continue it another day */
   const serial = f => (chain = chain.then(f, f));   /* requests go out one at a time, in order */
@@ -2915,7 +2935,7 @@ const btnNew = document.getElementById('btn-new'), btnPass = document.getElement
 /* the chosen form is remembered in this browser */
 let formSel = 0; try { const k = FORMAS.findIndex(f => f.c === localStorage.getItem('sokai-forma361')); if (k >= 0) formSel = k; } catch(e) {}
 const play = new Game(); play.setup(formSel); play.phase = 'idle'; vio.observe(pc);
-let hover = -1, sel = -1, busy = false, resolved = 0, gen = 0;   /* gen: each new game cancels the previous game's timers */
+let hover = -1, sel = -1, busy = false, resolved = 0, gen = 0, me = 2;   /* me: the color of whoever plays on this screen (White too, in a game by link) */   /* gen: each new game cancels the previous game's timers */
 const say = t => statusEl.textContent = t;
 const hint = t => hintEl.textContent = t || '';
 const capturing = () => play.queue.length > 0;
@@ -2925,7 +2945,7 @@ const btnUndo = document.getElementById('btn-undo'), SAVE = 'sokai-partida';
 let stack = [], resumed = null, gameForm = formSel;
 function persist(){
   try { const p = stack[stack.length - 1];
-    if (!p || play.over) localStorage.removeItem(SAVE);
+    if (!p || play.over || rivalNow === 'amigo') localStorage.removeItem(SAVE);
     else localStorage.setItem(SAVE, JSON.stringify({v:1, f:FORMAS[gameForm].c, r:rivalNow, g:p.g, mo:rivalNow === 'motor' ? p.mo : null})); } catch(e) {}
 }
 function checkpoint(){ stack.push({g:play.ser(), mo:rivalNow === 'motor' ? Motor.snapshot() : null}); persist(); }
@@ -2948,9 +2968,9 @@ function updateHands(){
   document.getElementById('h-black').textContent = play.hand[2];
   document.getElementById('h-white').textContent = play.hand[3];
   document.getElementById('h-blue').textContent = play.blues().length;
-  btnPass.disabled = !(play.phase === 'play' && play.turn === 2 && !busy && !play.over && !capturing());
+  btnPass.disabled = !(play.phase === 'play' && play.turn === me && !busy && !play.over && !capturing());
   { const br = document.getElementById('btn-resign'); if (br) br.hidden = !(play.phase !== 'idle' && !play.over && rivalNow !== 'motor-motor'); }
-  btnUndo.disabled = !(stack.length > 1 && play.phase === 'play' && play.turn === 2 && !busy && !play.over && !capturing() && rivalNow !== 'motor-motor');
+  btnUndo.disabled = !(stack.length > 1 && play.phase === 'play' && play.turn === me && !busy && !play.over && !capturing() && rivalNow !== 'motor-motor');
 }
 function cellAt(ev){
   const r = pc.getBoundingClientRect(), c = r.width / N;
@@ -2962,20 +2982,20 @@ btnNew.addEventListener('click', () => {
   pc.setAttribute('aria-label', T('boardPlay'));
   play.setup(formSel); gameForm = formSel; stack = []; resumed = null; sel = -1; pending = -1; hint(''); finalAreas = null; document.getElementById('tally').hidden = true;
   busy = false; confirmRemove = -1;
-  rivalNow = rivalSel.value !== 'sencillo' && Motor.ok ? rivalSel.value : 'sencillo';
+  rivalNow = rivalSel.value === 'amigo' ? 'amigo' : rivalSel.value !== 'sencillo' && Motor.ok ? rivalSel.value : 'sencillo'; me = 2; if (window.SOKAI_AMIGO) SOKAI_AMIGO.hide(); if (window.SOKAI_VIVO) SOKAI_VIVO.close();
   showRival();
-  if (rivalSel.value !== 'sencillo' && !Motor.ok) Motor.check().then(showRival);
+  if (rivalSel.value !== 'sencillo' && rivalSel.value !== 'amigo' && !Motor.ok) Motor.check().then(showRival);
   Motor.newGame(play);
   if (rivalNow === 'motor-motor'){ forget(); say(formName(FORMAS[formSel])); updateHands(); watchGame(my); return; }
   assist = null; assistText('');
-  say(T('shapeTurn', formName(FORMAS[formSel]))); checkpoint(); updateHands();
+  say(T('shapeTurn', formName(FORMAS[formSel]))); checkpoint(); updateHands(); if (rivalNow === 'amigo' && window.SOKAI_VIVO) SOKAI_VIVO.host(); else if (rivalNow === 'amigo' && window.SOKAI_AMIGO) hint(SOKAI_AMIGO.t.start);
   if (rivalNow === 'motor'){          /* it is given the form right away: so it is ready when its turn comes */
     hint(T('motorWaking'));
     Motor.flush().then(() => { if (my === gen && hintEl.textContent === T('motorWaking')) hint(''); }, e => { if (my === gen) motorDown(e); });
   }
   requestAssist();
 });
-btnPass.addEventListener('click', () => { pending = -1; play.pass(); Motor.pass(); updateHands(); if (play.over) return endGame(); say(T('youPassed')); computerTurn(); });
+btnPass.addEventListener('click', () => { pending = -1; play.pass(); Motor.pass(); updateHands(); if (play.over){ endGame(); return rivalNow === 'amigo' && amigoTurn(); } say(T('youPassed')); rivalNow === 'amigo' ? amigoTurn() : computerTurn(); });
 pc.addEventListener('mousemove', e => hover = cellAt(e));
 pc.addEventListener('mouseleave', () => hover = -1);
 addEventListener('keydown', e => { if (e.key === 'Escape' && sel >= 0){ sel = -1; confirmRemove = -1; Motor.unselect(); askCapture(); } });
@@ -3013,16 +3033,16 @@ function tap(i){
     if (sel >= 0 && play.s[i] >= 2){ sel = -1; confirmRemove = -1; Motor.unselect(); return askCapture(); }    /* tapping a stone cancels the chosen piece */
     return hint(T('tapBlueOrHole'));
   }
-  if (play.phase !== 'play' || play.turn !== 2 || busy || play.over) return;
+  if (play.phase !== 'play' || play.turn !== me || busy || play.over) return;
   if (play.s[i] === 0 && needsConfirm(i)){ pending = i; return hint(T('confirmTap')); }
   pending = -1; hint('');
-  const r = play.place(i, 2);
+  const r = play.place(i, me);
   if (r === 'cerrado') return;
   if (r === 'ocupado') return say(T('occupied'));
   if (r === 'sin-libs') return say(T('noLibs'));
   if (r === 'superko') return say(T('superko'));
   if (r === 'sin-piedras') return say(T('noStones'));
-  Motor.stone(i); assist = null; assistReq++; assistText(''); Sound.stone(2); if (play.queue.length) setTimeout(Sound.capture, 140); resolved = 0; nextCapture();
+  Motor.stone(i); assist = null; assistReq++; assistText(''); Sound.stone(me); if (play.queue.length) setTimeout(Sound.capture, 140); resolved = 0; nextCapture();
 }
 function askCapture(){
   const rest = play.queue.length - 1;
@@ -3037,7 +3057,7 @@ function nextCapture(){
   updateHands();
   if (capturing()) return askCapture();
   hint(''); play.finish(); updateHands(); assist = null; assistText('');
-  computerTurn();
+  rivalNow === 'amigo' ? amigoTurn() : computerTurn();
 }
 function computerTurn(){
   busy = true; updateHands(); say(rivalNow === 'motor' ? T('motorThinking') : T('whitePlays'));
@@ -3130,15 +3150,52 @@ function showTally(s){
   $('tally').hidden = false;
 }
 window.SOKAI_API = {Game, FORMAS, KOMI, MOTOR, play, form:() => FORMAS[gameForm].c, rival:() => rivalNow};
+/* ---------- A friend, by link ----------
+   No server and no accounts: after each move the whole game goes into a link; whoever opens it goes on with the color whose turn it is. */
+function amigoTurn(){
+  busy = true; sel = -1; pending = -1; updateHands(); assist = null; assistText('');
+  const R = window.SOKAI_REC && SOKAI_REC.current(); if (!R || !window.SOKAI_AMIGO) return;
+  const url = SOKAI_REC.toLink(R).replace('#g=', (LANG !== 'en' ? '?lang=' + LANG : '') + '#j=');   /* the friend opens it in the same language */
+  if (window.SOKAI_VIVO && SOKAI_VIVO.on()){ SOKAI_VIVO.send(url); if (!play.over) say(SOKAI_VIVO.t.friendTurn); return; }   /* live: the move goes straight to the friend */
+  SOKAI_AMIGO.ready(url, !!play.over);
+}
+function amigoUndo(){
+  const p = stack[stack.length - 1]; if (!p || play.over) return;
+  play.load(p.g); busy = false; sel = -1; pending = -1; hint(''); say(T('yourTurn')); updateHands(); if (window.SOKAI_AMIGO) SOKAI_AMIGO.hide();
+}
+function amigoOpen(R, fixed){
+  const F = FORMAS.findIndex(f => f.c === R.form), g = SOKAI_REC.replay(R, R.moves.length), before = play.rec ? play.rec.length : 0; ++gen;
+  formSel = gameForm = F; play.setup(F); play.load(g.ser()); play.phase = 'play';
+  if (g.over){ play.over = true; play.resigned = g.resigned; }
+  rivalNow = 'amigo'; rivalSel.value = 'amigo'; me = fixed || play.turn; stack = []; resumed = null; busy = false; sel = -1; pending = -1; finalAreas = null;
+  document.getElementById('tally').hidden = true; hint(''); if (window.SOKAI_AMIGO) SOKAI_AMIGO.hide(); showRival();
+  if (play.over){ if (play.resigned){ updateHands(); say(play.resigned === 2 ? _t`White wins` : _t`Black wins`); } else endGame(); return; }
+  checkpoint();
+  if (fixed && R.moves.length > before){ const L = R.moves[R.moves.length - 1]; if (L.i >= 0){ Sound.stone(other(me)); if (L.sea.length) setTimeout(Sound.sea, 300); } }
+  if (play.turn !== me){ busy = true; updateHands(); return say(window.SOKAI_VIVO ? SOKAI_VIVO.t.friendTurn : ''); }   /* live: waiting for the friend */
+  updateHands();
+  say(fixed && window.SOKAI_VIVO ? SOKAI_VIVO.t.yourTurn : window.SOKAI_AMIGO ? (me === 2 ? SOKAI_AMIGO.t.turnB : SOKAI_AMIGO.t.turnW) : T('yourTurn'));
+}
+/* live: a new position arrives from the friend (only if it is newer than the one on the board) */
+function amigoSync(code){
+  const R = SOKAI_REC.fromLink('#g=2.' + code);
+  if (rivalNow === 'amigo' && play.rec && R.moves.length < play.rec.length) return;
+  /* the new position must continue the game on the board: earlier moves cannot be changed from the other side */
+  if (rivalNow === 'amigo' && play.rec){ const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+    for (let k = 0; k < play.rec.length; k++){ const m = play.rec[k]; if (m.i !== R.moves[k].i || !same(m.sea.filter(a => a[0] >= 0), R.moves[k].sea)) return; } }
+  amigoOpen(R, me);
+}
+function amigoLive(color){ me = color; }
+Object.assign(window.SOKAI_API, {amigoOpen, amigoUndo, amigoSync, amigoLive, me:() => me});
 /* Resign: asks for confirmation with a second press; the game ends and White wins */
 const btnResign = document.getElementById('btn-resign'); let resignT = 0;
 btnResign.addEventListener('click', () => {
-  if (play.phase === 'idle' || play.over || rivalNow === 'motor-motor') return;
+  if (play.phase === 'idle' || play.over || rivalNow === 'motor-motor' || (rivalNow === 'amigo' && (play.turn !== me || busy))) return;
   if (!resignT){ btnResign.textContent = _t`Sure?`; btnResign.classList.add('ask'); resignT = setTimeout(() => { resignT = 0; btnResign.textContent = _t`Resign`; btnResign.classList.remove('ask'); }, 3000); return; }
   clearTimeout(resignT); resignT = 0; btnResign.textContent = _t`Resign`; btnResign.classList.remove('ask');
-  if (play.rec) play.rec.push({c:2, i:-2, sea:[]});
-  play.queue = []; play.over = true; play.resigned = 2; pending = -1; sel = -1; forget(); updateHands();
-  say(_t`You resigned. White wins.`);
+  if (play.rec) play.rec.push({c:me, i:-2, sea:[]});
+  play.queue = []; play.over = true; play.resigned = me; pending = -1; sel = -1; forget(); updateHands();
+  say(me === 3 && window.SOKAI_AMIGO ? SOKAI_AMIGO.t.resignW : _t`You resigned. White wins.`); if (rivalNow === 'amigo') amigoTurn();
 });
 function endByTime(c){
   if (play.phase === 'idle' || play.over) return;
@@ -3153,7 +3210,7 @@ function endGame(){
   const s = play.score(); updateHands();
   finalAreas = play.areas(); showTally(s);
   const r = s[2] - s[3] - KOMI, d = Math.abs(r).toLocaleString(LANG);          /* White adds its compensation */
-  say(T('end', r > 0 ? T('byPoints', rivalNow === 'motor-motor' ? _t`Black wins` : _t`You win`, d) : r < 0 ? T('byPoints', _t`White wins`, d) : T('draw')));
+  say(T('end', r > 0 ? T('byPoints', rivalNow === 'motor-motor' || (rivalNow === 'amigo' && me !== 2) ? _t`Black wins` : _t`You win`, d) : r < 0 ? T('byPoints', rivalNow === 'amigo' && me === 3 ? _t`You win` : _t`White wins`, d) : T('draw')));
 }
 
 /* Drawing loop: repaints only when something changes (and a moment later, for entrance animations) */
@@ -4508,10 +4565,25 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
   const PUB = {'reglas': 'rules', 'empezar': 'forms', 'contar': 'counting', 'grados': 'grades', 'aprender': 'lessons', 'problemas': 'exercises', 'jugar': 'play', 'historia': 'letter', 'proyecto': 'project', 'clasico': 'go-and-sokai', 'porque361': 'why-361', 'unsui': 'how-sokai-ai-learned'};
   const INT = Object.fromEntries(Object.entries(PUB).map(([k, v]) => [v, k]));
   Object.assign(INT, {gosokai:'clasico', formas:'empezar', lecciones:'aprender', ejercicios:'problemas', escuela:'problemas', problems:'problemas', carta:'historia', 'go-y-sokai':'clasico', 'por-que-361':'porque361'});
-  const pub = s => PUB[s] || s;
+  const pub = s => PUB[s] || s, WEB = /^https?:$/.test(location.protocol);
+  /* links of the kind #rules: on the web they go to /rules/ without reloading; back and forward work as usual */
+  if (WEB){
+    document.addEventListener('click', e => {
+      const a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const r = a.getAttribute('href').slice(1); if (!r || /^[gjv]=/.test(r)) return;
+      const id = INT[r] || r; e.preventDefault();
+      history.pushState(null, '', (PUB[id] ? '/' + PUB[id] + '/' : '/') + location.search + (PUB[id] || id === 'inicio' ? '' : '#' + r));
+      dispatchEvent(new HashChangeEvent('hashchange'));
+    });
+    addEventListener('popstate', () => dispatchEvent(new HashChangeEvent('hashchange')));
+  }
   function route(){
-    const raw = location.hash.slice(1), id = INT[raw] || raw;
-    if (PUB[id] && raw !== PUB[id]) history.replaceState(null, '', '#' + PUB[id]);            /* old address: replaced with the new one without reloading */
+    const seg = (location.pathname.match(/([^/]+)\/?$/) || [])[1] || '', hraw = location.hash.slice(1), game = /^[gjv]=/.test(hraw);
+    const raw = hraw && !game ? hraw : (INT[seg] || PUB[seg] ? seg : ''), id = INT[raw] || raw;
+    /* on the web the address is a real page (/rules/); an old #rules address is turned into it without reloading. A shared game (#g=…) is left alone. */
+    if (WEB && !game){ const p = PUB[id] ? '/' + PUB[id] + '/' : '/'; if (location.pathname !== p || hraw) history.replaceState(null, '', p + location.search + (PUB[id] || !hraw || id === 'inicio' ? '' : '#' + hraw)); }
+    else if (!WEB && PUB[id] && raw !== PUB[id]) history.replaceState(null, '', '#' + PUB[id]);
     const [v, sub, tab] = find(id), d = VIEWS[v], key = v + '/' + (sub || '');
     if (tab && $('tab-' + tab)) $('tab-' + tab).click();          /* Classic tab requested from the submenu */
     const visible = d.subs ? [$(sub)] : d.all, subName = d.subs ? d.subs.find(s => s[0] === sub)[1] : '';
@@ -4855,8 +4927,8 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
     { const br = document.getElementById('btn-resign'), h = !(vivo && rv !== 'motor-motor'); if (br && br.hidden !== h) br.hidden = h; }      /* Resign: always at hand while a game is on */
     const o = sel.selectedOptions[0], name = rv === 'sencillo' ? _t`Rival ·` + ((document.getElementById('rival-nivel') || {}).selectedOptions || [{textContent:''}])[0].textContent.toLowerCase() : API.MOTOR.n;
     const tw = vivo || g.over ? name : (o ? o.textContent.split(',')[0].replace(/^\S+\s/, m => /[a-zA-Z]/.test(m) ? m : '') : name);
-    if (nw.textContent !== tw) nw.textContent = tw;
-    const tb = rv === 'motor-motor' ? API.MOTOR.n : _t`You`; if (nb.textContent !== tb) nb.textContent = tb;
+    const AM = rv === 'amigo' && API.me && window.SOKAI_AMIGO, tw2 = AM ? (API.me() === 3 ? _t`You` : SOKAI_AMIGO.friend) : tw; if (nw.textContent !== tw2) nw.textContent = tw2;
+    const tb = AM ? (API.me() === 2 ? _t`You` : SOKAI_AMIGO.friend) : rv === 'motor-motor' ? API.MOTOR.n : _t`You`; if (nb.textContent !== tb) nb.textContent = tb;
   }, 250);
 })();
 </script>
@@ -4889,7 +4961,7 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
   /* ---- clock ---- */
   const left = {2:0, 3:0}; let tick = performance.now(), clockOn = false;
   const fmt = s => { s = Math.max(0, Math.ceil(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
-  function resetClock(){ left[2] = left[3] = O.clock * 60; clockOn = O.clock > 0; tick = performance.now(); }
+  function resetClock(){ left[2] = left[3] = O.clock * 60; clockOn = O.clock > 0 && API.rival() !== 'amigo'; tick = performance.now(); }
   $('btn-new').addEventListener('click', () => setTimeout(() => { resetClock(); est = false; cand = -1; }, 0));
   resetClock();
 
@@ -4900,7 +4972,7 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
 
   /* ---- confirm move: the first tap marks the point; “Confirm” plays it ---- */
   const cellAt = ev => { const r = pc.getBoundingClientRect(), c = r.width / N, px = Math.floor((ev.clientX - r.left) / c), py = Math.floor((ev.clientY - r.top) / c); return px < 0 || py < 0 || px >= N || py >= N ? -1 : py * N + px; };
-  const needs = () => { const g = API.play; return O.confirm && g.phase === 'play' && !g.over && g.turn === 2 && !g.queue.length && API.rival() !== 'motor-motor'; };
+  const needs = () => { const g = API.play; return O.confirm && g.phase === 'play' && !g.over && g.turn === (API.me ? API.me() : 2) && !g.queue.length && API.rival() !== 'motor-motor'; };
   wrap.addEventListener('click', e => {
     if (e.target !== pc || letPass || !needs()) return;
     const i = cellAt(e); if (i < 0 || API.play.s[i] !== 0){ cand = -1; return; }
@@ -5015,6 +5087,8 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
 <script>
 /* The guide: speech bubbles that point at where each thing is (phone and computer), once.
    On the cover: language, settings, the board and the menu. In Play: its own bubbles, the first time it opens. */
+/* the view being shown: from the address (/play/) or, in the old style, from the hash (#play) */
+window.sokaiVista = () => { const h = location.hash.slice(1); if (h && !/^[gjv]=/.test(h)) return '#' + h; const s = (location.pathname.match(/([^/]+)\/?$/) || [])[1] || ''; return s && !/\.html$/.test(s) ? '#' + s : ''; };
 window.sokaiGuia = (() => {
   const TX = {
     en:{b:['Next','Skip','Start'],
@@ -5111,12 +5185,12 @@ window.sokaiGuia = (() => {
   }
   /* Play: its bubbles the first time it opens (after the cover's, and never over the full-screen invitation) */
   function playLater(){
-    if (get(KEY.play) || location.hash !== '#play') return;
+    if (get(KEY.play) || sokaiVista() !== '#play') return;
     if (busy || document.querySelector('.m-fs') || document.querySelector('dialog[open]')) return setTimeout(playLater, 800);
-    setTimeout(() => location.hash === '#play' && run('play'), 700);
+    setTimeout(() => sokaiVista() === '#play' && run('play'), 700);
   }
   addEventListener('hashchange', playLater); setTimeout(playLater, 1500);
-  return function guia(done){ if (location.hash && location.hash !== '#') return (done || (() => {}))(); run('home', done); };
+  return function guia(done){ if (sokaiVista()) return (done || (() => {}))(); run('home', done); };
 })();
 if (!matchMedia('(max-width:700px)').matches) setTimeout(() => sokaiGuia(), 1200);
 </script>
@@ -5163,7 +5237,7 @@ if (!matchMedia('(max-width:700px)').matches) setTimeout(() => sokaiGuia(), 1200
   /* --- the welcome: the first time, on the cover --- */
   const welcome = () => {
     const tut = $('m-tut');
-    if (ls('sokai-bienvenida') || !tut || (location.hash && location.hash !== '#')) return;
+    if (ls('sokai-bienvenida') || !tut || (window.sokaiVista && sokaiVista())) return;
     setTimeout(() => { tut.click(); ls('sokai-bienvenida', '1'); }, 500);
   };
 
@@ -5236,7 +5310,7 @@ ${nd(185, 34, 190, X.n[0], f(X.n[1], {n:nf(D.games)}))}${nd(380, 128, 170, X.n[2
   s2 += `<polyline class="u-ln" points="${P.map(p => qx(p[0]).toFixed(1) + ',' + qy(p[1]).toFixed(1)).join(' ')}"/>`;
   s2 += `<text x="${qx(P[0][0]) + 8}" y="${qy(P[0][1]) + 4}" class="u-v">${Math.round(P[0][1] * 100)}%</text><text x="${W - 20}" y="${qy(P[P.length - 1][1]) - 10}" text-anchor="end" class="u-v">${Math.round(P[P.length - 1][1] * 100)}% ${esc(X.a3[0])}</text>`;
   s2 += `<text x="44" y="${H - 10}">0</text><text x="${W - 20}" y="${H - 10}" text-anchor="end">${nf(Math.round(mx * 10) / 10)} ${esc(X.a3[1])}</text></svg>`;
-  const ft = X.f.map(([a, b]) => `<dt>${esc(a)}</dt><dd>${esc(f(b, {p:nf(D.params)}))}</dd>`).join('');
+  const ft = X.f.map(([a, b]) => `<dt>${esc(a)}</dt><dd>${esc(f(b, {p:nf(D.params)})).replace('github.com/lightvector/KataGo', '<a href="https://github.com/lightvector/KataGo" rel="noopener" target="_blank">github.com/lightvector/KataGo</a>')}</dd>`).join('');
   box.innerHTML = `<div class="head"><span class="glyph" lang="zh-Hant">修行</span><h2>${esc(X.t)}</h2><p>${esc(X.st)}</p></div>
 <div class="u-kpis">${kp.map(([a, b]) => `<div><b>${a}</b><span>${esc(b)}</span></div>`).join('')}</div>
 ${X.nota ? `<aside class="u-nota"><h3>${esc(X.nota[0])}</h3><p>${esc(X.nota[1])}</p></aside>` : ''}
@@ -5245,6 +5319,145 @@ ${X.nota ? `<aside class="u-nota"><h3>${esc(X.nota[0])}</h3><p>${esc(X.nota[1])}
 <div class="u-card"><h3>${esc(X.c3[0])}</h3><p>${esc(X.c3[1])}</p>${s2}</div>
 <div class="u-card"><h3>${esc(X.c4)}</h3><dl class="u-ft">${ft}</dl></div></div>`;
   const a = document.querySelector('#menu a[href="#how-sokai-ai-learned"]'); if (a) a.textContent = X.t;
+})();
+</script>
+<script>
+/* A friend, by link: the texts, the buttons in Play and the panel that sends the link. The game itself lives in the page's game code. */
+(() => {
+  const TX = {"en": {"opt": "A friend, by link", "friend": "Friend", "ready": "Your move is made. Send this link to your friend: they play their move and send you one back.", "over": "The game is over. Send the link so your friend sees the result.", "send": "Send link", "copy": "Copy link", "copied": "Copied", "undo": "Undo my move", "share": "Your turn in Sokai 滄海. Open the link and play your move:", "turnB": "Your friend has played. Your turn: you play Black.", "turnW": "Your friend has played. Your turn: you play White.", "start": "You play Black and start. After your move you will get a link to send to your friend.", "resignW": "You resigned. Black wins.", "info": "Play with someone far away, by turns: after each move you send a link (WhatsApp, email…). No accounts.", "quick": "Play now", "withFriend": "Play with a friend", "options": "Change shape or rival", "waiting": "Waiting for your friend’s move. When they send you the link, open it to go on.", "badLink": "This game link could not be opened."}, "es": {"opt": "Un amigo, por link", "friend": "Amigo", "ready": "Tu jugada está hecha. Envía este link a tu amigo: él juega la suya y te manda otro de vuelta.", "over": "La partida terminó. Envía el link para que tu amigo vea el resultado.", "send": "Enviar link", "copy": "Copiar link", "copied": "Copiado", "undo": "Deshacer mi jugada", "share": "Te toca en Sokai 滄海. Abre el link y juega tu jugada:", "turnB": "Tu amigo ya jugó. Te toca: juegas con las negras.", "turnW": "Tu amigo ya jugó. Te toca: juegas con las blancas.", "start": "Juegas con las negras y empiezas. Después de tu jugada tendrás un link para enviar a tu amigo.", "resignW": "Abandonaste. Ganan las negras.", "info": "Juega con alguien a distancia, por turnos: después de cada jugada envías un link (WhatsApp, correo…). Sin cuentas.", "quick": "Jugar ya", "withFriend": "Jugar con un amigo", "options": "Cambiar forma o rival", "waiting": "Esperando la jugada de tu amigo. Cuando te mande el link, ábrelo para seguir.", "badLink": "No se pudo abrir este link de partida."}, "zh": {"opt": "朋友，通过链接", "friend": "朋友", "ready": "你的这一手已下好。把链接发给朋友：他下完后会再发一个链接给你。", "over": "对局已结束。把链接发给朋友，让他看到结果。", "send": "发送链接", "copy": "复制链接", "copied": "已复制", "undo": "撤回我这一手", "share": "Sokai 滄海 轮到你了。打开链接下你这一手：", "turnB": "朋友已经下了。轮到你：你执黑。", "turnW": "朋友已经下了。轮到你：你执白。", "start": "你执黑先下。下完后会得到一个链接，发给朋友。", "resignW": "你认输了。黑方胜。", "info": "和远方的人轮流对局：每下一手就发一个链接（微信、邮件……）。无需注册。", "quick": "马上下棋", "withFriend": "和朋友下", "options": "更换形状或对手", "waiting": "等待朋友下棋。收到他的链接后，打开即可继续。", "badLink": "无法打开这个对局链接。"}, "zh-hant": {"opt": "朋友，透過連結", "friend": "朋友", "ready": "你的這一手已下好。把連結傳給朋友：他下完後會再傳一個連結給你。", "over": "對局已結束。把連結傳給朋友，讓他看到結果。", "send": "傳送連結", "copy": "複製連結", "copied": "已複製", "undo": "撤回我這一手", "share": "Sokai 滄海 輪到你了。打開連結下你這一手：", "turnB": "朋友已經下了。輪到你：你執黑。", "turnW": "朋友已經下了。輪到你：你執白。", "start": "你執黑先下。下完後會得到一個連結，傳給朋友。", "resignW": "你認輸了。黑方勝。", "info": "和遠方的人輪流對局：每下一手就傳一個連結（LINE、郵件……）。不需註冊。", "quick": "馬上下棋", "withFriend": "和朋友下", "options": "更換形狀或對手", "waiting": "等待朋友下棋。收到他的連結後，打開即可繼續。", "badLink": "無法打開這個對局連結。"}, "ja": {"opt": "友だちとリンクで", "friend": "友だち", "ready": "あなたの手を打ちました。このリンクを友だちに送ってください。相手が打つと、リンクが返ってきます。", "over": "対局は終わりました。結果を見てもらうためにリンクを送ってください。", "send": "リンクを送る", "copy": "リンクをコピー", "copied": "コピーしました", "undo": "自分の手を取り消す", "share": "Sokai 滄海 であなたの番です。リンクを開いて一手打ってください：", "turnB": "友だちが打ちました。あなたの番です（黒）。", "turnW": "友だちが打ちました。あなたの番です（白）。", "start": "あなたは黒で先手です。打つと、友だちに送るリンクが出ます。", "resignW": "投了しました。黒の勝ちです。", "info": "離れた人と交互に打てます：一手ごとにリンクを送ります（LINE、メールなど）。アカウント不要。", "quick": "すぐに打つ", "withFriend": "友だちと打つ", "options": "形や相手を変える", "waiting": "友だちの手を待っています。リンクが届いたら開いて続けてください。", "badLink": "この対局リンクを開けませんでした。"}, "ko": {"opt": "친구와 링크로", "friend": "친구", "ready": "당신의 수를 두었습니다. 이 링크를 친구에게 보내세요: 친구가 수를 두고 링크를 다시 보내 줍니다.", "over": "대국이 끝났습니다. 친구가 결과를 볼 수 있게 링크를 보내세요.", "send": "링크 보내기", "copy": "링크 복사", "copied": "복사했습니다", "undo": "내 수 무르기", "share": "Sokai 滄海에서 당신 차례입니다. 링크를 열고 수를 두세요:", "turnB": "친구가 두었습니다. 당신 차례: 흑을 둡니다.", "turnW": "친구가 두었습니다. 당신 차례: 백을 둡니다.", "start": "당신은 흑으로 먼저 둡니다. 수를 두면 친구에게 보낼 링크가 나옵니다.", "resignW": "기권했습니다. 흑이 이깁니다.", "info": "멀리 있는 사람과 번갈아 둡니다: 수마다 링크를 보냅니다(카카오톡, 이메일…). 계정 없이.", "quick": "바로 두기", "withFriend": "친구와 두기", "options": "모양이나 상대 바꾸기", "waiting": "친구의 수를 기다리는 중입니다. 링크를 받으면 열어서 이어 두세요.", "badLink": "이 대국 링크를 열 수 없습니다."}, "th": {"opt": "เพื่อน ผ่านลิงก์", "friend": "เพื่อน", "ready": "คุณเดินแล้ว ส่งลิงก์นี้ให้เพื่อน: เพื่อนจะเดินแล้วส่งลิงก์กลับมา", "over": "เกมจบแล้ว ส่งลิงก์ให้เพื่อนดูผล", "send": "ส่งลิงก์", "copy": "คัดลอกลิงก์", "copied": "คัดลอกแล้ว", "undo": "ย้อนตาของฉัน", "share": "ถึงตาคุณใน Sokai 滄海 เปิดลิงก์แล้วเดินได้เลย:", "turnB": "เพื่อนเดินแล้ว ถึงตาคุณ: คุณเล่นดำ", "turnW": "เพื่อนเดินแล้ว ถึงตาคุณ: คุณเล่นขาว", "start": "คุณเล่นดำและเริ่มก่อน หลังเดินแล้วจะได้ลิงก์ส่งให้เพื่อน", "resignW": "คุณยอมแพ้ ดำชนะ", "info": "เล่นกับคนที่อยู่ไกลแบบผลัดกัน: ทุกตาเดินส่งลิงก์ (LINE อีเมล…) ไม่ต้องมีบัญชี", "quick": "เล่นเลย", "withFriend": "เล่นกับเพื่อน", "options": "เปลี่ยนรูปทรงหรือคู่แข่ง", "waiting": "กำลังรอตาของเพื่อน เมื่อได้ลิงก์แล้วเปิดเพื่อเล่นต่อ", "badLink": "เปิดลิงก์เกมนี้ไม่ได้"}, "ru": {"opt": "Друг, по ссылке", "friend": "Друг", "ready": "Ваш ход сделан. Отправьте ссылку другу: он сделает свой ход и пришлёт ссылку обратно.", "over": "Партия окончена. Отправьте ссылку, чтобы друг увидел результат.", "send": "Отправить ссылку", "copy": "Копировать ссылку", "copied": "Скопировано", "undo": "Отменить мой ход", "share": "Ваш ход в Sokai 滄海. Откройте ссылку и сделайте ход:", "turnB": "Друг сходил. Ваш ход: вы играете чёрными.", "turnW": "Друг сходил. Ваш ход: вы играете белыми.", "start": "Вы играете чёрными и начинаете. После хода появится ссылка для друга.", "resignW": "Вы сдались. Победа чёрных.", "info": "Играйте с кем-то на расстоянии, по очереди: после каждого хода отправляете ссылку (мессенджер, почта…). Без аккаунтов.", "quick": "Играть сейчас", "withFriend": "Играть с другом", "options": "Сменить форму или соперника", "waiting": "Ждём хода друга. Когда он пришлёт ссылку, откройте её, чтобы продолжить.", "badLink": "Не удалось открыть ссылку на партию."}, "de": {"opt": "Ein Freund, per Link", "friend": "Freund", "ready": "Ihr Zug ist gemacht. Senden Sie diesen Link an Ihren Freund: Er macht seinen Zug und schickt Ihnen einen zurück.", "over": "Die Partie ist zu Ende. Senden Sie den Link, damit Ihr Freund das Ergebnis sieht.", "send": "Link senden", "copy": "Link kopieren", "copied": "Kopiert", "undo": "Meinen Zug zurücknehmen", "share": "Sie sind am Zug in Sokai 滄海. Öffnen Sie den Link und machen Sie Ihren Zug:", "turnB": "Ihr Freund hat gezogen. Sie sind am Zug: Sie spielen Schwarz.", "turnW": "Ihr Freund hat gezogen. Sie sind am Zug: Sie spielen Weiß.", "start": "Sie spielen Schwarz und beginnen. Nach Ihrem Zug erhalten Sie einen Link für Ihren Freund.", "resignW": "Sie haben aufgegeben. Schwarz gewinnt.", "info": "Spielen Sie mit jemandem in der Ferne, Zug um Zug: Nach jedem Zug senden Sie einen Link (Messenger, E-Mail …). Ohne Konto.", "quick": "Jetzt spielen", "withFriend": "Mit einem Freund spielen", "options": "Form oder Gegner ändern", "waiting": "Warten auf den Zug Ihres Freundes. Wenn er Ihnen den Link schickt, öffnen Sie ihn, um weiterzuspielen.", "badLink": "Dieser Partie-Link ließ sich nicht öffnen."}, "fr": {"opt": "Un ami, par lien", "friend": "Ami", "ready": "Votre coup est joué. Envoyez ce lien à votre ami : il joue le sien et vous en renvoie un.", "over": "La partie est terminée. Envoyez le lien pour que votre ami voie le résultat.", "send": "Envoyer le lien", "copy": "Copier le lien", "copied": "Copié", "undo": "Annuler mon coup", "share": "À vous de jouer dans Sokai 滄海. Ouvrez le lien et jouez votre coup :", "turnB": "Votre ami a joué. À vous : vous avez Noir.", "turnW": "Votre ami a joué. À vous : vous avez Blanc.", "start": "Vous avez Noir et commencez. Après votre coup, vous aurez un lien à envoyer à votre ami.", "resignW": "Vous avez abandonné. Noir gagne.", "info": "Jouez avec quelqu’un à distance, chacun son tour : après chaque coup, vous envoyez un lien (messagerie, e-mail…). Sans compte.", "quick": "Jouer maintenant", "withFriend": "Jouer avec un ami", "options": "Changer de forme ou d’adversaire", "waiting": "En attente du coup de votre ami. Quand il vous enverra le lien, ouvrez-le pour continuer.", "badLink": "Impossible d’ouvrir ce lien de partie."}, "pt": {"opt": "Um amigo, por link", "friend": "Amigo", "ready": "A sua jogada está feita. Envie este link ao seu amigo: ele joga a dele e manda-lhe outro de volta.", "over": "A partida terminou. Envie o link para que o seu amigo veja o resultado.", "send": "Enviar link", "copy": "Copiar link", "copied": "Copiado", "undo": "Desfazer a minha jogada", "share": "É a sua vez no Sokai 滄海. Abra o link e jogue:", "turnB": "O seu amigo já jogou. É a sua vez: joga com as Pretas.", "turnW": "O seu amigo já jogou. É a sua vez: joga com as Brancas.", "start": "Você joga com as Pretas e começa. Depois da sua jogada terá um link para enviar ao seu amigo.", "resignW": "Você desistiu. As Pretas vencem.", "info": "Jogue com alguém à distância, por turnos: depois de cada jogada envia um link (WhatsApp, e-mail…). Sem contas.", "quick": "Jogar já", "withFriend": "Jogar com um amigo", "options": "Mudar a forma ou o rival", "waiting": "À espera da jogada do seu amigo. Quando ele lhe enviar o link, abra-o para continuar.", "badLink": "Não foi possível abrir este link de partida."}, "it": {"opt": "Un amico, via link", "friend": "Amico", "ready": "La sua mossa è fatta. Invii questo link al suo amico: lui gioca la sua e gliene rimanda uno.", "over": "La partita è finita. Invii il link perché il suo amico veda il risultato.", "send": "Invia il link", "copy": "Copia il link", "copied": "Copiato", "undo": "Annulla la mia mossa", "share": "Tocca a lei in Sokai 滄海. Apra il link e giochi la sua mossa:", "turnB": "Il suo amico ha giocato. Tocca a lei: gioca con il Nero.", "turnW": "Il suo amico ha giocato. Tocca a lei: gioca con il Bianco.", "start": "Lei gioca con il Nero e comincia. Dopo la mossa avrà un link da inviare al suo amico.", "resignW": "Lei ha abbandonato. Vince il Nero.", "info": "Giochi con qualcuno a distanza, a turno: dopo ogni mossa invia un link (WhatsApp, e-mail…). Senza account.", "quick": "Gioca ora", "withFriend": "Gioca con un amico", "options": "Cambia forma o avversario", "waiting": "In attesa della mossa del suo amico. Quando le invierà il link, lo apra per continuare.", "badLink": "Impossibile aprire questo link di partita."}}, A = TX[LANG] || TX.en, $ = id => document.getElementById(id), API = window.SOKAI_API; if (!API || !API.amigoOpen) return;
+  const sel = $('rival-sel'), opt = sel.querySelector('option[value="amigo"]'); if (opt) opt.textContent = A.opt;
+  /* Play: two ways to start with one tap, and the settings for whoever wants them */
+  const bnew = $('btn-new'), ctr = bnew.parentNode, go = () => $('new-go').click();
+  const q = document.createElement('button'); q.type = 'button'; q.className = 'btn solid'; q.id = 'btn-quick'; q.textContent = A.quick;
+  const f = document.createElement('button'); f.type = 'button'; f.className = 'btn'; f.id = 'btn-friend'; f.textContent = A.withFriend;
+  ctr.insertBefore(q, bnew); ctr.insertBefore(f, bnew); bnew.className = 'linkish'; bnew.textContent = A.options;
+  const pick = v => { sel.value = v; sel.dispatchEvent(new Event('change')); };
+  q.addEventListener('click', () => { if (sel.value === 'amigo') pick('sencillo'); go(); });
+  f.addEventListener('click', () => { pick('amigo'); go(); });
+  /* in the settings: with a friend there is no clock and no strength to choose */
+  const info = () => { if (sel.value === 'amigo'){ $('rival-info').textContent = A.info; ['rival-nivel'].forEach(id => $(id).hidden = true); document.querySelector('.nivel-l').hidden = true; } };
+  sel.addEventListener('change', () => setTimeout(info, 0)); info();
+  /* the panel: the link to send */
+  const p = document.createElement('div'); p.className = 'amigo'; p.id = 'amigo'; p.hidden = true;
+  p.innerHTML = '<p class="amigo-t"></p><div class="amigo-b"><button type="button" class="btn solid" id="amigo-send"></button><button type="button" class="btn" id="amigo-copy"></button></div><input class="amigo-u" id="amigo-url" readonly aria-label="Link"><button type="button" class="linkish" id="amigo-undo"></button>';
+  $('status').after(p);
+  $('amigo-send').textContent = navigator.share ? A.send : A.copy; $('amigo-copy').textContent = A.copy; $('amigo-copy').hidden = !navigator.share; $('amigo-undo').textContent = A.undo;
+  let url = '';
+  const copy = async b => { try { await navigator.clipboard.writeText(url); } catch(e){ const u = $('amigo-url'); u.select(); try { document.execCommand('copy'); } catch(_){} } const o = b.textContent; b.textContent = A.copied; setTimeout(() => b.textContent = o, 1600); };
+  $('amigo-send').addEventListener('click', e => { if (navigator.share) navigator.share({title:'Sokai 滄海', text:A.share, url}).catch(() => {}); else copy(e.currentTarget); });
+  $('amigo-copy').addEventListener('click', e => copy(e.currentTarget));
+  $('amigo-undo').addEventListener('click', () => API.amigoUndo());
+  window.SOKAI_AMIGO = {t:A, friend:A.friend,
+    ready(u, over){ url = u; $('amigo-url').value = u; p.querySelector('.amigo-t').textContent = over ? A.over : A.ready; $('amigo-undo').hidden = !!over; p.hidden = false; setTimeout(() => p.scrollIntoView({block:'center', behavior:'smooth'}), 50);
+      if (!over) $('status').textContent = A.waiting; try { localStorage.setItem('sokai-amigo', u); } catch(e) {} },
+    hide(){ p.hidden = true; }};
+  /* a game link arrives: the game goes on in Play, with whoever's turn it is */
+  function openJ(){
+    if (!/^#j=/.test(location.hash)) return;
+    const h = location.hash; history.replaceState(null, '', '#jugar'); dispatchEvent(new HashChangeEvent('hashchange'));
+    try { API.amigoOpen(window.SOKAI_REC.fromLink(h.replace(/^#j=/, '#g='))); }
+    catch(e){ $('status').textContent = A.badLink + ' ' + (e.message || ''); }
+  }
+  addEventListener('hashchange', openJ); openJ();
+})();
+</script>
+<script>
+/* A friend, live: one invitation link, and the moves arrive at once. They go through a free public message relay (MQTT over a secure connection),
+   encrypted end to end (AES-GCM) with a key that travels only in the link, after the # (browsers never send that part to any server).
+   Neither player sees the other's address; the relay sees only encrypted text. The latest position stays on the relay (retained),
+   so either player can close and open again and the game goes on. If no relay answers, the game goes on by link. */
+(() => {
+  const TX = {"en": {"opt": "A friend, live", "invite": "Send this link to your friend. When they open it, the game is played here, live: each move reaches the other screen at once.", "connecting": "Connecting with your friend…", "connected": "Your friend is connected. You play Black.", "friendTurn": "Your friend’s turn…", "yourTurn": "Your friend has played. Your turn.", "lost": "The connection with your friend was lost. If they open their link again, the game goes on. You can also send them this link to go on by turns.", "failed": "A live connection is not possible from this network. You can go on sending a link after each move.", "start": "You play Black. Send the link to your friend: when they open it, you play live.", "left": "Your friend is connected. You play White; Black starts.", "secure": "Encrypted end to end: only you and your friend can read the moves, and neither of you sees the other’s address.", "resumed": "Live game recovered."}, "es": {"opt": "Un amigo, en vivo", "invite": "Envía este link a tu amigo. Cuando lo abra, la partida se juega aquí mismo, en vivo: cada jugada llega al instante a la otra pantalla.", "connecting": "Conectando con tu amigo…", "connected": "Tu amigo está conectado. Juegas con las negras.", "friendTurn": "Turno de tu amigo…", "yourTurn": "Tu amigo ya jugó. Te toca.", "lost": "Se perdió la conexión con tu amigo. Si vuelve a abrir su link, la partida sigue. También puedes enviarle este link para seguir por turnos.", "failed": "Desde esta red no se puede conectar en vivo. Puedes seguir enviando un link en cada jugada.", "start": "Juegas con las negras. Envía el link a tu amigo: cuando lo abra, jugáis en vivo.", "left": "Tu amigo está conectado. Juegas con las blancas; empiezan las negras.", "secure": "Cifrado de punta a punta: solo tu amigo y tú podéis leer las jugadas, y ninguno ve la dirección del otro.", "resumed": "Partida en vivo recuperada."}, "zh": {"opt": "朋友，实时对局", "invite": "把这个链接发给朋友。他打开后，就在这里实时对局：每一手都会立刻出现在对方屏幕上。", "connecting": "正在连接朋友…", "connected": "朋友已连接。你执黑。", "friendTurn": "轮到朋友…", "yourTurn": "朋友已经下了。轮到你。", "lost": "与朋友的连接中断了。他重新打开链接，对局就会继续。你也可以把这个链接发给他，改为轮流传链接。", "failed": "这个网络无法实时连接。你可以继续每一手发一个链接。", "start": "你执黑。把链接发给朋友：他打开后就能实时对局。", "left": "朋友已连接。你执白；黑方先下。", "secure": "端到端加密：只有你和朋友能读到棋步，双方也看不到对方的地址。", "resumed": "实时对局已恢复。"}, "zh-hant": {"opt": "朋友，即時對局", "invite": "把這個連結傳給朋友。他打開後，就在這裡即時對局：每一手都會立刻出現在對方螢幕上。", "connecting": "正在連接朋友…", "connected": "朋友已連接。你執黑。", "friendTurn": "輪到朋友…", "yourTurn": "朋友已經下了。輪到你。", "lost": "與朋友的連線中斷了。他重新打開連結，對局就會繼續。你也可以把這個連結傳給他，改為輪流傳連結。", "failed": "這個網路無法即時連線。你可以繼續每一手傳一個連結。", "start": "你執黑。把連結傳給朋友：他打開後就能即時對局。", "left": "朋友已連接。你執白；黑方先下。", "secure": "端對端加密：只有你和朋友能讀到棋步，雙方也看不到對方的位址。", "resumed": "即時對局已恢復。"}, "ja": {"opt": "友だちとライブで", "invite": "このリンクを友だちに送ってください。開くと、ここでライブ対局になります：一手ごとにすぐ相手の画面に届きます。", "connecting": "友だちと接続中…", "connected": "友だちが接続しました。あなたは黒です。", "friendTurn": "友だちの番です…", "yourTurn": "友だちが打ちました。あなたの番です。", "lost": "友だちとの接続が切れました。相手がもう一度リンクを開けば続きます。このリンクを送って、交互に続けることもできます。", "failed": "このネットワークではライブ接続ができません。一手ごとにリンクを送って続けられます。", "start": "あなたは黒です。友だちにリンクを送ってください：開いたらライブで対局できます。", "left": "友だちが接続しました。あなたは白です。黒から打ちます。", "secure": "エンドツーエンド暗号化：手を読めるのはあなたと友だちだけで、お互いのアドレスも見えません。", "resumed": "ライブ対局を復元しました。"}, "ko": {"opt": "친구와 실시간으로", "invite": "이 링크를 친구에게 보내세요. 친구가 열면 여기서 바로 실시간으로 둡니다: 수마다 상대 화면에 즉시 나타납니다.", "connecting": "친구와 연결 중…", "connected": "친구가 연결되었습니다. 당신은 흑입니다.", "friendTurn": "친구 차례…", "yourTurn": "친구가 두었습니다. 당신 차례입니다.", "lost": "친구와의 연결이 끊겼습니다. 친구가 링크를 다시 열면 대국이 이어집니다. 이 링크를 보내 번갈아 이어 갈 수도 있습니다.", "failed": "이 네트워크에서는 실시간으로 연결할 수 없습니다. 수마다 링크를 보내 이어 갈 수 있습니다.", "start": "당신은 흑입니다. 친구에게 링크를 보내세요: 친구가 열면 실시간으로 둡니다.", "left": "친구가 연결되었습니다. 당신은 백입니다. 흑이 먼저 둡니다.", "secure": "종단 간 암호화: 수는 당신과 친구만 읽을 수 있고, 서로의 주소도 보이지 않습니다.", "resumed": "실시간 대국을 복구했습니다."}, "th": {"opt": "เพื่อน แบบสด", "invite": "ส่งลิงก์นี้ให้เพื่อน เมื่อเพื่อนเปิด จะเล่นกันสดที่นี่: ทุกตาเดินจะไปถึงอีกจอทันที", "connecting": "กำลังเชื่อมต่อกับเพื่อน…", "connected": "เพื่อนเชื่อมต่อแล้ว คุณเล่นดำ", "friendTurn": "ตาของเพื่อน…", "yourTurn": "เพื่อนเดินแล้ว ถึงตาคุณ", "lost": "การเชื่อมต่อกับเพื่อนหลุด ถ้าเพื่อนเปิดลิงก์อีกครั้ง เกมจะเล่นต่อ หรือส่งลิงก์นี้ให้เพื่อนเพื่อเล่นต่อแบบผลัดกัน", "failed": "เครือข่ายนี้เชื่อมต่อแบบสดไม่ได้ คุณยังส่งลิงก์หลังแต่ละตาได้", "start": "คุณเล่นดำ ส่งลิงก์ให้เพื่อน: เมื่อเพื่อนเปิด จะเล่นกันสด", "left": "เพื่อนเชื่อมต่อแล้ว คุณเล่นขาว ดำเริ่มก่อน", "secure": "เข้ารหัสต้นทางถึงปลายทาง: มีแค่คุณกับเพื่อนที่อ่านตาเดินได้ และไม่มีใครเห็นที่อยู่ของอีกฝ่าย", "resumed": "กู้คืนเกมสดแล้ว"}, "ru": {"opt": "Друг, вживую", "invite": "Отправьте эту ссылку другу. Когда он её откроет, партия пойдёт прямо здесь, вживую: каждый ход сразу появляется на другом экране.", "connecting": "Соединение с другом…", "connected": "Друг подключился. Вы играете чёрными.", "friendTurn": "Ход друга…", "yourTurn": "Друг сходил. Ваш ход.", "lost": "Связь с другом прервалась. Если он снова откроет свою ссылку, партия продолжится. Можно также отправить ему эту ссылку и продолжить по очереди.", "failed": "Из этой сети нельзя подключиться вживую. Можно продолжать, отправляя ссылку после каждого хода.", "start": "Вы играете чёрными. Отправьте ссылку другу: когда он её откроет, вы играете вживую.", "left": "Друг подключился. Вы играете белыми; начинают чёрные.", "secure": "Сквозное шифрование: ходы видите только вы и друг, и никто не видит адрес другого.", "resumed": "Партия вживую восстановлена."}, "de": {"opt": "Ein Freund, live", "invite": "Senden Sie diesen Link an Ihren Freund. Sobald er ihn öffnet, wird hier live gespielt: Jeder Zug erscheint sofort auf dem anderen Bildschirm.", "connecting": "Verbindung mit Ihrem Freund…", "connected": "Ihr Freund ist verbunden. Sie spielen Schwarz.", "friendTurn": "Ihr Freund ist am Zug…", "yourTurn": "Ihr Freund hat gezogen. Sie sind am Zug.", "lost": "Die Verbindung zu Ihrem Freund ist abgebrochen. Öffnet er seinen Link erneut, geht die Partie weiter. Sie können ihm auch diesen Link senden und Zug um Zug weiterspielen.", "failed": "Aus diesem Netz ist keine Live-Verbindung möglich. Sie können nach jedem Zug einen Link senden.", "start": "Sie spielen Schwarz. Senden Sie den Link an Ihren Freund: Sobald er ihn öffnet, spielen Sie live.", "left": "Ihr Freund ist verbunden. Sie spielen Weiß; Schwarz beginnt.", "secure": "Ende-zu-Ende-verschlüsselt: Nur Sie und Ihr Freund können die Züge lesen, und keiner sieht die Adresse des anderen.", "resumed": "Live-Partie wiederhergestellt."}, "fr": {"opt": "Un ami, en direct", "invite": "Envoyez ce lien à votre ami. Dès qu’il l’ouvre, la partie se joue ici, en direct : chaque coup arrive aussitôt sur l’autre écran.", "connecting": "Connexion avec votre ami…", "connected": "Votre ami est connecté. Vous avez Noir.", "friendTurn": "Au tour de votre ami…", "yourTurn": "Votre ami a joué. À vous.", "lost": "La connexion avec votre ami a été perdue. S’il rouvre son lien, la partie continue. Vous pouvez aussi lui envoyer ce lien pour continuer coup par coup.", "failed": "Impossible de se connecter en direct depuis ce réseau. Vous pouvez continuer en envoyant un lien après chaque coup.", "start": "Vous avez Noir. Envoyez le lien à votre ami : dès qu’il l’ouvre, vous jouez en direct.", "left": "Votre ami est connecté. Vous avez Blanc ; Noir commence.", "secure": "Chiffré de bout en bout : seuls vous et votre ami pouvez lire les coups, et aucun ne voit l’adresse de l’autre.", "resumed": "Partie en direct récupérée."}, "pt": {"opt": "Um amigo, ao vivo", "invite": "Envie este link ao seu amigo. Quando ele o abrir, a partida joga-se aqui mesmo, ao vivo: cada jogada chega logo ao outro ecrã.", "connecting": "A ligar ao seu amigo…", "connected": "O seu amigo está ligado. Você joga com as Pretas.", "friendTurn": "Vez do seu amigo…", "yourTurn": "O seu amigo já jogou. É a sua vez.", "lost": "A ligação com o seu amigo caiu. Se ele abrir o link de novo, a partida continua. Também pode enviar-lhe este link para continuar por turnos.", "failed": "Desta rede não é possível ligar ao vivo. Pode continuar enviando um link a cada jogada.", "start": "Você joga com as Pretas. Envie o link ao seu amigo: quando ele o abrir, jogam ao vivo.", "left": "O seu amigo está ligado. Você joga com as Brancas; começam as Pretas.", "secure": "Cifrado de ponta a ponta: só você e o seu amigo podem ler as jogadas, e nenhum vê o endereço do outro.", "resumed": "Partida ao vivo recuperada."}, "it": {"opt": "Un amico, dal vivo", "invite": "Invii questo link al suo amico. Quando lo apre, la partita si gioca qui, dal vivo: ogni mossa arriva subito sull’altro schermo.", "connecting": "Connessione con il suo amico…", "connected": "Il suo amico è connesso. Lei gioca con il Nero.", "friendTurn": "Tocca al suo amico…", "yourTurn": "Il suo amico ha giocato. Tocca a lei.", "lost": "La connessione con il suo amico si è interrotta. Se riapre il suo link, la partita continua. Può anche inviargli questo link per continuare a turni.", "failed": "Da questa rete non è possibile collegarsi dal vivo. Può continuare inviando un link a ogni mossa.", "start": "Lei gioca con il Nero. Invii il link al suo amico: quando lo apre, giocate dal vivo.", "left": "Il suo amico è connesso. Lei gioca con il Bianco; comincia il Nero.", "secure": "Cifrato da un capo all’altro: solo lei e il suo amico potete leggere le mosse, e nessuno vede l’indirizzo dell’altro.", "resumed": "Partita dal vivo recuperata."}}, V = TX[LANG] || TX.en, $ = id => document.getElementById(id), API = window.SOKAI_API; if (!API || !API.amigoSync) return;
+  const LIB = ['https://cdn.jsdelivr.net/npm/mqtt@5/dist/mqtt.min.js', 'https://unpkg.com/mqtt@5/dist/mqtt.min.js'];
+  const BROKERS = ['wss://broker.emqx.io:8084/mqtt', 'wss://broker.hivemq.com:8884/mqtt', 'wss://test.mosquitto.org:8081'];
+  const SALA = 'sokai-vivo-sala';
+  const opt = $('rival-sel').querySelector('option[value="amigo"]'); if (opt) opt.textContent = V.opt;
+  let cli = null, room = null, K = null, role = '', live = false, last = '', invite = '', friend = false, seq = 0;
+  const enc = new TextEncoder(), dec = new TextDecoder();
+  const b64 = u => btoa(String.fromCharCode(...u)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const unb64 = s => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - s.length % 4) % 4)), c => c.charCodeAt(0));
+  const rnd = n => b64(crypto.getRandomValues(new Uint8Array(n)));
+  async function seal(o){ const iv = crypto.getRandomValues(new Uint8Array(12)), ct = new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM', iv}, K, enc.encode(JSON.stringify(o)))), out = new Uint8Array(12 + ct.length); out.set(iv); out.set(ct, 12); return b64(out); }
+  async function unseal(s){ const u = unb64(s); return JSON.parse(dec.decode(await crypto.subtle.decrypt({name:'AES-GCM', iv:u.slice(0, 12)}, K, u.slice(12)))); }
+  const code = url => (url.split('#j=2.')[1] || url.split('#g=2.')[1] || '');
+  const now = () => { const R = window.SOKAI_REC && SOKAI_REC.current(); return R ? code(SOKAI_REC.toLink(R)) : code(last); };
+  const topic = () => 'sokai/v1/' + room.id, mine = () => role === 'host' ? 'b' : 'w';
+  const panel = () => $('amigo'), say = t => { const st = $('status'); if (st) st.textContent = t; };
+  const load = () => window.mqtt ? Promise.resolve() : LIB.reduce((pr, src) => pr.catch(() => new Promise((ok, ko) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = () => { s.remove(); ko(); }; document.head.appendChild(s); })), Promise.reject());
+  function showLink(url, t, undo){ const p = panel(); if (!p) return; $('amigo-url').value = url; p.querySelector('.amigo-t').textContent = t + ' ' + V.secure; $('amigo-undo').hidden = !undo; p.hidden = false;
+    $('amigo-copy').hidden = !navigator.share;
+    $('amigo-send').onclick = () => { if (navigator.share) navigator.share({title:'Sokai 滄海', text:window.SOKAI_AMIGO.t.share, url}).catch(() => {}); else if (navigator.clipboard) navigator.clipboard.writeText(url); };
+    setTimeout(() => p.scrollIntoView({block:'center', behavior:'smooth'}), 50); }
+  function fail(){ const keep = last; close(); say(V.failed); if (keep) window.SOKAI_AMIGO.ready(keep, API.play.over); else if (panel()) panel().hidden = true; }
+  const remember = () => { try { localStorage.setItem(SALA, JSON.stringify({id:room.id, k:room.k, role, t:Date.now()})); } catch(e) {} };
+  const forget = () => { try { localStorage.removeItem(SALA); } catch(e) {} };
+  async function pub(o, retain){ if (!cli || !live) return; try { cli.publish(topic(), await seal(o), {qos:1, retain:!!retain}); } catch(e) {} }
+  /* connects to the first relay that answers */
+  function connect(){
+    return BROKERS.reduce((pr, url) => pr.catch(() => new Promise((ok, ko) => {
+      const c = window.mqtt.connect(url, {clientId:'sokai_' + rnd(6), clean:true, connectTimeout:7000, reconnectPeriod:3000});
+      const t = setTimeout(() => { c.end(true); ko(); }, 8000);
+      c.once('connect', () => { clearTimeout(t); ok(c); });
+      c.once('error', () => { clearTimeout(t); c.end(true); ko(); });
+    })), Promise.reject());
+  }
+  async function start(r, as){
+    room = r; role = as; K = await crypto.subtle.importKey('raw', unb64(r.k), 'AES-GCM', false, ['encrypt', 'decrypt']); remember();
+    try { await load(); cli = await connect(); } catch(e){ return fail(); }
+    if (!room || room.id !== r.id) return;
+    live = true;
+    cli.on('message', async (tp, payload) => {
+      if (tp !== topic()) return;
+      let d; try { d = await unseal(payload.toString()); } catch(e){ return; }          /* not ours, or not readable: ignored */
+      if (!d || (d.t !== 'state' && d.from === mine())) return;      /* a position is always welcome, even our own: after reopening, it is the latest one */
+      if (d.t === 'hello' && role === 'host'){ friend = true; if (!API.play.rec || !API.play.rec.length) say(V.connected); if (panel()) panel().hidden = true; pub({t:'state', from:'b', r:now()}, true); }
+      if (d.t === 'state' && d.r){ friend = true; if (panel() && role === 'guest') panel().hidden = true; try { API.amigoSync(d.r); } catch(e) {}
+        if (role === 'guest' && !API.play.rec.length) say(V.left); }
+    });
+    cli.on('reconnect', () => {}); cli.on('offline', () => {});
+    cli.subscribe(topic(), {qos:1}, () => {
+      if (role === 'host') pub({t:'state', from:'b', r:now()}, true);
+      else pub({t:'hello', from:'w'}, false);
+    });
+  }
+  function close(){ role = ''; live = false; friend = false; try { cli && cli.end(true); } catch(e) {} cli = null; room = null; K = null; }
+  window.SOKAI_VIVO = {t:V,
+    on: () => !!role,
+    send(url){ last = url; pub({t:'state', from:mine(), r:code(url)}, true); if (API.play.over) forget(); },
+    close(){ close(); last = ''; forget(); },
+    host(){
+      this.close(); API.amigoLive(2); $('hint').textContent = V.start;
+      const r = {id:rnd(9), k:rnd(16)};
+      invite = location.origin + location.pathname + (LANG !== 'en' ? '?lang=' + LANG : '') + '#v=' + r.id + '.' + r.k;
+      showLink(invite, V.invite, false); start(r, 'host');
+    },
+    join(id, k){ this.close(); say(V.connecting); API.amigoLive(3); start({id, k}, 'guest'); setTimeout(() => { if (role === 'guest' && !friend && !live) fail(); }, 25000); }
+  };
+  /* an invitation arrives: Play, as White */
+  function openV(){
+    const m = /^#v=([\w-]+)\.([\w-]+)$/.exec(location.hash); if (!m) return;
+    history.replaceState(null, '', '#jugar'); dispatchEvent(new HashChangeEvent('hashchange'));
+    $('rival-sel').value = 'amigo'; SOKAI_VIVO.join(m[1], m[2]);
+  }
+  addEventListener('hashchange', openV); openV();
+  /* the page was closed in the middle of a live game: on coming back to Play, the game is taken up again from the relay */
+  try {
+    const s = JSON.parse(localStorage.getItem(SALA) || 'null');
+    if (s && !/^#v=/.test(location.hash) && Date.now() - s.t < 3 * 864e5){
+      const back = () => { if (window.sokaiVista && sokaiVista() !== '#play' && sokaiVista() !== '#jugar') return; removeEventListener('hashchange', back);
+        $('rival-sel').value = 'amigo'; API.amigoLive(s.role === 'host' ? 2 : 3); say(V.resumed); start({id:s.id, k:s.k}, s.role);
+        if (s.role === 'host'){ invite = location.origin + location.pathname + (LANG !== 'en' ? '?lang=' + LANG : '') + '#v=' + s.id + '.' + s.k; } };
+      addEventListener('hashchange', back); setTimeout(back, 600);
+    }
+  } catch(e) {}
+})();
+</script>
+<script>
+/* Rules: two doors (I already play Go / I have never played); Learn and Exercises: where the progress lives */
+(() => {
+  const TX = {"en": ["I already play Go", "See only what changes: the sea, the 361 shapes and how a game ends.", "I have never played", "Start with five short lessons on the board. You learn by playing.", "Your progress is saved in this browser. If you change device or clear the browser’s data, it starts again."], "es": ["Ya juego al Go", "Mira solo lo que cambia: el mar, las 361 formas y cómo termina la partida.", "Nunca he jugado", "Empieza por cinco lecciones cortas en el tablero. Se aprende jugando.", "Tu progreso se guarda en este navegador. Si cambias de dispositivo o borras los datos del navegador, empieza de nuevo."], "zh": ["我会下围棋", "只看有什么不同：海、361 种形状，以及终局方式。", "我从没下过", "从五节在棋盘上的短课开始，边下边学。", "你的进度保存在这个浏览器里。换设备或清除浏览器数据后，会从头开始。"], "zh-hant": ["我會下圍棋", "只看有什麼不同：海、361 種形狀，以及終局方式。", "我從沒下過", "從五節在棋盤上的短課開始，邊下邊學。", "你的進度保存在這個瀏覽器裡。換裝置或清除瀏覽器資料後，會從頭開始。"], "ja": ["囲碁を打てる", "違うところだけ見る：海、361 の形、対局の終わり方。", "打ったことがない", "盤上の五つの短いレッスンから。打ちながら覚えます。", "進み具合はこのブラウザに保存されます。端末を変えたりブラウザのデータを消したりすると、最初からになります。"], "ko": ["바둑을 둘 줄 안다", "달라진 점만 보세요: 바다, 361가지 모양, 대국이 끝나는 방식.", "한 번도 둔 적이 없다", "바둑판 위의 짧은 강의 다섯 개로 시작하세요. 두면서 배웁니다.", "진행 상황은 이 브라우저에 저장됩니다. 기기를 바꾸거나 브라우저 데이터를 지우면 처음부터 다시 시작합니다."], "th": ["ฉันเล่นโกะเป็นแล้ว", "ดูเฉพาะสิ่งที่ต่างไป: ทะเล 361 รูปทรง และวิธีจบเกม", "ฉันไม่เคยเล่น", "เริ่มจากบทเรียนสั้นห้าบทบนกระดาน เรียนรู้ด้วยการเล่น", "ความคืบหน้าของคุณบันทึกไว้ในเบราว์เซอร์นี้ ถ้าเปลี่ยนอุปกรณ์หรือล้างข้อมูลเบราว์เซอร์ จะเริ่มใหม่"], "ru": ["Я уже играю в го", "Смотрите только то, что меняется: море, 361 форма и конец партии.", "Я никогда не играл", "Начните с пяти коротких уроков на доске. Учатся, играя.", "Ваш прогресс хранится в этом браузере. Если смените устройство или очистите данные браузера, всё начнётся заново."], "de": ["Ich spiele schon Go", "Sehen Sie nur, was sich ändert: das Meer, die 361 Formen und das Ende der Partie.", "Ich habe nie gespielt", "Beginnen Sie mit fünf kurzen Lektionen am Brett. Man lernt beim Spielen.", "Ihr Fortschritt wird in diesem Browser gespeichert. Wenn Sie das Gerät wechseln oder die Browserdaten löschen, beginnt er von vorn."], "fr": ["Je joue déjà au go", "Voyez seulement ce qui change : la mer, les 361 formes et la fin de partie.", "Je n’ai jamais joué", "Commencez par cinq courtes leçons sur le plateau. On apprend en jouant.", "Votre progression est enregistrée dans ce navigateur. Si vous changez d’appareil ou effacez les données du navigateur, elle repart de zéro."], "pt": ["Já jogo Go", "Veja só o que muda: o mar, as 361 formas e como a partida termina.", "Nunca joguei", "Comece por cinco lições curtas no tabuleiro. Aprende-se jogando.", "O seu progresso fica guardado neste navegador. Se mudar de dispositivo ou apagar os dados do navegador, recomeça do zero."], "it": ["Gioco già a Go", "Veda solo ciò che cambia: il mare, le 361 forme e come finisce la partita.", "Non ho mai giocato", "Cominci da cinque brevi lezioni sul goban. Si impara giocando.", "I suoi progressi sono salvati in questo browser. Se cambia dispositivo o cancella i dati del browser, si ricomincia da capo."]}, X = TX[LANG] || TX.en, $ = id => document.getElementById(id), esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const d = $('entradas'); if (d) d.innerHTML = `<a class="entrada" href="#go-and-sokai"><b>${esc(X[0])}</b><span>${esc(X[1])}</span></a><a class="entrada" href="#lessons"><b>${esc(X[2])}</b><span>${esc(X[3])}</span></a>`;
+  document.querySelectorAll('.progreso-aviso').forEach(p => p.textContent = X[4]);
 })();
 </script>
 </body>
