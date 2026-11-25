@@ -38,6 +38,9 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
 <meta content="yes" name="mobile-web-app-capable">
 <meta content="yes" name="apple-mobile-web-app-capable">
 <meta content="Sokai" name="apple-mobile-web-app-title">
+<link rel="manifest" href="manifest.webmanifest">
+<meta content="yes" name="mobile-web-app-capable">
+<link rel="apple-touch-icon" href="icono-192.png">
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e4cfa8'/%3E%3Ccircle cx='23' cy='25' r='11' fill='%23141414'/%3E%3Ccircle cx='42' cy='42' r='7' fill='%2322599b'/%3E%3C/svg%3E" rel="icon">
 <script>
 /* Board themes. The wooden ones are painted right here (straight grain, from c0 to c1) and stored in --wood; the plain ones only carry a color.
@@ -985,6 +988,19 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
   .lesson .pz-board{width:100%;height:auto;max-width:none}
   .lesson-txt h3{font-size:30px}
   .course-nav{display:none}
+  /* menus of the top bar (language, background): inside the screen */
+  .nmenu-pop{position:fixed;top:66px;right:12px;left:auto;max-height:calc(100dvh - 170px);overflow:auto;z-index:120}
+  .lang-pop{display:grid;grid-template-columns:1fr 1fr;min-width:0;width:min(300px,calc(100vw - 24px))}
+  .lang-pop[hidden]{display:none}
+  .lang-pop button{padding:13px 10px}
+  /* the full-screen invitation, the first thing on the phone */
+  .m-fs{position:fixed;inset:0;z-index:200;background:var(--paper);display:flex;align-items:center;justify-content:center;padding:28px 24px calc(28px + env(safe-area-inset-bottom))}
+  .m-fs-in{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;max-width:420px;min-height:100%;justify-content:center}
+  .m-fs-ic{width:92px;height:92px;border-radius:50%;background:#f2efe8 var(--fsic) center/42px no-repeat;margin-bottom:34px;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+  .m-fs h2{font-size:32px;font-weight:400;line-height:1.15;margin:0 0 16px}
+  .m-fs p{font-size:18px;color:var(--ink-2);margin:0 0 40px}
+  .m-fs-go{width:100%;justify-content:center;text-align:center;padding:18px 10px;font-size:16px}
+  .m-fs-no{margin-top:22px}
   /* welcome: full screen, dots on top, big button below */
   .tut{max-width:none;width:100vw;height:100dvh;max-height:none;margin:0;border:0}
   .tut-in{min-height:100dvh;display:flex;flex-direction:column;position:relative;padding:58px 20px calc(20px + env(safe-area-inset-bottom))}
@@ -1013,6 +1029,7 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
 .app-act a[href="#rules"]{--ic0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M6 3.5h9l3.5 3.5v13.5H6zM15 3.5V7h3.5M9 11h6.5M9 14.5h6.5M9 18h4'/%3E%3C/svg%3E")}
 .nav #menu > li > a[href="#letter"]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M3 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M3 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M12 4.5l2 4h-4z'/%3E%3C/svg%3E")}
 .app-act a[href="#letter"]{--ic0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M3 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M3 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M12 4.5l2 4h-4z'/%3E%3C/svg%3E")}
+.m-fs-ic{--fsic:url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27%23141414%27%20stroke-width=%271.8%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3E%3Cpath%20d=%27M4%209V4h5M20%209V4h-5M4%2015v5h5M20%2015v5h-5%27/%3E%3C/svg%3E")}
 </style>
 </head>
 <body>
@@ -4848,10 +4865,15 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
 })();
 </script>
 <script>
-/* Phone: lessons one step at a time (the text, then each problem), and the welcome the first time */
+/* Phone: first, an invitation to the browser's full screen (browsers only allow it after a tap);
+   then, the first time, the welcome; and the lessons one step at a time (the text, then each problem). */
 (() => {
-  const mq = matchMedia('(max-width:700px)'), $ = id => document.getElementById(id);
+  const mq = matchMedia('(max-width:700px)'), $ = id => document.getElementById(id), d = document.documentElement;
+  const ls = (k, v) => { try { return v === undefined ? localStorage.getItem(k) : localStorage.setItem(k, v); } catch(e) { return null; } };
+  const ss = (k, v) => { try { return v === undefined ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch(e) { return null; } };
   const label = id => (($(id) || {}).textContent || '').trim();
+
+  /* --- lessons step by step --- */
   const body = $('course-body');
   function steps(){
     const art = body && body.querySelector('article.lesson:not(.quiz)');
@@ -4879,12 +4901,50 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
     go(0);
   }
   if (body){ new MutationObserver(steps).observe(body, {childList:true}); steps(); }
-  /* the welcome: the first time on a phone, on the cover */
-  let seen = null; try { seen = localStorage.getItem('sokai-bienvenida'); } catch(e) {}
-  const tut = $('m-tut');
-  if (mq.matches && !seen && tut && (!location.hash || location.hash === '#')){
-    setTimeout(() => { tut.click(); try { localStorage.setItem('sokai-bienvenida', '1'); } catch(e) {} }, 900);
-  }
+
+  if (!mq.matches) return;
+
+  /* --- the welcome: the first time, on the cover --- */
+  const welcome = () => {
+    const tut = $('m-tut');
+    if (ls('sokai-bienvenida') || !tut || (location.hash && location.hash !== '#')) return;
+    setTimeout(() => { tut.click(); ls('sokai-bienvenida', '1'); }, 500);
+  };
+
+  /* --- full screen: the first thing on the phone --- */
+  const TX = {
+    en:['Better in full screen','Sokai is played on a large board: without the browser bars it looks and plays better.','Full screen','Not now','On iPhone: tap Share and then “Add to Home Screen”. Sokai will open like an app, in full screen.','Got it'],
+    es:['Mejor en pantalla completa','Sokai se juega en un tablero grande: sin las barras del navegador se ve y se juega mejor.','Pantalla completa','Ahora no','En iPhone: toca Compartir y luego «Agregar a inicio». Sokai se abrirá como una app, en pantalla completa.','Entendido'],
+    zh:['全屏体验更佳','Sokai 在大棋盘上进行：去掉浏览器栏，看得更清楚，下得更顺手。','全屏','暂不','iPhone：点“分享”，再点“添加到主屏幕”。Sokai 会像应用一样全屏打开。','知道了'],
+    'zh-hant':['全螢幕體驗更佳','Sokai 在大棋盤上進行：去掉瀏覽器列，看得更清楚，下得更順手。','全螢幕','暫不','iPhone：點「分享」，再點「加入主畫面」。Sokai 會像 App 一樣全螢幕開啟。','知道了'],
+    ja:['全画面がおすすめです','Sokai は大きな盤で打ちます。ブラウザのバーを隠すと、見やすく打ちやすくなります。','全画面にする','今はしない','iPhone では「共有」から「ホーム画面に追加」を選んでください。Sokai がアプリのように全画面で開きます。','わかりました'],
+    ko:['전체 화면을 권장합니다','Sokai는 큰 판에서 둡니다. 브라우저 막대를 숨기면 더 잘 보이고 두기 편합니다.','전체 화면','나중에','iPhone에서는 공유를 누른 뒤 ‘홈 화면에 추가’를 누르세요. Sokai가 앱처럼 전체 화면으로 열립니다.','확인'],
+    th:['แนะนำให้ใช้เต็มจอ','Sokai เล่นบนกระดานใหญ่ ซ่อนแถบเบราว์เซอร์แล้วจะดูชัดและเล่นสะดวกขึ้น','เต็มจอ','ไว้ทีหลัง','บน iPhone: แตะแชร์ แล้วแตะ “เพิ่มไปยังหน้าจอโฮม” Sokai จะเปิดแบบแอปเต็มจอ','เข้าใจแล้ว'],
+    ru:['Лучше во весь экран','В Sokai играют на большой доске: без панелей браузера её лучше видно и удобнее играть.','Во весь экран','Не сейчас','На iPhone: нажмите «Поделиться», затем «На экран „Домой“». Sokai откроется как приложение, во весь экран.','Понятно'],
+    de:['Besser im Vollbild','Sokai wird auf einem großen Brett gespielt: Ohne die Leisten des Browsers sieht es besser aus und spielt sich leichter.','Vollbild','Nicht jetzt','Auf dem iPhone: Tippen Sie auf Teilen und dann auf „Zum Home-Bildschirm“. Sokai öffnet sich dann wie eine App im Vollbild.','Verstanden'],
+    fr:['Mieux en plein écran','Sokai se joue sur un grand plateau : sans les barres du navigateur, il se voit et se joue mieux.','Plein écran','Pas maintenant','Sur iPhone : touchez Partager, puis « Sur l’écran d’accueil ». Sokai s’ouvrira comme une app, en plein écran.','Compris'],
+    pt:['Melhor em tela cheia','O Sokai joga-se num tabuleiro grande: sem as barras do navegador vê-se e joga-se melhor.','Tela cheia','Agora não','No iPhone: toque em Compartilhar e depois em «Adicionar à Tela de Início». O Sokai abrirá como um app, em tela cheia.','Entendi'],
+    it:['Meglio a schermo intero','Il Sokai si gioca su un goban grande: senza le barre del browser si vede e si gioca meglio.','Schermo intero','Non ora','Su iPhone: tocchi Condividi e poi «Aggiungi alla schermata Home». Il Sokai si aprirà come un’app, a schermo intero.','Ho capito']
+  }[LANG] || null;
+  const app = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches || navigator.standalone;
+  const can = !!(d.requestFullscreen || d.webkitRequestFullscreen), ios = !can && /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const skip = !TX || app || document.fullscreenElement || ss('sokai-fs') || (!can && (!ios || ls('sokai-ios')));
+  if (skip) return welcome();
+  const ov = document.createElement('div'); ov.className = 'm-fs'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
+  ov.innerHTML = `<div class="m-fs-in"><span class="m-fs-ic" aria-hidden="true"></span><h2></h2><p></p><button type="button" class="btn solid m-fs-go"></button><button type="button" class="linkish m-fs-no"></button></div>`;
+  ov.querySelector('h2').textContent = TX[0];
+  ov.querySelector('p').textContent = can ? TX[1] : TX[4];
+  const go = ov.querySelector('.m-fs-go'), no = ov.querySelector('.m-fs-no');
+  go.textContent = can ? TX[2] : TX[5]; no.textContent = TX[3]; no.hidden = !can;
+  const close = () => { ov.remove(); ss('sokai-fs', '1'); welcome(); };
+  go.addEventListener('click', () => {
+    if (!can){ ls('sokai-ios', '1'); return close(); }
+    const r = (d.requestFullscreen || d.webkitRequestFullscreen).call(d, {navigationUI:'hide'});
+    if (r && r.catch) r.catch(() => {});
+    close();
+  });
+  no.addEventListener('click', close);
+  document.body.appendChild(ov);
 })();
 </script>
 </body>
