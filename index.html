@@ -72,7 +72,7 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
   try { window.SOKAI_SETBOARD(id); } catch(e) {}
 })();
 </script>
-<script>try{var f=localStorage.getItem('sokai-fondo');if(f)document.documentElement.dataset.bg=f;}catch(e){}</script>
+<script>try{var f=localStorage.getItem('sokai-fondo');if(!f&&matchMedia('(max-width:700px)').matches)f='yoru';if(f)document.documentElement.dataset.bg=f;}catch(e){}</script>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&amp;family=Shippori+Mincho:wght@400;600&amp;family=Noto+Serif+KR:wght@400;600&amp;family=Noto+Serif+TC:wght@400;600&amp;display=swap" rel="stylesheet">
@@ -945,6 +945,75 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
   .reveal.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} }
 </style>
+<style id="sokai-movil">
+/* ===== Phone: app layout (dark by default, tab bar with icons, app-style cover, lessons step by step, welcome) ===== */
+.app-acts,.m-steps-dots,.m-steps-btns{display:none}
+@media (max-width:700px){
+  html[data-bg="yoru"]{--paper:#141414;--paper-2:#1c1c1c;--nav-bg:rgba(20,20,20,.97)}
+  .btn{border-radius:999px}
+  html[data-bg="yoru"] .btn.solid{background:#f2efe8;color:#141414;border-color:#f2efe8}
+  /* tab bar */
+  .nav ul{inset:auto 10px calc(8px + env(safe-area-inset-bottom)) 10px;border:1px solid var(--hair);border-radius:28px;padding:6px;background:var(--paper-2);box-shadow:0 6px 24px rgba(0,0,0,.25)}
+  .nav #menu > li{display:block}
+  .nav #menu > li > a{height:58px;border-radius:22px;font-size:10.5px;letter-spacing:.02em;text-transform:none;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;color:var(--ink-2);line-height:1.1;text-align:center}
+  .nav #menu > li > a::before{content:"";width:24px;height:24px;background:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
+  .nav #menu > li > a[aria-current="page"]{box-shadow:none;background:var(--hair);color:var(--ink)}
+  .nav #menu > li:has(a[href="#play"]){order:1} .nav #menu > li:has(a[href="#lessons"]){order:2} .nav #menu > li:has(a[href="#exercises"]){order:3}
+  .nav #menu > li.has-sub:has(a[href="#rules"]){order:4} .nav #menu > li.has-sub:has(a[href="#letter"]){order:5}
+  body{padding-bottom:calc(86px + env(safe-area-inset-bottom))}
+  /* cover like an app */
+  .hero{padding-top:92px}
+  .hero .label{display:none}
+  .hero h1{font-size:46px;margin:0 0 8px}
+  .hero .pitch{margin-top:14px;font-size:20px}
+  .hero .actions,.hero .motto{display:none}
+  .app-acts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:28px}
+  .app-act{display:block}
+  .app-act a{display:flex;flex-direction:column;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font-size:13.5px;line-height:1.2;text-align:center}
+  .app-act a::before{content:"";width:64px;height:64px;border-radius:50%;background:#f2efe8 var(--ic0) center/30px no-repeat;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  html:not([data-bg="yoru"]) .app-act a::before{background-color:#fffaf0}
+  /* lessons step by step */
+  .lesson{display:block}
+  .m-off{display:none!important}
+  .m-steps-dots{display:flex;justify-content:center;gap:10px;margin:0 0 22px}
+  .m-steps-dots i{width:9px;height:9px;border-radius:50%;background:var(--hair)} .m-steps-dots i.on{background:var(--ink)}
+  .m-steps-btns{display:flex;gap:10px;position:sticky;bottom:calc(92px + env(safe-area-inset-bottom));margin-top:22px;z-index:5}
+  .m-steps-btns .btn{flex:1;justify-content:center;text-align:center;padding:16px 10px;font-size:15px;letter-spacing:.06em}
+  .m-steps-btns .m-back{flex:0 0 auto;padding-left:20px;padding-right:20px}
+  .lesson .lesson-next{width:100%;justify-content:center;text-align:center;padding:16px 10px}
+  .lesson .pz{border:0;padding:0}
+  .lesson .pz-board{width:100%;height:auto;max-width:none}
+  .lesson-txt h3{font-size:30px}
+  .course-nav{display:none}
+  /* welcome: full screen, dots on top, big button below */
+  .tut{max-width:none;width:100vw;height:100dvh;max-height:none;margin:0;border:0}
+  .tut-in{min-height:100dvh;display:flex;flex-direction:column;position:relative;padding:58px 20px calc(20px + env(safe-area-inset-bottom))}
+  .tut-top{position:absolute;top:14px;right:18px;left:18px}
+  .tut-top .label{display:none}
+  .tut h3{font-size:28px;text-align:center;margin-top:0}
+  .tut-x{font-size:16px;margin-bottom:10px}
+  .tut-x{text-align:center}
+  .tut .pz-board{height:min(40vh,330px);width:auto;max-width:100%;margin:0 auto}
+  .tut-f{margin-top:auto;padding-top:14px}
+  .tut .pz-actions{flex-direction:row;gap:10px;margin-top:10px} .tut .pz-actions .linkish,.tut .pz-actions button{flex:1;width:auto;min-height:42px;font-size:12.5px}
+  .tut .pz-prompt{text-align:center}
+  .tut-top .linkish:focus{outline:none}
+  .tut-d{position:fixed;top:24px;left:50%;transform:translateX(-50%);gap:10px}
+  .tut-d i{width:9px;height:9px;border:0;background:var(--hair)} .tut-d i.on{background:var(--ink)}
+  .tut-f .btn{flex:1 0 100%;order:3;margin:0;justify-content:center;text-align:center;padding:17px 10px;font-size:16px}
+  .tut-end{flex-direction:column} .tut-end .btn{justify-content:center;text-align:center;padding:16px 10px}
+}
+.nav #menu > li > a[href="#play"]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M4 4h16v16H4zM4 9.33h16M4 14.66h16M9.33 4v16M14.66 4v16'/%3E%3C/svg%3E")}
+.app-act a[href="#play"]{--ic0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M4 4h16v16H4zM4 9.33h16M4 14.66h16M9.33 4v16M14.66 4v16'/%3E%3C/svg%3E")}
+.nav #menu > li > a[href="#lessons"]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 6.5C9.8 5 7 4.6 3.5 5v13c3.5-.4 6.3 0 8.5 1.5 2.2-1.5 5-1.9 8.5-1.5V5C17 4.6 14.2 5 12 6.5zM12 6.5v13'/%3E%3C/svg%3E")}
+.app-act a[href="#lessons"]{--ic0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 6.5C9.8 5 7 4.6 3.5 5v13c3.5-.4 6.3 0 8.5 1.5 2.2-1.5 5-1.9 8.5-1.5V5C17 4.6 14.2 5 12 6.5zM12 6.5v13'/%3E%3C/svg%3E")}
+.nav #menu > li > a[href="#exercises"]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Ccircle cx='8' cy='8' r='3.2'/%3E%3Ccircle cx='16' cy='8' r='3.2'/%3E%3Ccircle cx='8' cy='16' r='3.2'/%3E%3Ccircle cx='16' cy='16' r='3.2'/%3E%3C/svg%3E")}
+.app-act a[href="#exercises"]{--ic0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Ccircle cx='8' cy='8' r='3.2'/%3E%3Ccircle cx='16' cy='8' r='3.2'/%3E%3Ccircle cx='8' cy='16' r='3.2'/%3E%3Ccircle cx='16' cy='16' r='3.2'/%3E%3C/svg%3E")}
+.nav #menu > li > a[href="#rules"]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M6 3.5h9l3.5 3.5v13.5H6zM15 3.5V7h3.5M9 11h6.5M9 14.5h6.5M9 18h4'/%3E%3C/svg%3E")}
+.app-act a[href="#rules"]{--ic0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M6 3.5h9l3.5 3.5v13.5H6zM15 3.5V7h3.5M9 11h6.5M9 14.5h6.5M9 18h4'/%3E%3C/svg%3E")}
+.nav #menu > li > a[href="#letter"]{--ic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M3 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M3 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M12 4.5l2 4h-4z'/%3E%3C/svg%3E")}
+.app-act a[href="#letter"]{--ic0:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M3 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M3 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M12 4.5l2 4h-4z'/%3E%3C/svg%3E")}
+</style>
 </head>
 <body>
 <svg aria-hidden="true" width="0" height="0" style="position:absolute"><defs><radialGradient id="st-b" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#58585c"/><stop offset=".4" stop-color="#2c2c2e"/><stop offset="1" stop-color="#0d0d0e"/></radialGradient><radialGradient id="st-w" cx="40%" cy="34%" r="72%"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f7f6f2"/><stop offset="1" stop-color="#d6d3ca"/></radialGradient></defs></svg>
@@ -1011,6 +1080,7 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
 <h1>Sokai</h1>
 <div class="readings"><span lang="zh-Hant">滄海</span><small><span lang="ko">창해</span> · <span lang="ja">そうかい</span></small></div>
 <p class="pitch" data-t="23">Go, with a sea that changes.</p>
+<nav class="app-acts" aria-label="Sections"><div class="app-act" data-t="5"><a data-view="jugar" href="#play">Play</a></div><div class="app-act" data-t="3"><a data-view="aprender" href="#lessons">Learn</a></div><div class="app-act" data-t="4"><a data-view="problemas" href="#exercises">Exercises</a></div><div class="app-act" data-t="0"><a href="#rules">The rules</a></div></nav><button data-tut hidden id="m-tut" type="button"></button>
 <div class="actions">
 <a class="btn solid" href="#play">Play now</a> <a class="btn" href="#lessons" data-t="144">Learn</a>
 <a class="btn" href="#rules">See the rules</a>
@@ -4775,6 +4845,46 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
   $('cfg-crossCol').addEventListener('input', e => { C.crossCol = e.target.value; aplica(); });
   $('cfg-crossW').addEventListener('input', e => { C.crossW = +e.target.value; aplica(); });
   marca();
+})();
+</script>
+<script>
+/* Phone: lessons one step at a time (the text, then each problem), and the welcome the first time */
+(() => {
+  const mq = matchMedia('(max-width:700px)'), $ = id => document.getElementById(id);
+  const label = id => (($(id) || {}).textContent || '').trim();
+  const body = $('course-body');
+  function steps(){
+    const art = body && body.querySelector('article.lesson:not(.quiz)');
+    if (!art || art.dataset.steps) return;
+    art.dataset.steps = '1';
+    const pages = [art.querySelector('.lesson-txt'), ...art.querySelectorAll('.lesson-pz > .pz')], fin = art.querySelector('.lesson-next');
+    const dots = document.createElement('div'); dots.className = 'm-steps-dots'; dots.setAttribute('aria-hidden', 'true');
+    const btns = document.createElement('div'); btns.className = 'm-steps-btns';
+    btns.innerHTML = '<button type="button" class="btn m-back"></button><button type="button" class="btn solid m-next"></button>';
+    const back = btns.firstChild, next = btns.lastChild;
+    back.textContent = label('tut-back'); next.textContent = label('tut-next');
+    art.prepend(dots); art.append(btns);
+    let i = 0;
+    function go(n, scroll){
+      i = Math.max(0, Math.min(pages.length - 1, n));
+      pages.forEach((p, k) => p.classList.toggle('m-off', k !== i));
+      if (fin) fin.classList.toggle('m-off', i !== pages.length - 1);
+      next.classList.toggle('m-off', i === pages.length - 1);
+      back.classList.toggle('m-off', i === 0);
+      dots.innerHTML = pages.map((_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('');
+      if (scroll && mq.matches) $('aprender').scrollIntoView({behavior:'smooth'});
+    }
+    next.addEventListener('click', () => go(i + 1, true));
+    back.addEventListener('click', () => go(i - 1, true));
+    go(0);
+  }
+  if (body){ new MutationObserver(steps).observe(body, {childList:true}); steps(); }
+  /* the welcome: the first time on a phone, on the cover */
+  let seen = null; try { seen = localStorage.getItem('sokai-bienvenida'); } catch(e) {}
+  const tut = $('m-tut');
+  if (mq.matches && !seen && tut && (!location.hash || location.hash === '#')){
+    setTimeout(() => { tut.click(); try { localStorage.setItem('sokai-bienvenida', '1'); } catch(e) {} }, 900);
+  }
 })();
 </script>
 </body>
