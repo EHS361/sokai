@@ -1077,73 +1077,73 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
 <script>
 /* «How Sokai’s AI learned»: the texts of the technical page, in the 12 languages (the data come with the page). */
 window.SOKAI_UNSUI = {
- en:{t:"How Sokai’s AI learned",st:'A technical log of the training, with the real data.',k:['games against itself','positions saved','networks trained','accepted · {r} discarded','variables in the network','days on a home PC'],
+ en:{t:"The AI",st:'A technical log of the training, with the real data.',k:['games against itself','positions saved','networks trained','accepted · {r} discarded','variables in the network','days on a home PC'],
   c1:['The cycle','A new network only replaces the current one if it beats it. Otherwise it is discarded.'],n:['Plays against itself','{n} games','Saves positions','Trains a new network','{n} networks','Plays the current one','{n} tests · {g} games'],
   rj:['Discarded: {n}','{n} lost their test','{n} fell behind: a newer one arrived'],ctr:['{n} accepted: each one','goes on to play and teach'],
   c2:['Each test','At first each new network won 50 to 3. At the end, 50 to 49: improving gets harder and harder. Blue: accepted. Grey: discarded.'],a2:['wins of the new network against the current one','test 1','test {n}'],
   c3:['What it learns','How often the network, without thinking, already picks the move it would choose after thinking.'],a3:['right move','million training samples'],
   c4:'Technical sheet',f:[['board','19 × 19 · 361 shapes of the sea'],['network','18 residual blocks × 384 channels (192 inside)'],['variables','{p} parameters'],['activation','mish'],['input','stones, sea and liberties'],['rules','area, komi 7.5, the sea as a move'],['hardware','RTX 4060 (8 GB) · Ryzen 5 5600G'],['stages','14–17 Nov: first rules (two restarts) · 17–25 Nov: current rules']]},
- es:{t:"Cómo aprendió la IA de Sokai",st:'Bitácora técnica del entrenamiento, con los datos reales.',k:['partidas contra sí mismo','posiciones guardadas','redes entrenadas','aceptadas · {r} descartadas','variables de la red','días en un PC de casa'],
+ es:{t:"La IA",st:'Bitácora técnica del entrenamiento, con los datos reales.',k:['partidas contra sí mismo','posiciones guardadas','redes entrenadas','aceptadas · {r} descartadas','variables de la red','días en un PC de casa'],
   c1:['El ciclo','Una red nueva solo reemplaza a la actual si le gana. Si no, se descarta.'],n:['Juega contra sí mismo','{n} partidas','Guarda posiciones','Entrena una red nueva','{n} redes','Juega contra la actual','{n} pruebas · {g} partidas'],
   rj:['Descartadas: {n}','{n} perdieron su prueba','{n} quedaron atrás: llegó una más nueva'],ctr:['{n} aceptadas: cada una','pasa a jugar y enseñar'],
   c2:['Cada prueba','Al principio cada red nueva ganaba 50 a 3. Al final, 50 a 49: mejorar cuesta cada vez más. Azul: aceptada. Gris: descartada.'],a2:['victorias de la red nueva frente a la actual','prueba 1','prueba {n}'],
   c3:['Lo que aprende','Cuántas veces la red, sin pensar, ya elige la jugada que elegiría pensando.'],a3:['acierta','millones de muestras de entrenamiento'],
   c4:'Ficha técnica',f:[['tablero','19 × 19 · 361 formas del mar'],['red','18 bloques residuales × 384 canales (192 por dentro)'],['variables','{p} parámetros'],['activación','mish'],['entrada','piedras, mar y libertades'],['reglas','área, komi 7,5, el mar como jugada'],['equipo','RTX 4060 (8 GB) · Ryzen 5 5600G'],['etapas','14–17 nov: primeras reglas (dos reinicios) · 17–25 nov: reglas actuales']]},
- zh:{t:"Sokai 的 AI 是怎样学会的",st:'训练的技术日志，全部是真实数据。',k:['自我对局','保存的局面','训练的网络','被采用 · {r} 被淘汰','网络的变量','天，一台家用电脑'],
+ zh:{t:"AI",st:'训练的技术日志，全部是真实数据。',k:['自我对局','保存的局面','训练的网络','被采用 · {r} 被淘汰','网络的变量','天，一台家用电脑'],
   c1:['循环','新网络只有赢了当前网络才会取代它，否则就被淘汰。'],n:['自我对局','{n} 局','保存局面','训练新网络','{n} 个网络','与当前网络对弈','{n} 次测试 · {g} 局'],
   rj:['淘汰：{n}','{n} 个输掉了测试','{n} 个被更新的网络超越'],ctr:['{n} 个被采用：每一个','都接着下棋、教学'],
   c2:['每一次测试','起初新网络以 50 比 3 获胜；到最后是 50 比 49：进步越来越难。蓝色：采用。灰色：淘汰。'],a2:['新网络对当前网络的胜率','测试 1','测试 {n}'],
   c3:['它学到了什么','网络不经思考，就已选中思考后会选的那一手的比例。'],a3:['命中','百万训练样本'],
   c4:'技术规格',f:[['棋盘','19 × 19 · 361 种海的形状'],['网络','18 个残差块 × 384 通道（内部 192）'],['变量','{p} 个参数'],['激活函数','mish'],['输入','棋子、海和气'],['规则','数子，贴目 7.5，海的变化也是一手'],['设备','RTX 4060（8 GB）· Ryzen 5 5600G'],['阶段','11 月 14–17 日：最初的规则（两次重启）· 11 月 17–25 日：现行规则']]},
- 'zh-hant':{t:"Sokai 的 AI 是怎樣學會的",st:'訓練的技術日誌，全部是真實數據。',k:['自我對局','保存的局面','訓練的網路','被採用 · {r} 被淘汰','網路的變數','天，一台家用電腦'],
+ 'zh-hant':{t:"AI",st:'訓練的技術日誌，全部是真實數據。',k:['自我對局','保存的局面','訓練的網路','被採用 · {r} 被淘汰','網路的變數','天，一台家用電腦'],
   c1:['循環','新網路只有贏了目前的網路才會取代它，否則就被淘汰。'],n:['自我對局','{n} 局','保存局面','訓練新網路','{n} 個網路','與目前網路對弈','{n} 次測試 · {g} 局'],
   rj:['淘汰：{n}','{n} 個輸掉了測試','{n} 個被更新的網路超越'],ctr:['{n} 個被採用：每一個','都接著下棋、教學'],
   c2:['每一次測試','起初新網路以 50 比 3 獲勝；到最後是 50 比 49：進步越來越難。藍色：採用。灰色：淘汰。'],a2:['新網路對目前網路的勝率','測試 1','測試 {n}'],
   c3:['它學到了什麼','網路不經思考，就已選中思考後會選的那一手的比例。'],a3:['命中','百萬訓練樣本'],
   c4:'技術規格',f:[['棋盤','19 × 19 · 361 種海的形狀'],['網路','18 個殘差塊 × 384 通道（內部 192）'],['變數','{p} 個參數'],['激活函數','mish'],['輸入','棋子、海和氣'],['規則','數子，貼目 7.5，海的變化也是一手'],['設備','RTX 4060（8 GB）· Ryzen 5 5600G'],['階段','11 月 14–17 日：最初的規則（兩次重啟）· 11 月 17–25 日：現行規則']]},
- ja:{t:"Sokai の AI はこうして学んだ",st:'学習の技術記録。すべて実際のデータです。',k:['自己対局','保存した局面','学習したネットワーク','採用 · {r} 不採用','ネットワークの変数','日間、家庭の PC で'],
+ ja:{t:"AI",st:'学習の技術記録。すべて実際のデータです。',k:['自己対局','保存した局面','学習したネットワーク','採用 · {r} 不採用','ネットワークの変数','日間、家庭の PC で'],
   c1:['サイクル','新しいネットワークは、今のネットワークに勝ったときだけ入れ替わります。負ければ不採用です。'],n:['自分自身と対局','{n} 局','局面を保存','新しいネットワークを学習','{n} 個','今のネットワークと対局','{n} 回のテスト · {g} 局'],
   rj:['不採用：{n}','{n} 個はテストに負けた','{n} 個はより新しいものに追い越された'],ctr:['採用 {n} 個：どれも','次の対局と学習に使われる'],
   c2:['テストの結果','最初は新しいネットワークが 50 対 3 で勝っていました。最後は 50 対 49。上達はだんだん難しくなります。青：採用。灰：不採用。'],a2:['新しいネットワークの勝率（対 今のネットワーク）','テスト 1','テスト {n}'],
   c3:['何を学んだか','考えなくても、考えた末に選ぶ手をすでに選べる割合。'],a3:['一致','百万 学習サンプル'],
   c4:'技術仕様',f:[['盤','19 × 19 · 361 の海の形'],['ネットワーク','残差ブロック 18 × 384 チャンネル（内部 192）'],['変数','{p} 個のパラメータ'],['活性化関数','mish'],['入力','石、海、ダメ'],['ルール','中国ルール（地＋石）、コミ 7.5、海の操作も一手'],['機材','RTX 4060（8 GB）· Ryzen 5 5600G'],['段階','11月14–17日：最初のルール（2回やり直し）· 11月17–25日：現在のルール']]},
- ko:{t:"Sokai의 AI는 이렇게 배웠다",st:'학습의 기술 기록, 모두 실제 데이터입니다.',k:['자기 대국','저장한 국면','학습한 네트워크','채택 · {r} 탈락','네트워크의 변수','일, 집의 PC 한 대'],
+ ko:{t:"AI",st:'학습의 기술 기록, 모두 실제 데이터입니다.',k:['자기 대국','저장한 국면','학습한 네트워크','채택 · {r} 탈락','네트워크의 변수','일, 집의 PC 한 대'],
   c1:['순환','새 네트워크는 현재 네트워크를 이겨야만 그 자리를 차지합니다. 지면 탈락합니다.'],n:['자기 자신과 대국','{n}판','국면 저장','새 네트워크 학습','{n}개','현재 네트워크와 대국','{n}번 테스트 · {g}판'],
   rj:['탈락: {n}','{n}개는 테스트에서 짐','{n}개는 더 새로운 것에 밀림'],ctr:['채택 {n}개: 하나하나가','다음 대국과 학습에 쓰임'],
   c2:['테스트마다','처음에는 새 네트워크가 50 대 3으로 이겼습니다. 마지막에는 50 대 49: 발전은 점점 어려워집니다. 파랑: 채택. 회색: 탈락.'],a2:['현재 네트워크를 상대로 한 새 네트워크의 승률','테스트 1','테스트 {n}'],
   c3:['무엇을 배우는가','생각하지 않고도, 생각한 뒤 고를 수를 이미 고르는 비율.'],a3:['적중','백만 학습 샘플'],
   c4:'기술 사양',f:[['바둑판','19 × 19 · 361가지 바다 모양'],['네트워크','잔차 블록 18개 × 384채널 (내부 192)'],['변수','{p}개의 매개변수'],['활성화 함수','mish'],['입력','돌, 바다, 활로'],['규칙','계가(집+돌), 덤 7.5, 바다 조작도 한 수'],['장비','RTX 4060 (8 GB) · Ryzen 5 5600G'],['단계','11월 14–17일: 첫 규칙(두 번 재시작) · 11월 17–25일: 현재 규칙']]},
- th:{t:"AI ของ Sokai เรียนรู้อย่างไร",st:'บันทึกทางเทคนิคของการฝึก ด้วยข้อมูลจริง',k:['เกมที่เล่นกับตัวเอง','ตำแหน่งที่บันทึก','เครือข่ายที่ฝึก','ได้รับเลือก · {r} ถูกคัดออก','ตัวแปรของเครือข่าย','วัน บนคอมพิวเตอร์ที่บ้าน'],
+ th:{t:"AI",st:'บันทึกทางเทคนิคของการฝึก ด้วยข้อมูลจริง',k:['เกมที่เล่นกับตัวเอง','ตำแหน่งที่บันทึก','เครือข่ายที่ฝึก','ได้รับเลือก · {r} ถูกคัดออก','ตัวแปรของเครือข่าย','วัน บนคอมพิวเตอร์ที่บ้าน'],
   c1:['วงจร','เครือข่ายใหม่จะแทนที่ตัวปัจจุบันก็ต่อเมื่อชนะเท่านั้น ไม่เช่นนั้นจะถูกคัดออก'],n:['เล่นกับตัวเอง','{n} เกม','บันทึกตำแหน่ง','ฝึกเครือข่ายใหม่','{n} เครือข่าย','เล่นกับตัวปัจจุบัน','{n} การทดสอบ · {g} เกม'],
   rj:['ถูกคัดออก: {n}','{n} แพ้การทดสอบ','{n} ถูกแซงโดยตัวที่ใหม่กว่า'],ctr:['ได้รับเลือก {n}: แต่ละตัว','ได้เล่นและสอนต่อ'],
   c2:['การทดสอบแต่ละครั้ง','ช่วงแรกเครือข่ายใหม่ชนะ 50 ต่อ 3 ช่วงท้าย 50 ต่อ 49: ยิ่งพัฒนายิ่งยาก สีน้ำเงิน: ได้รับเลือก สีเทา: ถูกคัดออก'],a2:['อัตราชนะของเครือข่ายใหม่เทียบกับตัวปัจจุบัน','ทดสอบ 1','ทดสอบ {n}'],
   c3:['สิ่งที่เรียนรู้','บ่อยแค่ไหนที่เครือข่ายเลือกตาเดินเดียวกับที่จะเลือกหลังคิด โดยไม่ต้องคิด'],a3:['ถูก','ล้านตัวอย่างการฝึก'],
   c4:'ข้อมูลทางเทคนิค',f:[['กระดาน','19 × 19 · 361 รูปทรงทะเล'],['เครือข่าย','18 บล็อกเรซิดวล × 384 แชนเนล (ภายใน 192)'],['ตัวแปร','{p} พารามิเตอร์'],['ฟังก์ชันกระตุ้น','mish'],['ข้อมูลเข้า','หมาก ทะเล และลมหายใจ'],['กติกา','นับพื้นที่ โคมิ 7.5 การเปลี่ยนทะเลนับเป็นตาเดิน'],['อุปกรณ์','RTX 4060 (8 GB) · Ryzen 5 5600G'],['ระยะ','14–17 พ.ย.: กติกาแรก (เริ่มใหม่สองครั้ง) · 17–25 พ.ย.: กติกาปัจจุบัน']]},
- ru:{t:"Как учился ИИ Sokai",st:'Технический журнал обучения, с реальными данными.',k:['партий против себя','сохранённых позиций','обученных сетей','принято · {r} отброшено','переменных в сети','дней на домашнем ПК'],
+ ru:{t:"ИИ",st:'Технический журнал обучения, с реальными данными.',k:['партий против себя','сохранённых позиций','обученных сетей','принято · {r} отброшено','переменных в сети','дней на домашнем ПК'],
   c1:['Цикл','Новая сеть заменяет текущую, только если обыгрывает её. Иначе она отбрасывается.'],n:['Играет сама с собой','{n} партий','Сохраняет позиции','Обучает новую сеть','{n} сетей','Играет с текущей','{n} проверок · {g} партий'],
   rj:['Отброшено: {n}','{n} проиграли проверку','{n} отстали: пришла более новая'],ctr:['Принято {n}: каждая','дальше играет и учит'],
   c2:['Каждая проверка','Сначала новая сеть выигрывала 50 : 3. В конце — 50 : 49: улучшаться всё труднее. Синие — приняты, серые — отброшены.'],a2:['победы новой сети над текущей','проверка 1','проверка {n}'],
   c3:['Чему она учится','Как часто сеть без размышления уже выбирает ход, который выбрала бы после размышления.'],a3:['попадание','млн обучающих примеров'],
   c4:'Технические данные',f:[['доска','19 × 19 · 361 форма моря'],['сеть','18 остаточных блоков × 384 канала (192 внутри)'],['переменные','{p} параметров'],['активация','mish'],['вход','камни, море и дамэ'],['правила','по площади, коми 7,5, ход морем'],['оборудование','RTX 4060 (8 ГБ) · Ryzen 5 5600G'],['этапы','14–17 нояб.: первые правила (два перезапуска) · 17–25 нояб.: текущие правила']]},
- de:{t:"Wie die KI von Sokai gelernt hat",st:'Ein technisches Logbuch des Trainings, mit den echten Daten.',k:['Partien gegen sich selbst','gespeicherte Stellungen','trainierte Netze','angenommen · {r} verworfen','Variablen im Netz','Tage auf einem Heim-PC'],
+ de:{t:"Die KI",st:'Ein technisches Logbuch des Trainings, mit den echten Daten.',k:['Partien gegen sich selbst','gespeicherte Stellungen','trainierte Netze','angenommen · {r} verworfen','Variablen im Netz','Tage auf einem Heim-PC'],
   c1:['Der Kreislauf','Ein neues Netz ersetzt das aktuelle nur, wenn es gegen dieses gewinnt. Sonst wird es verworfen.'],n:['Spielt gegen sich selbst','{n} Partien','Speichert Stellungen','Trainiert ein neues Netz','{n} Netze','Spielt gegen das aktuelle','{n} Tests · {g} Partien'],
   rj:['Verworfen: {n}','{n} verloren ihren Test','{n} blieben zurück: ein neueres kam'],ctr:['{n} angenommen: jedes','spielt und lehrt weiter'],
   c2:['Jeder Test','Anfangs gewann jedes neue Netz 50 zu 3. Am Ende 50 zu 49: Besserwerden wird immer schwerer. Blau: angenommen. Grau: verworfen.'],a2:['Siege des neuen Netzes gegen das aktuelle','Test 1','Test {n}'],
   c3:['Was es lernt','Wie oft das Netz ohne Nachdenken schon den Zug wählt, den es nach dem Nachdenken wählen würde.'],a3:['Treffer','Mio. Trainingsbeispiele'],
   c4:'Technische Daten',f:[['Brett','19 × 19 · 361 Formen des Meeres'],['Netz','18 Residualblöcke × 384 Kanäle (192 innen)'],['Variablen','{p} Parameter'],['Aktivierung','mish'],['Eingabe','Steine, Meer und Freiheiten'],['Regeln','Fläche, Komi 7,5, das Meer als Zug'],['Hardware','RTX 4060 (8 GB) · Ryzen 5 5600G'],['Phasen','14.–17. Nov.: erste Regeln (zwei Neustarts) · 17.–25. Nov.: aktuelle Regeln']]},
- fr:{t:"Comment l’IA de Sokai a appris",st:'Le journal technique de l’entraînement, avec les vraies données.',k:['parties contre lui-même','positions enregistrées','réseaux entraînés','acceptés · {r} écartés','variables du réseau','jours sur un PC de maison'],
+ fr:{t:"L’IA",st:'Le journal technique de l’entraînement, avec les vraies données.',k:['parties contre lui-même','positions enregistrées','réseaux entraînés','acceptés · {r} écartés','variables du réseau','jours sur un PC de maison'],
   c1:['Le cycle','Un nouveau réseau ne remplace l’actuel que s’il le bat. Sinon, il est écarté.'],n:['Joue contre lui-même','{n} parties','Enregistre les positions','Entraîne un nouveau réseau','{n} réseaux','Joue contre l’actuel','{n} tests · {g} parties'],
   rj:['Écartés : {n}','{n} ont perdu leur test','{n} dépassés : un plus récent est arrivé'],ctr:['{n} acceptés : chacun','continue à jouer et à enseigner'],
   c2:['Chaque test','Au début, chaque nouveau réseau gagnait 50 à 3. À la fin, 50 à 49 : progresser devient de plus en plus difficile. Bleu : accepté. Gris : écarté.'],a2:['victoires du nouveau réseau contre l’actuel','test 1','test {n}'],
   c3:['Ce qu’il apprend','La part des fois où le réseau, sans réfléchir, choisit déjà le coup qu’il choisirait après réflexion.'],a3:['juste','millions d’exemples d’entraînement'],
   c4:'Fiche technique',f:[['plateau','19 × 19 · 361 formes de la mer'],['réseau','18 blocs résiduels × 384 canaux (192 à l’intérieur)'],['variables','{p} paramètres'],['activation','mish'],['entrée','pierres, mer et libertés'],['règles','surface, komi 7,5, la mer comme coup'],['matériel','RTX 4060 (8 Go) · Ryzen 5 5600G'],['étapes','14–17 nov. : premières règles (deux redémarrages) · 17–25 nov. : règles actuelles']]},
- pt:{t:"Como a IA do Sokai aprendeu",st:'O diário técnico do treino, com os dados reais.',k:['partidas contra si mesmo','posições guardadas','redes treinadas','aceitas · {r} descartadas','variáveis da rede','dias num PC de casa'],
+ pt:{t:"A IA",st:'O diário técnico do treino, com os dados reais.',k:['partidas contra si mesmo','posições guardadas','redes treinadas','aceitas · {r} descartadas','variáveis da rede','dias num PC de casa'],
   c1:['O ciclo','Uma rede nova só substitui a atual se a vencer. Se não, é descartada.'],n:['Joga contra si mesmo','{n} partidas','Guarda posições','Treina uma rede nova','{n} redes','Joga contra a atual','{n} testes · {g} partidas'],
   rj:['Descartadas: {n}','{n} perderam o teste','{n} ficaram para trás: chegou uma mais nova'],ctr:['{n} aceitas: cada uma','passa a jogar e a ensinar'],
   c2:['Cada teste','No início cada rede nova ganhava 50 a 3. No fim, 50 a 49: melhorar custa cada vez mais. Azul: aceita. Cinza: descartada.'],a2:['vitórias da rede nova contra a atual','teste 1','teste {n}'],
   c3:['O que aprende','Quantas vezes a rede, sem pensar, já escolhe a jogada que escolheria pensando.'],a3:['acerta','milhões de amostras de treino'],
   c4:'Ficha técnica',f:[['tabuleiro','19 × 19 · 361 formas do mar'],['rede','18 blocos residuais × 384 canais (192 por dentro)'],['variáveis','{p} parâmetros'],['ativação','mish'],['entrada','pedras, mar e liberdades'],['regras','área, komi 7,5, o mar como jogada'],['equipamento','RTX 4060 (8 GB) · Ryzen 5 5600G'],['etapas','14–17 nov.: primeiras regras (dois reinícios) · 17–25 nov.: regras atuais']]},
- it:{t:"Come ha imparato l’IA di Sokai",st:'Il diario tecnico dell’allenamento, con i dati reali.',k:['partite contro sé stesso','posizioni salvate','reti allenate','accettate · {r} scartate','variabili della rete','giorni su un PC di casa'],
+ it:{t:"L’IA",st:'Il diario tecnico dell’allenamento, con i dati reali.',k:['partite contro sé stesso','posizioni salvate','reti allenate','accettate · {r} scartate','variabili della rete','giorni su un PC di casa'],
   c1:['Il ciclo','Una rete nuova sostituisce l’attuale solo se la batte. Altrimenti viene scartata.'],n:['Gioca contro sé stesso','{n} partite','Salva le posizioni','Allena una rete nuova','{n} reti','Gioca contro l’attuale','{n} prove · {g} partite'],
   rj:['Scartate: {n}','{n} hanno perso la prova','{n} rimaste indietro: ne è arrivata una più nuova'],ctr:['{n} accettate: ognuna','continua a giocare e insegnare'],
   c2:['Ogni prova','All’inizio ogni rete nuova vinceva 50 a 3. Alla fine, 50 a 49: migliorare costa sempre di più. Blu: accettata. Grigio: scartata.'],a2:['vittorie della rete nuova contro l’attuale','prova 1','prova {n}'],
@@ -1217,7 +1217,7 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 <li data-t="7"><a href="#go-and-sokai">Go and Sokai</a></li>
 <li data-t="8"><a href="#why-361">Why 361</a></li>
 <li data-t="9"><a href="#forms">The 361 shapes</a></li>
-<li><a href="#how-sokai-ai-learned">How Sokai’s AI learned</a></li>
+<li><a href="#how-sokai-ai-learned">The AI</a></li>
 </ul></li>
 </ul>
 <div class="nav-tools">
@@ -1756,7 +1756,7 @@ window.SOKAI_UNSUI_T = (window.SOKAI_UNSUI[LANG] || window.SOKAI_UNSUI.en).t;
 </section>
 
 
-<section class="alt" id="unsui"><div class="wrap" id="unsui-in"><div class="head"><span class="glyph" lang="zh-Hant">修行</span><h2>How Sokai’s AI learned</h2><p>A technical log of the training, with the real data.</p></div><div class="u-kpis"><div><b>26,652</b><span>games against itself</span></div><div><b>906,598</b><span>positions saved</span></div><div><b>119</b><span>networks trained</span></div><div><b>77</b><span>accepted · 42 discarded</span></div><div><b>28,865,482</b><span>variables in the network</span></div><div><b>10</b><span>days on a home PC</span></div></div><aside class="u-nota"><h3>Why you cannot play against it yet</h3><p>Updated on 25 November 2026. The AI is not available as a rival on the site yet: playing against it needs a lot of GPU, and the server does not have that for now. The next step is to train it on a more powerful GPU, with adjusted parameters and for many more hours, until it reaches a version that far surpasses the best one we have today. It will be switched on when enough players beat the strongest rival the site offers today.</p></aside><div class="u-g"><div class="u-card"><h3>The cycle</h3><p>A new network only replaces the current one if it beats it. Otherwise it is discarded. 119 networks were trained: 77 were accepted; of the 42 discarded, 17 lost their test and 25 fell behind because a newer one arrived.</p></div><div class="u-card"><h3>Each test</h3><p>At first each new network won 50 to 3. At the end, 50 to 49: improving gets harder and harder.</p></div><div class="u-card"><h3>What it learns</h3><p>How often the network, without thinking, already picks the move it would choose after thinking: from 26% to 46%.</p></div><div class="u-card"><h3>Technical sheet</h3><dl class="u-ft"><dt>board</dt><dd>19 × 19 · 361 shapes of the sea</dd><dt>network</dt><dd>18 residual blocks × 384 channels (192 inside)</dd><dt>variables</dt><dd>28,865,482 parameters</dd><dt>activation</dt><dd>mish</dd><dt>input</dt><dd>stones, sea and liberties</dd><dt>rules</dt><dd>area, komi 7.5, the sea as a move</dd><dt>hardware</dt><dd>RTX 4060 (8 GB) · Ryzen 5 5600G</dd><dt>built on</dt><dd>KataGo, by David J. Wu (lightvector), MIT license: <a href="https://github.com/lightvector/KataGo">github.com/lightvector/KataGo</a>. The training started from a KataGo network.</dd></dl></div></div></div></section>
+<section class="alt" id="unsui"><div class="wrap" id="unsui-in"><div class="head"><span class="glyph" lang="zh-Hant">修行</span><h2>The AI</h2><p>A technical log of the training, with the real data.</p></div><div class="u-kpis"><div><b>26,652</b><span>games against itself</span></div><div><b>906,598</b><span>positions saved</span></div><div><b>119</b><span>networks trained</span></div><div><b>77</b><span>accepted · 42 discarded</span></div><div><b>28,865,482</b><span>variables in the network</span></div><div><b>10</b><span>days on a home PC</span></div></div><aside class="u-nota"><h3>Why you cannot play against it yet</h3><p>Updated on 25 November 2026. The AI is not available as a rival on the site yet: playing against it needs a lot of GPU, and the server does not have that for now. The next step is to train it on a more powerful GPU, with adjusted parameters and for many more hours, until it reaches a version that far surpasses the best one we have today. It will be switched on when enough players beat the strongest rival the site offers today.</p></aside><div class="u-g"><div class="u-card"><h3>The cycle</h3><p>A new network only replaces the current one if it beats it. Otherwise it is discarded. 119 networks were trained: 77 were accepted; of the 42 discarded, 17 lost their test and 25 fell behind because a newer one arrived.</p></div><div class="u-card"><h3>Each test</h3><p>At first each new network won 50 to 3. At the end, 50 to 49: improving gets harder and harder.</p></div><div class="u-card"><h3>Technical sheet</h3><dl class="u-ft"><dt>board</dt><dd>19 × 19 · 361 shapes of the sea</dd><dt>network</dt><dd>18 residual blocks × 384 channels (192 inside)</dd><dt>variables</dt><dd>28,865,482 parameters</dd><dt>activation</dt><dd>mish</dd><dt>input</dt><dd>stones, sea and liberties</dd><dt>rules</dt><dd>area, komi 7.5, the sea as a move</dd><dt>hardware</dt><dd>RTX 4060 (8 GB) · Ryzen 5 5600G</dd><dt>built on</dt><dd>KataGo, by David J. Wu (lightvector), MIT license: <a href="https://github.com/lightvector/KataGo">github.com/lightvector/KataGo</a>. The training started from a KataGo network.</dd></dl></div></div></div></section>
 
 <section class="closing" aria-labelledby="cierre-t">
 <h2 class="sr-only" id="cierre-t" data-t="248">The blue sea in poetry</h2>
@@ -4550,7 +4550,7 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
     aprender:{all:[$('aprender')]},
     problemas:{all:[$('problemas')]},
     jugar:   {all:[$('jugar')]},
-    origen:  {subs:[['historia', _t`The letter`], ['clasico', _t`Go and Sokai`], ['porque361', _t`Why 361`], ['empezar', _t`The 361 shapes`], ['unsui', window.SOKAI_UNSUI_T || 'How Sokai’s AI learned']]}
+    origen:  {subs:[['historia', _t`The letter`], ['clasico', _t`Go and Sokai`], ['porque361', _t`Why 361`], ['empezar', _t`The 361 shapes`], ['unsui', window.SOKAI_UNSUI_T || 'The AI']]}
   };
   const sections = [...document.querySelectorAll('main > *')], links = [...document.querySelectorAll('#menu a')], subnav = $('subnav');
   let shown = ''; const TITLE = document.title;
@@ -4927,7 +4927,7 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
     w.classList.toggle('on', c === 3); b.classList.toggle('on', c === 2); grid.classList.toggle('playing', vivo); grid.classList.toggle('over', !!g.over);
     { const br = document.getElementById('btn-resign'), h = !(vivo && rv !== 'motor-motor'); if (br && br.hidden !== h) br.hidden = h; }      /* Resign: always at hand while a game is on */
     const o = sel.selectedOptions[0], name = rv === 'sencillo' ? _t`Rival ·` + ((document.getElementById('rival-nivel') || {}).selectedOptions || [{textContent:''}])[0].textContent.toLowerCase() : API.MOTOR.n;
-    let tw = vivo || g.over ? name : (o ? o.textContent.split(',')[0].replace(/^\S+\s/, m => /[a-zA-Z]/.test(m) ? m : '') : name); if (window.SOKAI_IA_N && rv !== 'motor-motor' && !(o && o.value === 'motor-motor')) tw = SOKAI_IA_N;
+    const tw = vivo || g.over ? name : (o ? o.textContent.split(',')[0].replace(/^\S+\s/, m => /[a-zA-Z]/.test(m) ? m : '') : name);
     const AM = rv === 'amigo' && API.me && window.SOKAI_AMIGO, tw2 = AM ? (API.me() === 3 ? _t`You` : SOKAI_AMIGO.friend) : tw; if (nw.textContent !== tw2) nw.textContent = tw2;
     const tb = AM ? (API.me() === 2 ? _t`You` : SOKAI_AMIGO.friend) : rv === 'motor-motor' ? API.MOTOR.n : _t`You`; if (nb.textContent !== tb) nb.textContent = tb;
   }, 250);
@@ -5305,19 +5305,12 @@ ${nd(185, 34, 190, X.n[0], f(X.n[1], {n:nf(D.games)}))}${nd(380, 128, 170, X.n[2
   s1 += `<polyline class="u-ln" points="${T.map((t, i) => t[2] ? px(i).toFixed(1) + ',' + py(t[0] / (t[0] + t[1])).toFixed(1) : '').filter(Boolean).join(' ')}"/>`;
   T.forEach((t, i) => s1 += `<circle cx="${px(i).toFixed(1)}" cy="${py(t[0] / (t[0] + t[1])).toFixed(1)}" r="3.4" class="${t[2] ? 'ok' : 'no'}"/>`);
   s1 += `<text x="50" y="12">${esc(X.a2[0])}</text><text x="44" y="${H - 10}">${esc(X.a2[1])}</text><text x="${W - 20}" y="${H - 10}" text-anchor="end">${esc(f(X.a2[2], {n:T.length}))}</text></svg>`;
-  /* what it learns: right move, without thinking */
-  const P = D.pacc, mx = P[P.length - 1][0], qx = s => 44 + s * (W - 64) / mx, qy = v => H - 32 - (v - .2) * (H - 54) / .3;
-  let s2 = `<svg viewBox="0 0 ${W} ${H}" class="u-ch" role="img" aria-label="${esc(X.c3[0])}"><g class="u-ax"><line x1="44" y1="${H - 32}" x2="${W - 20}" y2="${H - 32}"/><line x1="44" y1="14" x2="44" y2="${H - 32}"/></g>`;
-  s2 += `<polyline class="u-ln" points="${P.map(p => qx(p[0]).toFixed(1) + ',' + qy(p[1]).toFixed(1)).join(' ')}"/>`;
-  s2 += `<text x="${qx(P[0][0]) + 8}" y="${qy(P[0][1]) + 4}" class="u-v">${Math.round(P[0][1] * 100)}%</text><text x="${W - 20}" y="${qy(P[P.length - 1][1]) - 10}" text-anchor="end" class="u-v">${Math.round(P[P.length - 1][1] * 100)}% ${esc(X.a3[0])}</text>`;
-  s2 += `<text x="44" y="${H - 10}">0</text><text x="${W - 20}" y="${H - 10}" text-anchor="end">${nf(Math.round(mx * 10) / 10)} ${esc(X.a3[1])}</text></svg>`;
   const ft = X.f.map(([a, b]) => `<dt>${esc(a)}</dt><dd>${esc(f(b, {p:nf(D.params)})).replace('github.com/lightvector/KataGo', '<a href="https://github.com/lightvector/KataGo" rel="noopener" target="_blank">github.com/lightvector/KataGo</a>')}</dd>`).join('');
   box.innerHTML = `<div class="head"><span class="glyph" lang="zh-Hant">修行</span><h2>${esc(X.t)}</h2><p>${esc(X.st)}</p></div>
 <div class="u-kpis">${kp.map(([a, b]) => `<div><b>${a}</b><span>${esc(b)}</span></div>`).join('')}</div>
 ${X.nota ? `<aside class="u-nota"><h3>${esc(X.nota[0])}</h3><p>${esc(X.nota[1])}</p></aside>` : ''}
 <div class="u-g"><div class="u-card"><h3>${esc(X.c1[0])}</h3><p>${esc(X.c1[1])}</p>${cyc}</div>
 <div class="u-card"><h3>${esc(X.c2[0])}</h3><p>${esc(X.c2[1])}</p>${s1}</div>
-<div class="u-card"><h3>${esc(X.c3[0])}</h3><p>${esc(X.c3[1])}</p>${s2}</div>
 <div class="u-card"><h3>${esc(X.c4)}</h3><dl class="u-ft">${ft}</dl></div></div>`;
   const a = document.querySelector('#menu a[href="#how-sokai-ai-learned"]'); if (a) a.textContent = X.t;
 })();
@@ -5508,6 +5501,8 @@ ${X.nota ? `<aside class="u-nota"><h3>${esc(X.nota[0])}</h3><p>${esc(X.nota[1])}
   .arr #form-now{min-height:76px} .arr #form-now canvas{width:58px!important;height:58px!important}
   .arr-tile{min-height:92px;padding:12px 14px} .arr-tile b{font-size:22px}
 }
+/* ---------- Cover on mobile: the bottom bar is the only menu ---------- */
+@media (max-width:700px){ .hero .app-acts{display:none!important} }
 /* ---------- The origin: chapters instead of tabs ---------- */
 body.v-origen .subnav{display:none!important}
 body.v-origen.has-subnav main{padding-top:0!important}
