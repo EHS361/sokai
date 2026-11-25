@@ -2817,7 +2817,7 @@ const Rival = (() => {
 })();
 window.SOKAI_RIVAL = Rival;
 const nivelSel = document.getElementById('rival-nivel');
-let nivelNow = (() => { try { return localStorage.getItem('sokai-nivel') || 'fuerte'; } catch(e){ return 'fuerte'; } })();
+let nivelNow = (() => { try { return localStorage.getItem('sokai-nivel') || 'principiante'; } catch(e){ return 'principiante'; } })();
 if (!Rival.NIVELES[nivelNow]) nivelNow = 'fuerte';
 nivelSel.value = nivelNow;
 nivelSel.addEventListener('change', () => { nivelNow = nivelSel.value; try { localStorage.setItem('sokai-nivel', nivelNow); } catch(e){} });
@@ -4927,7 +4927,7 @@ const GRADES = (LANG !== 'en' && SOKAI_L.GRADES) || [
     w.classList.toggle('on', c === 3); b.classList.toggle('on', c === 2); grid.classList.toggle('playing', vivo); grid.classList.toggle('over', !!g.over);
     { const br = document.getElementById('btn-resign'), h = !(vivo && rv !== 'motor-motor'); if (br && br.hidden !== h) br.hidden = h; }      /* Resign: always at hand while a game is on */
     const o = sel.selectedOptions[0], name = rv === 'sencillo' ? _t`Rival ·` + ((document.getElementById('rival-nivel') || {}).selectedOptions || [{textContent:''}])[0].textContent.toLowerCase() : API.MOTOR.n;
-    const tw = vivo || g.over ? name : (o ? o.textContent.split(',')[0].replace(/^\S+\s/, m => /[a-zA-Z]/.test(m) ? m : '') : name);
+    let tw = vivo || g.over ? name : (o ? o.textContent.split(',')[0].replace(/^\S+\s/, m => /[a-zA-Z]/.test(m) ? m : '') : name); if (window.SOKAI_IA_N && rv !== 'motor-motor' && !(o && o.value === 'motor-motor')) tw = SOKAI_IA_N;
     const AM = rv === 'amigo' && API.me && window.SOKAI_AMIGO, tw2 = AM ? (API.me() === 3 ? _t`You` : SOKAI_AMIGO.friend) : tw; if (nw.textContent !== tw2) nw.textContent = tw2;
     const tb = AM ? (API.me() === 2 ? _t`You` : SOKAI_AMIGO.friend) : rv === 'motor-motor' ? API.MOTOR.n : _t`You`; if (nb.textContent !== tb) nb.textContent = tb;
   }, 250);
@@ -5210,7 +5210,7 @@ if (!matchMedia('(max-width:700px)').matches) setTimeout(() => sokaiGuia(), 1200
     const art = body && body.querySelector('article.lesson:not(.quiz)');
     if (!art || art.dataset.steps) return;
     art.dataset.steps = '1';
-    const pages = [art.querySelector('.lesson-txt'), ...art.querySelectorAll('.lesson-pz > .pz')], fin = art.querySelector('.lesson-next');
+    const pages = [...art.querySelectorAll('.lesson-pz > .pz')]   /* the short text stays on top; one problem at a time */, fin = art.querySelector('.lesson-next');
     const dots = document.createElement('div'); dots.className = 'm-steps-dots'; dots.setAttribute('aria-hidden', 'true');
     const btns = document.createElement('div'); btns.className = 'm-steps-btns';
     btns.innerHTML = '<button type="button" class="btn m-back"></button><button type="button" class="btn solid m-next"></button>';
@@ -5490,6 +5490,12 @@ ${X.nota ? `<aside class="u-nota"><h3>${esc(X.nota[0])}</h3><p>${esc(X.nota[1])}
 .arr-tile.ia{background:var(--ink);color:var(--paper);border-color:var(--ink)} .arr-tile.ia span{color:color-mix(in srgb,var(--paper) 75%,transparent)}
 .arr-clock{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:14px;color:var(--ink-3)}
 .arr-clock select{font:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--hair);border-radius:8px;background:var(--paper);color:var(--ink)}
+.arr-lvl{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:14px;color:var(--ink-3)}
+.arr-chips{display:flex;gap:6px;flex-wrap:wrap}
+.arr-chip{font:inherit;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--hair);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.arr-chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.u-que{max-width:760px;margin:0 auto 34px;padding:18px 22px;border:1px solid var(--hair);border-radius:16px;background:var(--paper)}
+.u-que h3{font-weight:400;font-size:22px;margin:0 0 8px} .u-que p{margin:0;font-size:17px;line-height:1.6;color:var(--ink-2)}
 .arr-back{font:inherit;font-size:14px;color:var(--ink-3);background:none;border:0;text-decoration:underline;cursor:pointer;padding:4px 0}
 #jugar.arr-open .status:not(.keep){display:none}
 #jugar .controls #btn-quick,#jugar .controls #btn-friend,#jugar .controls #btn-new{display:none!important}
@@ -5536,32 +5542,32 @@ body.v-origen.has-subnav main{padding-top:0!important}
 (() => {
   const $ = id => document.getElementById(id);
   const TX = {
-    en:{h:'New game', shape:'1 · The shape of the sea', rival:'2 · Who do you play?', ai:'AI', aiS:'Against the machine', fr:'Friend', frS:'A person, live, with a link', clock:'Clock', other:'New game', back:'Back to the game',
+    en:{aiU:"AI (Unsui)", lvl:"AI level", uq:"What is Unsui?", ux:"Unsui (雲水, “cloud and water”) is Sokai’s AI. The name comes from Zen monks who travel with no fixed path, like clouds and water. It learned on its own, playing thousands of games against itself. For now, in Play you face a simpler rival that runs in your browser; Unsui’s full network will be switched on later.", h:'New game', shape:'1 · The shape of the sea', rival:'2 · Who do you play?', ai:'AI', aiS:'Against the machine', fr:'Friend', frS:'A person, live, with a link', clock:'Clock', other:'New game', back:'Back to the game',
         ok:'The origin', of:'{n} of 5', list:'Chapters', next:'Next chapter', again:'Back to the start', caps:[['The letter','Why Sokai was born.'],['Go and Sokai','What changes from Go.'],['Why 361','One shape for every point of the board.'],['The 361 shapes','Explore them and pick one to play.'],['The AI','How it learned, with real data.']]},
-    es:{h:'Nueva partida', shape:'1 · La forma del mar', rival:'2 · ¿Contra quién juegas?', ai:'IA', aiS:'Contra la máquina', fr:'Amigo', frS:'Una persona, en vivo, con un link', clock:'Reloj', other:'Nueva partida', back:'Volver a la partida',
+    es:{aiU:"IA (Unsui)", lvl:"Nivel de la IA", uq:"¿Qué es Unsui?", ux:"Unsui (雲水, «nube y agua») es la IA de Sokai. El nombre viene de los monjes zen que viajan sin rumbo fijo, como las nubes y el agua. Aprendió sola, jugando miles de partidas contra sí misma. Por ahora, en Jugar te enfrentas a un rival más sencillo que corre en tu navegador; la red completa de Unsui se activará más adelante.", h:'Nueva partida', shape:'1 · La forma del mar', rival:'2 · ¿Contra quién juegas?', ai:'IA', aiS:'Contra la máquina', fr:'Amigo', frS:'Una persona, en vivo, con un link', clock:'Reloj', other:'Nueva partida', back:'Volver a la partida',
         ok:'El origen', of:'{n} de 5', list:'Capítulos', next:'Siguiente capítulo', again:'Volver al principio', caps:[['La carta','Por qué nació Sokai.'],['Go y Sokai','Qué cambia respecto al Go.'],['Por qué 361','Una forma por cada punto del tablero.'],['Las 361 formas','Explóralas y elige una para jugar.'],['La IA','Cómo aprendió, con datos reales.']]},
-    zh:{h:'新对局', shape:'1 · 海的形状', rival:'2 · 和谁下？', ai:'AI', aiS:'和机器下', fr:'朋友', frS:'真人实时对局，用链接', clock:'计时', other:'新对局', back:'回到对局',
+    zh:{aiU:"AI（云水）", lvl:"AI 难度", uq:"云水是什么？", ux:"云水（Unsui）是 Sokai 的 AI。名字来自禅宗行脚僧：像云和水一样，没有固定的去处。它靠自己学会下棋，和自己下了数万盘。目前在“对局”中，你的对手是一个在浏览器里运行的简化版对手；云水的完整网络会在以后开放。", h:'新对局', shape:'1 · 海的形状', rival:'2 · 和谁下？', ai:'AI', aiS:'和机器下', fr:'朋友', frS:'真人实时对局，用链接', clock:'计时', other:'新对局', back:'回到对局',
         ok:'由来', of:'第 {n} 章，共 5 章', list:'章节', next:'下一章', again:'回到开头', caps:[['信','Sokai 为何诞生。'],['围棋与 Sokai','与围棋有何不同。'],['为什么是 361','棋盘上每个点对应一种形。'],['361 种形','浏览并选一种来下。'],['AI','它如何学会下棋，附真实数据。']]},
-    'zh-hant':{h:'新對局', shape:'1 · 海的形狀', rival:'2 · 和誰下？', ai:'AI', aiS:'和機器下', fr:'朋友', frS:'真人即時對局，用連結', clock:'計時', other:'新對局', back:'回到對局',
+    'zh-hant':{aiU:"AI（雲水）", lvl:"AI 難度", uq:"雲水是什麼？", ux:"雲水（Unsui）是 Sokai 的 AI。名字來自禪宗行腳僧：像雲和水一樣，沒有固定的去處。它靠自己學會下棋，和自己下了數萬盤。目前在「對局」中，你的對手是一個在瀏覽器裡執行的簡化版對手；雲水的完整網路會在以後開放。", h:'新對局', shape:'1 · 海的形狀', rival:'2 · 和誰下？', ai:'AI', aiS:'和機器下', fr:'朋友', frS:'真人即時對局，用連結', clock:'計時', other:'新對局', back:'回到對局',
         ok:'由來', of:'第 {n} 章，共 5 章', list:'章節', next:'下一章', again:'回到開頭', caps:[['信','Sokai 為何誕生。'],['圍棋與 Sokai','與圍棋有何不同。'],['為什麼是 361','棋盤上每個點對應一種形。'],['361 種形','瀏覽並選一種來下。'],['AI','它如何學會下棋，附真實數據。']]},
-    ja:{h:'新しい対局', shape:'1 · 海の形', rival:'2 · 誰と打つ？', ai:'AI', aiS:'コンピューターと', fr:'友だち', frS:'人と、ライブで、リンクで', clock:'持ち時間', other:'新しい対局', back:'対局に戻る',
+    ja:{aiU:"AI（雲水）", lvl:"AIの強さ", uq:"雲水とは？", ux:"雲水（うんすい）は Sokai の AI です。名前は、雲や水のように定めなく旅する禅の修行僧から。自分自身と何万局も打って、独りで学びました。今のところ「対局」の相手は、ブラウザで動く簡単な相手です。雲水の完全なネットワークは後日公開します。", h:'新しい対局', shape:'1 · 海の形', rival:'2 · 誰と打つ？', ai:'AI', aiS:'コンピューターと', fr:'友だち', frS:'人と、ライブで、リンクで', clock:'持ち時間', other:'新しい対局', back:'対局に戻る',
         ok:'由来', of:'5章中 {n}', list:'章', next:'次の章', again:'最初に戻る', caps:[['手紙','Sokai が生まれた理由。'],['囲碁と Sokai','囲碁との違い。'],['なぜ361か','盤上の点ごとに一つの形。'],['361の形','見て、打つ形を選ぶ。'],['AI','どう学んだか、実データで。']]},
-    ko:{h:'새 대국', shape:'1 · 바다의 모양', rival:'2 · 누구와 둘까요?', ai:'AI', aiS:'기계와', fr:'친구', frS:'사람과, 실시간으로, 링크로', clock:'시계', other:'새 대국', back:'대국으로 돌아가기',
+    ko:{aiU:"AI (운수)", lvl:"AI 수준", uq:"운수란?", ux:"운수(雲水, Unsui)는 Sokai의 AI입니다. 이름은 구름과 물처럼 정처 없이 떠도는 선승에서 왔습니다. 자기 자신과 수만 판을 두며 스스로 배웠습니다. 지금 ‘대국’에서는 브라우저에서 돌아가는 더 단순한 상대와 둡니다. 운수의 완전한 네트워크는 나중에 켜집니다.", h:'새 대국', shape:'1 · 바다의 모양', rival:'2 · 누구와 둘까요?', ai:'AI', aiS:'기계와', fr:'친구', frS:'사람과, 실시간으로, 링크로', clock:'시계', other:'새 대국', back:'대국으로 돌아가기',
         ok:'유래', of:'5장 중 {n}', list:'장', next:'다음 장', again:'처음으로', caps:[['편지','Sokai가 태어난 이유.'],['바둑과 Sokai','바둑과 무엇이 다른가.'],['왜 361인가','바둑판의 점마다 모양 하나.'],['361가지 모양','둘러보고 하나 골라 두기.'],['AI','어떻게 배웠는지, 실제 데이터로.']]},
-    th:{h:'เกมใหม่', shape:'1 · รูปทรงของทะเล', rival:'2 · เล่นกับใคร?', ai:'AI', aiS:'เล่นกับเครื่อง', fr:'เพื่อน', frS:'คนจริง เล่นสด ผ่านลิงก์', clock:'นาฬิกา', other:'เกมใหม่', back:'กลับไปที่เกม',
+    th:{aiU:"AI (Unsui)", lvl:"ระดับ AI", uq:"Unsui คืออะไร?", ux:"Unsui (雲水 “เมฆและน้ำ”) คือ AI ของ Sokai ชื่อมาจากพระเซนที่จาริกไปไม่มีจุดหมาย เหมือนเมฆและน้ำ มันเรียนรู้เองด้วยการเล่นกับตัวเองนับหมื่นเกม ตอนนี้ในหน้า “เล่น” คุณจะเล่นกับคู่แข่งแบบง่ายที่ทำงานในเบราว์เซอร์ ส่วนเครือข่ายเต็มของ Unsui จะเปิดใช้ภายหลัง", h:'เกมใหม่', shape:'1 · รูปทรงของทะเล', rival:'2 · เล่นกับใคร?', ai:'AI', aiS:'เล่นกับเครื่อง', fr:'เพื่อน', frS:'คนจริง เล่นสด ผ่านลิงก์', clock:'นาฬิกา', other:'เกมใหม่', back:'กลับไปที่เกม',
         ok:'ที่มา', of:'บทที่ {n} จาก 5', list:'บท', next:'บทถัดไป', again:'กลับไปบทแรก', caps:[['จดหมาย','ทำไม Sokai จึงเกิดขึ้น'],['โกะกับ Sokai','ต่างจากโกะอย่างไร'],['ทำไมต้อง 361','หนึ่งรูปทรงต่อทุกจุดบนกระดาน'],['361 รูปทรง','สำรวจและเลือกหนึ่งรูปเพื่อเล่น'],['AI','มันเรียนรู้อย่างไร พร้อมข้อมูลจริง']]},
-    ru:{h:'Новая партия', shape:'1 · Форма моря', rival:'2 · С кем играть?', ai:'ИИ', aiS:'Против машины', fr:'Друг', frS:'Живой человек, вживую, по ссылке', clock:'Часы', other:'Новая партия', back:'Вернуться к партии',
+    ru:{aiU:"ИИ (Unsui)", lvl:"Уровень ИИ", uq:"Что такое Unsui?", ux:"Unsui (雲水, «облако и вода») — ИИ Sokai. Имя пришло от дзен-монахов, которые странствуют без цели, как облака и вода. Он учился сам, сыграв с собой тысячи партий. Пока в «Играть» вы играете с более простым соперником, который работает в браузере; полная сеть Unsui будет включена позже.", h:'Новая партия', shape:'1 · Форма моря', rival:'2 · С кем играть?', ai:'ИИ', aiS:'Против машины', fr:'Друг', frS:'Живой человек, вживую, по ссылке', clock:'Часы', other:'Новая партия', back:'Вернуться к партии',
         ok:'Истоки', of:'{n} из 5', list:'Главы', next:'Следующая глава', again:'В начало', caps:[['Письмо','Почему появился Sokai.'],['Го и Sokai','Чем он отличается от го.'],['Почему 361','По форме на каждый пункт доски.'],['361 форма','Посмотрите и выберите одну для игры.'],['ИИ','Как он учился, на реальных данных.']]},
-    de:{h:'Neue Partie', shape:'1 · Die Form des Meeres', rival:'2 · Gegen wen spielen Sie?', ai:'KI', aiS:'Gegen die Maschine', fr:'Freund', frS:'Ein Mensch, live, per Link', clock:'Uhr', other:'Neue Partie', back:'Zurück zur Partie',
+    de:{aiU:"KI (Unsui)", lvl:"KI-Stärke", uq:"Was ist Unsui?", ux:"Unsui (雲水, „Wolke und Wasser“) ist die KI von Sokai. Der Name kommt von Zen-Mönchen, die ohne festes Ziel wandern wie Wolken und Wasser. Sie hat allein gelernt, in Tausenden Partien gegen sich selbst. Vorerst spielen Sie unter „Spielen“ gegen einen einfacheren Gegner, der in Ihrem Browser läuft; das volle Netz von Unsui wird später freigeschaltet.", h:'Neue Partie', shape:'1 · Die Form des Meeres', rival:'2 · Gegen wen spielen Sie?', ai:'KI', aiS:'Gegen die Maschine', fr:'Freund', frS:'Ein Mensch, live, per Link', clock:'Uhr', other:'Neue Partie', back:'Zurück zur Partie',
         ok:'Der Ursprung', of:'{n} von 5', list:'Kapitel', next:'Nächstes Kapitel', again:'Zurück zum Anfang', caps:[['Der Brief','Warum Sokai entstand.'],['Go und Sokai','Was sich gegenüber Go ändert.'],['Warum 361','Eine Form für jeden Punkt des Bretts.'],['Die 361 Formen','Entdecken und eine zum Spielen wählen.'],['Die KI','Wie sie lernte, mit echten Daten.']]},
-    fr:{h:'Nouvelle partie', shape:'1 · La forme de la mer', rival:'2 · Contre qui jouer ?', ai:'IA', aiS:'Contre la machine', fr:'Ami', frS:'Une personne, en direct, par lien', clock:'Pendule', other:'Nouvelle partie', back:'Revenir à la partie',
+    fr:{aiU:"IA (Unsui)", lvl:"Niveau de l’IA", uq:"Qu’est-ce qu’Unsui ?", ux:"Unsui (雲水, « nuage et eau ») est l’IA de Sokai. Le nom vient des moines zen qui voyagent sans but fixe, comme les nuages et l’eau. Elle a appris seule, en jouant des milliers de parties contre elle-même. Pour l’instant, dans Jouer, vous affrontez un adversaire plus simple qui tourne dans votre navigateur ; le réseau complet d’Unsui sera activé plus tard.", h:'Nouvelle partie', shape:'1 · La forme de la mer', rival:'2 · Contre qui jouer ?', ai:'IA', aiS:'Contre la machine', fr:'Ami', frS:'Une personne, en direct, par lien', clock:'Pendule', other:'Nouvelle partie', back:'Revenir à la partie',
         ok:'Les origines', of:'{n} sur 5', list:'Chapitres', next:'Chapitre suivant', again:'Revenir au début', caps:[['La lettre','Pourquoi Sokai est né.'],['Go et Sokai','Ce qui change par rapport au go.'],['Pourquoi 361','Une forme pour chaque point du plateau.'],['Les 361 formes','Explorez-les et choisissez-en une.'],['L’IA','Comment elle a appris, avec des données réelles.']]},
-    pt:{h:'Nova partida', shape:'1 · A forma do mar', rival:'2 · Contra quem joga?', ai:'IA', aiS:'Contra a máquina', fr:'Amigo', frS:'Uma pessoa, ao vivo, com um link', clock:'Relógio', other:'Nova partida', back:'Voltar à partida',
+    pt:{aiU:"IA (Unsui)", lvl:"Nível da IA", uq:"O que é Unsui?", ux:"Unsui (雲水, «nuvem e água») é a IA do Sokai. O nome vem dos monges zen que viajam sem rumo fixo, como as nuvens e a água. Aprendeu sozinha, jogando milhares de partidas contra si mesma. Por agora, em Jogar enfrenta um rival mais simples que corre no seu navegador; a rede completa do Unsui será ativada mais tarde.", h:'Nova partida', shape:'1 · A forma do mar', rival:'2 · Contra quem joga?', ai:'IA', aiS:'Contra a máquina', fr:'Amigo', frS:'Uma pessoa, ao vivo, com um link', clock:'Relógio', other:'Nova partida', back:'Voltar à partida',
         ok:'A origem', of:'{n} de 5', list:'Capítulos', next:'Próximo capítulo', again:'Voltar ao início', caps:[['A carta','Por que o Sokai nasceu.'],['Go e Sokai','O que muda em relação ao Go.'],['Por que 361','Uma forma para cada ponto do tabuleiro.'],['As 361 formas','Explore-as e escolha uma para jogar.'],['A IA','Como aprendeu, com dados reais.']]},
-    it:{h:'Nuova partita', shape:'1 · La forma del mare', rival:'2 · Contro chi gioca?', ai:'IA', aiS:'Contro la macchina', fr:'Amico', frS:'Una persona, dal vivo, con un link', clock:'Orologio', other:'Nuova partita', back:'Torna alla partita',
+    it:{aiU:"IA (Unsui)", lvl:"Livello dell’IA", uq:"Che cos’è Unsui?", ux:"Unsui (雲水, «nuvola e acqua») è l’IA di Sokai. Il nome viene dai monaci zen che viaggiano senza meta fissa, come le nuvole e l’acqua. Ha imparato da sola, giocando migliaia di partite contro se stessa. Per ora, in Gioca affronta un avversario più semplice che gira nel suo browser; la rete completa di Unsui verrà attivata più avanti.", h:'Nuova partita', shape:'1 · La forma del mare', rival:'2 · Contro chi gioca?', ai:'IA', aiS:'Contro la macchina', fr:'Amico', frS:'Una persona, dal vivo, con un link', clock:'Orologio', other:'Nuova partita', back:'Torna alla partita',
         ok:'L’origine', of:'{n} di 5', list:'Capitoli', next:'Capitolo successivo', again:'Torna all’inizio', caps:[['La lettera','Perché è nato il Sokai.'],['Go e Sokai','Cosa cambia rispetto al Go.'],['Perché 361','Una forma per ogni punto del goban.'],['Le 361 forme','Esplorale e scegline una per giocare.'],['L’IA','Come ha imparato, con dati reali.']]}
   };
-  const T = TX[window.LANG] || TX[typeof LANG !== 'undefined' ? LANG : 'en'] || TX.en; window.SOKAI_IA_N = T.ai;
+  const T = TX[window.LANG] || TX[typeof LANG !== 'undefined' ? LANG : 'en'] || TX.en; window.SOKAI_IA_N = 'Unsui';
 
   /* ===== Play: one card on top: the shape first, then AI or a friend ===== */
   (() => {
@@ -5571,11 +5577,18 @@ body.v-origen.has-subnav main{padding-top:0!important}
     c.innerHTML = `<p class="arr-h"><b>${T.h}</b><button type="button" class="arr-back" id="arr-back" hidden>${T.back}</button></p>
       <div class="arr-s" id="arr-shape"><span class="arr-k">${T.shape}</span></div>
       <div class="arr-r" id="arr-rival"><span class="arr-k">${T.rival}</span>
-        <div class="arr-tiles"><button type="button" class="arr-tile ia" id="arr-ia"><b><i></i>${T.ai}</b><span>${T.aiS}</span></button>
+        <div class="arr-tiles"><button type="button" class="arr-tile ia" id="arr-ia"><b><i></i>${T.aiU}</b><span>${T.aiS}</span></button>
         <button type="button" class="arr-tile am" id="arr-am"><b><i></i>${T.fr}</b><span>${T.frS}</span></button></div>
+        <div class="arr-lvl" role="group" aria-label="${T.lvl}"><span>${T.lvl}</span><div class="arr-chips"></div></div>
         <label class="arr-clock"><span>${T.clock}</span></label></div>`;
     grid.before(c);
     $('arr-shape').appendChild(fnow);                              /* the same picker: its listeners come along */
+    /* the AI's strength, as three chips (the same select, still remembered in this browser) */
+    const ns = $('rival-nivel'), chips = c.querySelector('.arr-chips');
+    if (ns){ [...ns.options].reverse().forEach(op => { const b = document.createElement('button'); b.type = 'button'; b.className = 'arr-chip'; b.dataset.v = op.value; b.textContent = op.textContent; chips.appendChild(b); });
+      const mark = () => chips.querySelectorAll('.arr-chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === ns.value));
+      chips.addEventListener('click', e => { const b = e.target.closest('.arr-chip'); if (!b) return; ns.value = b.dataset.v; ns.dispatchEvent(new Event('change')); mark(); });
+      ns.addEventListener('change', mark); mark(); } else c.querySelector('.arr-lvl').remove();
     const ck = $('op-clock'); if (ck) c.querySelector('.arr-clock').appendChild(ck); else c.querySelector('.arr-clock').remove();
     const ctr = J.querySelector('.controls'), o = document.createElement('button');
     o.type = 'button'; o.className = 'btn'; o.id = 'btn-otra'; o.textContent = T.other; ctr.prepend(o);
@@ -5589,6 +5602,14 @@ body.v-origen.has-subnav main{padding-top:0!important}
     o.addEventListener('click', () => { want = true; sync(); c.scrollIntoView({block:'start', behavior:'smooth'}); });
     $('arr-back').addEventListener('click', () => { want = false; sync(); });
     setInterval(sync, 400); sync();
+  })();
+
+  /* ===== What is Unsui: a short box at the top of the AI chapter ===== */
+  (() => {
+    const put = () => { const box = $('unsui-in'); if (!box || box.querySelector('.u-que')) return;
+      const q = document.createElement('aside'); q.className = 'u-que'; q.innerHTML = `<h3>${T.uq}</h3><p></p>`; q.lastChild.textContent = T.ux;
+      const h = box.querySelector('.head'); h ? h.after(q) : box.prepend(q); };
+    const box = $('unsui-in'); if (box){ new MutationObserver(put).observe(box, {childList:true}); put(); }
   })();
 
   /* ===== The origin: chapters, a list to jump and a door to the next one ===== */
@@ -5618,6 +5639,41 @@ body.v-origen.has-subnav main{padding-top:0!important}
     };
     new MutationObserver(sync).observe(document.querySelector('main'), {subtree:true, attributes:true, attributeFilter:['hidden']}); sync();
   })();
+})();
+</script>
+<style id="sokai-aprender">
+/* Learn: one short line per lesson, then the problems */
+@media (max-width:700px){
+  #aprender .head{margin-bottom:6px} #aprender .head .glyph,#aprender .head p{display:none} #aprender .head h2{font-size:30px}
+  .lesson .lesson-txt .label{font-size:12px} .lesson .lesson-txt h3{font-size:24px;margin:2px 0 4px} .lesson .lesson-txt p{font-size:16.5px;line-height:1.5;margin:0 0 14px}
+  .lesson .m-steps-dots{margin:0 0 12px}
+  .lesson .pz-board{margin-left:0!important;margin-right:0!important}
+  #aprender .progreso-aviso{font-size:12.5px;margin-top:22px} #aprender .course-foot{font-size:13px}
+}
+</style>
+<script>
+/* Learn: the rule of each lesson in one sentence */
+(() => {
+  const S = {
+    en:['A group with no liberties (empty points beside it) leaves the board. The sea gives no liberties.','If your group has only one liberty left, extend it to gain more.','For every stone you capture, move or remove a blue piece: tap it, then the point. Tap it twice to remove it.','You cannot play where your group is left without liberties, unless you capture. Nor repeat an earlier position (ko).','When both pass, whoever has more stones and areas wins. White adds 7.5.'],
+    es:['Un grupo sin libertades (puntos vacíos a su lado) sale del tablero. El mar no da libertades.','Si a tu grupo le queda una sola libertad, alárgalo para ganar más.','Por cada piedra que capturas, mueves o quitas una ficha azul: tócala y luego el punto. Dos toques la quitan.','No puedes jugar donde tu grupo quede sin libertades, salvo si capturas. Ni repetir una posición anterior (ko).','Cuando ambos pasan, gana quien tenga más piedras y áreas. Las blancas suman 7,5.'],
+    zh:['没有气（旁边的空点）的棋块会被提走。海不算气。','如果你的棋块只剩一口气，就把它长出去，多争几口气。','每提一子，就移动或拿掉一颗蓝子：先点蓝子，再点目标点。点两下就拿掉。','不能下在让自己棋块没有气的地方，除非能提子。也不能重复之前的局面（劫）。','双方连续停一手后，棋子和地域多的一方胜。白方加 7.5。'],
+    'zh-hant':['沒有氣（旁邊的空點）的棋塊會被提走。海不算氣。','如果你的棋塊只剩一口氣，就把它長出去，多爭幾口氣。','每提一子，就移動或拿掉一顆藍子：先點藍子，再點目標點。點兩下就拿掉。','不能下在讓自己棋塊沒有氣的地方，除非能提子。也不能重複之前的局面（劫）。','雙方連續虛手後，棋子和地域多的一方勝。白方加 7.5。'],
+    ja:['呼吸点（隣の空点）がなくなった石は盤から取られます。海は呼吸点になりません。','呼吸点が一つしかなければ、石を伸ばして増やしましょう。','石を一つ取るごとに、青い石を一つ動かすか取り除きます。青い石をタップしてから点をタップ。二回タップで取り除きます。','打った石の呼吸点がなくなる所には打てません（相手を取る場合を除く）。前と同じ局面にもできません（コウ）。','二人が続けてパスしたら終局。石と地の多い方の勝ち。白は7.5を足します。'],
+    ko:['활로(옆의 빈 점)가 없는 돌은 판에서 들어냅니다. 바다는 활로가 아닙니다.','돌의 활로가 하나뿐이면 늘어서 활로를 늘리세요.','돌을 하나 잡을 때마다 파란 돌 하나를 옮기거나 없앱니다: 파란 돌을 누르고 점을 누르세요. 두 번 누르면 없어집니다.','상대를 잡는 경우가 아니면 활로가 없어지는 곳에는 둘 수 없습니다. 앞의 국면을 되풀이할 수도 없습니다(패).','둘 다 패스하면 끝. 돌과 집이 많은 쪽이 이깁니다. 백은 7.5를 더합니다.'],
+    th:['กลุ่มที่ไม่มีลมหายใจ (จุดว่างข้าง ๆ) จะถูกยกออก ทะเลไม่นับเป็นลมหายใจ','ถ้ากลุ่มของคุณเหลือลมหายใจเดียว ให้ต่อออกไปเพื่อเพิ่มลมหายใจ','จับกินได้หนึ่งเม็ด ย้ายหรือเอาหมากสีน้ำเงินออกหนึ่งเม็ด: แตะหมากแล้วแตะจุด แตะสองครั้งเพื่อเอาออก','ห้ามวางจุดที่ทำให้กลุ่มตัวเองไม่มีลมหายใจ เว้นแต่จับกินได้ และห้ามซ้ำตำแหน่งเดิม (โคะ)','เมื่อทั้งสองผ่าน ฝ่ายที่มีหมากและพื้นที่มากกว่าชนะ ขาวบวก 7.5'],
+    ru:['Группа без дамэ (пустых пунктов рядом) снимается с доски. Море дамэ не даёт.','Если у группы осталось одно дамэ, вытяните её, чтобы получить больше.','За каждый захваченный камень двиньте или уберите синюю фишку: коснитесь её, затем пункта. Два касания — убрать.','Нельзя ходить туда, где ваша группа останется без дамэ, если только вы не захватываете. И нельзя повторять позицию (ко).','Когда оба пасуют, побеждает тот, у кого больше камней и территории. Белые добавляют 7,5.'],
+    de:['Eine Gruppe ohne Freiheiten (leere Punkte daneben) verlässt das Brett. Das Meer gibt keine Freiheiten.','Hat Ihre Gruppe nur noch eine Freiheit, verlängern Sie sie, um mehr zu bekommen.','Für jeden gefangenen Stein versetzen oder entfernen Sie ein blaues Plättchen: antippen, dann den Punkt. Zweimal tippen entfernt es.','Sie dürfen nicht dorthin setzen, wo Ihre Gruppe keine Freiheiten hat, außer Sie fangen. Und keine frühere Stellung wiederholen (Ko).','Passen beide, gewinnt, wer mehr Steine und Gebiete hat. Weiß bekommt 7,5 dazu.'],
+    fr:['Un groupe sans libertés (points vides à côté) quitte le plateau. La mer ne donne pas de libertés.','S’il ne reste qu’une liberté à votre groupe, prolongez-le pour en gagner.','Pour chaque pierre capturée, déplacez ou retirez un jeton bleu : touchez-le, puis le point. Deux touches le retirent.','Interdit de jouer là où votre groupe n’a plus de libertés, sauf si vous capturez. Ni de répéter une position (ko).','Quand les deux passent, celui qui a le plus de pierres et de zones gagne. Blanc ajoute 7,5.'],
+    pt:['Um grupo sem liberdades (pontos vazios ao lado) sai do tabuleiro. O mar não dá liberdades.','Se o seu grupo só tem uma liberdade, prolongue-o para ganhar mais.','Por cada pedra capturada, mova ou retire uma peça azul: toque nela e depois no ponto. Dois toques a retiram.','Não pode jogar onde o seu grupo fique sem liberdades, salvo se capturar. Nem repetir uma posição anterior (ko).','Quando os dois passam, ganha quem tem mais pedras e áreas. As Brancas somam 7,5.'],
+    it:['Un gruppo senza libertà (punti vuoti accanto) lascia il goban. Il mare non dà libertà.','Se al suo gruppo resta una sola libertà, lo allunghi per guadagnarne altre.','Per ogni pietra catturata, sposti o tolga un gettone blu: lo tocchi, poi il punto. Due tocchi lo tolgono.','Non può giocare dove il suo gruppo resta senza libertà, a meno che catturi. Né ripetere una posizione (ko).','Quando entrambi passano, vince chi ha più pietre e aree. Il Bianco aggiunge 7,5.']
+  };
+  const T = S[typeof LANG !== 'undefined' ? LANG : 'en'] || S.en;
+  const fix = () => { const art = document.querySelector('#course-body article.lesson:not(.quiz)'); if (!art) return;
+    const lb = art.querySelector('.lesson-txt .label'), m = lb && lb.textContent.match(/\d+/), k = m ? +m[0] - 1 : -1; if (!T[k]) return;
+    const ps = art.querySelectorAll('.lesson-txt p'); if (ps.length === 1 && ps[0].textContent === T[k]) return;
+    ps.forEach((p, j) => j ? p.remove() : (p.textContent = T[k])); };
+  const b = document.getElementById('course-body'); if (b) new MutationObserver(fix).observe(b, {childList:true}); fix();
 })();
 </script>
 </body>
