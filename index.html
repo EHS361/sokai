@@ -10,7 +10,7 @@ var SOKAI_LANGS_ON = ["en", "es", "zh", "ja", "ko", "zh-hant", "th", "ru", "de",
 var LANG = (function(){
   var q = (location.search.match(/[?&]lang=([a-zA-Z-]+)/) || [])[1], st = null;
   try { st = localStorage.getItem('sokai-lang'); } catch(e) {}
-  var l = String(q || st || navigator.language || 'en').toLowerCase();
+  var l = String(q || st || 'en').toLowerCase();
   if (/^zh-(hant|tw|hk|mo)/.test(l)) l = 'zh-hant'; else l = l.split('-')[0];
   return SOKAI_LANGS_ON.indexOf(l) >= 0 ? l : 'en';
 })();
@@ -258,7 +258,7 @@ function _t(s){ var k = s.raw.join('\u0001'), r = SOKAI_L.S && SOKAI_L.S[k]; ret
   .demo{position:relative}
   .demo canvas{width:100%;aspect-ratio:1/1;display:block}
   .demo .caption{text-align:center;margin-top:16px;font-style:italic;font-size:17px;color:var(--ink-2);min-height:1.6em;transition:opacity .4s}
-  @media (max-width:900px){ .hero{grid-template-columns:1fr;padding-top:110px;min-height:0;gap:40px;padding-bottom:48px} .demo{max-width:460px;margin:0 auto;width:100%} }
+  @media (max-width:900px){ .hero{grid-template-columns:1fr;padding-top:110px;min-height:0;gap:0;padding-bottom:48px} .hero > div:first-child{display:contents} .hero .demo{order:5;max-width:460px;margin:34px auto 0;width:100%} .hero .actions{order:6} .hero .motto{order:7} }
 
   /* ---------- What it is ---------- */
   .three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,5vw,64px);margin-top:10px}
@@ -2364,7 +2364,7 @@ function portada(PORTADA){
     }
     setTimeout(tick, wait);
   }
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !J.length) fin();
+  if (!J.length) fin();
   else { empieza(); demoCap.textContent = pie(''); setTimeout(tick, 900); }
 }
 { const sc = document.createElement('script'); sc.src = 'sokai-portada.js'; sc.onload = () => portada(window.SOKAI_PORTADA); sc.onerror = () => sc.remove(); document.head.appendChild(sc); }
@@ -2384,7 +2384,7 @@ function demoTick(){
 }
 /* With “reduce motion” the cover shows a still form, with no animated game */
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (!REDUCED && !portadaOn) setTimeout(demoTick, 600);
+if (!portadaOn) setTimeout(demoTick, 600);
 
 
 /* ================= Sound =================
